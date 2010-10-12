@@ -117,7 +117,12 @@ command Qall qall
 
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Show trailing whitespace:
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\s\+$/
 
+
+"
 " ========================================================================
 " End of things set by me.
 " ========================================================================
