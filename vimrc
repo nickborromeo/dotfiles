@@ -119,7 +119,7 @@ set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Show trailing whitespace:
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\s\+$/
+match ExtraWhitespace /\s\+$/
 
 
 "
