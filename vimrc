@@ -118,8 +118,14 @@ command Qall qall
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Show trailing whitespace:
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$/
+" highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+" match ExtraWhitespace /\s\+$/
+
+" Don't highlight the extra whitespace while typing, only after leaving insert
+" mode.
+" au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" au InsertLeave * match ExtraWhitespace /\s\+$/
+
 
 
 "
