@@ -22,6 +22,7 @@ map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gs :Gstatus<CR>
 map <Leader>f :sp spec/factories.rb<CR>
+map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :FuzzyFinderTextMate<CR>
 map <Leader>l :!ruby <C-r>% \| less<CR>
