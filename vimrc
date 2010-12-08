@@ -25,6 +25,7 @@ map <Leader>f :sp spec/factories.rb<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :FuzzyFinderTextMate<CR>
+map <Leader>i mmggVG=`m<CR>
 map <Leader>l :!ruby <C-r>% \| less<CR>
 map <Leader>m :Rmodel 
 map <Leader>n ,w,t
@@ -35,6 +36,7 @@ map <Leader>rf :FuzzyFinderTextMateRefreshFiles<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
 map <Leader>sm :RSmodel 
+map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :!ruby -I"test" -I"spec" %<CR>
@@ -42,7 +44,7 @@ map <Leader>u :Runittest
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
 map <Leader>vi :tabe ~/.vimrc<CR>
-map <Leader>vu :RVunittest 
+map <Leader>vu :RVunittest<CR>
 map <Leader>vm :RVmodel 
 map <Leader>vv :RVview 
 map <Leader>w <C-w>w
@@ -111,12 +113,20 @@ au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
-set nofoldenable " Fuck code folding...
+set nofoldenable " Say no to code folding...
 
 command Q q " Bind :Q to :q
 command Qall qall 
 
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
+" that I trigger 40x a day.
+map Q <Nop>
+
+" Disable K looking stuff up
+map K <Nop>
+
 
 " Show trailing whitespace:
 " highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -126,6 +136,8 @@ set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " mode.
 " au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " au InsertLeave * match ExtraWhitespace /\s\+$/
+"
+
 
 
 
