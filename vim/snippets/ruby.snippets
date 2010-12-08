@@ -424,25 +424,17 @@ snippet ed
 	each do |${1:e}|
 	  ${2}
 	end
-
 snippet defp
 	def ${1:method_name}(${2:params})
 	  ${3}
 	end
-
 snippet inst
 	institution${1}
 snippet acti
 	activation_group${1}
 snippet prot
 	protocol${1}
-snippet test
-	require 'test_helper'
-	
-	class ${1:ClassName}Test < ActiveSupport::TestCase
-	  ${2}
-	end
-
+#
 # For rspec
 snippet desc
 	describe "${1}" do
@@ -456,13 +448,17 @@ snippet con
 	context "${1}" do
 	  ${2}
 	end
-
-# Steak snippets
-snippet	scen
-	scenario "${1}" do
+snippet bed
+	before(:each) do
+	  ${1}
+	end
+snippet cont
+	context "${1}" do
 	  ${2}
 	end
-snippet	feat
-	feature "${1}" do
+snippet spec
+	require File.dirname(__FILE__) + '/../spec_helper'
+
+	describe "${1}" do
 	  ${2}
 	end
