@@ -1,4 +1,4 @@
---ignore-dir=rails
+--ignore-dir=javascripts
 
 # Add the .rake extension to ruby types
 --type-add
