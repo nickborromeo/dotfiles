@@ -25,7 +25,7 @@ map <Leader>f :sp spec/factories.rb<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :FuzzyFinderTextMate<CR>
-map <Leader>i mmggVG=`m<CR>
+map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby <C-r>% \| less<CR>
 map <Leader>m :Rmodel 
 map <Leader>n ,w,t
