@@ -30,6 +30,7 @@ alias lm='!! | more'
 alias m='cd ~/projects/montague'
 alias n='cd ~/projects/nucleus'
 alias r='ssh beno@rd2.dfci.harvard.edu'
+alias restart_apache="sudo /etc/init.d/apache2 restart"
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
 alias rep="cd ~/projects/dfhcc_reports"
 alias rdm="rake db:migrate"
