@@ -12,6 +12,7 @@ alias ben='ssh ben@benorenstein.com'
 alias bi='bundle install'
 alias c='cd ~/projects/camberwell'
 alias d='cd ~/.dotfiles'
+alias prepdb="rdm && rdtp"
 alias g='git status'
 alias gad='git add .'
 alias gc='git commit'
