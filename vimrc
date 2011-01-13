@@ -126,6 +126,9 @@ map Q <Nop>
 " Disable K looking stuff up
 map K <Nop>
 
+let g:CommandTMaxHeight=50
+let g:CommandTMatchWindowAtTop=1
+
 
 " Show trailing whitespace:
 " highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
