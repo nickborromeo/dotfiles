@@ -24,7 +24,7 @@ map <Leader>gs :Gstatus<CR>
 map <Leader>f :sp spec/factories.rb<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>h :FuzzyFinderTextMate<CR>
+map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby <C-r>% \| less<CR>
 map <Leader>m :Rmodel 
@@ -32,7 +32,7 @@ map <Leader>n ,w,t
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>rb :Rake!<CR>
-map <Leader>rf :FuzzyFinderTextMateRefreshFiles<CR>
+map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
 map <Leader>sm :RSmodel 
