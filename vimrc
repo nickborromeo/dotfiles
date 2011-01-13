@@ -51,15 +51,12 @@ map <Leader>w <C-w>w
 
 map <C-h> :nohl<CR>
 imap <C-l> <Space>=><Space>
-map <C-h> <esc>:w<CR>
-imap <C-h> <esc>:w<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
-
 
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
