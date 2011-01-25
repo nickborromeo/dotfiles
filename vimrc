@@ -31,7 +31,7 @@ map <Leader>m :Rmodel
 map <Leader>n ,w,t
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
-map <Leader>rb :Rake!<CR>
+map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
@@ -128,7 +128,6 @@ map K <Nop>
 
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
-
 
 " Show trailing whitespace:
 " highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
