@@ -12,7 +12,7 @@ alias ben='ssh ben@benorenstein.com'
 alias bi='bundle install'
 alias c='cd ~/projects/camberwell'
 alias d='cd ~/.dotfiles'
-alias prepdb="rdm && rdtp"
+alias raar="rdm && rdtp"
 alias g='git status'
 alias gad='git add .'
 alias gc='git commit'
@@ -31,6 +31,7 @@ alias lm='!! | more'
 alias m='cd ~/projects/montague'
 alias n='cd ~/projects/nucleus'
 alias r='ssh beno@rd2.dfci.harvard.edu'
+alias ro='cd ~/projects/rootcrop'
 alias restart_apache="sudo /etc/init.d/apache2 restart"
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
 alias rep="cd ~/projects/dfhcc_reports"
