@@ -19,3 +19,6 @@
 [submodule "vim/bundle/vim-tcomment"]
 	path = vim/bundle/vim-tcomment
 	url = https://github.com/tsaleh/vim-tcomment.git
+[submodule "vim-vividchalk"]
+	path = vim-vividchalk
+	url = https://github.com/tpope/vim-vividchalk.git
