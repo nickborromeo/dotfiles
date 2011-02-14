@@ -12,7 +12,7 @@
         meta = yellow 
 
 [core]
-	excludesfile = /home/beno/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vim
 [apply]
 	whitespace = nowarn
