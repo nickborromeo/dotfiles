@@ -22,3 +22,6 @@
 [submodule "vim-vividchalk"]
 	path = vim-vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
+[submodule "vim/bundle/blackboard"]
+	path = vim/bundle/blackboard
+	url = https://github.com/nelstrom/vim-blackboard.git
