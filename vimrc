@@ -20,6 +20,7 @@ augroup END
 let mapleader = ","
 
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>bed mm"td?describeobed	"tpkdd/endo`m
 map <Leader>cc :!cucumber %<CR>
 map <Leader>co :TComment<CR>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
@@ -87,6 +88,7 @@ set laststatus=2  " Always show status line.
 set number 
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
+set bg=light
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
