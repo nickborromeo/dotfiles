@@ -20,7 +20,7 @@ augroup END
 let mapleader = ","
 
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-vmap <Leader>bed mm"td?describeobed	"tpkdd/endo`m
+vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber %<CR>
 map <Leader>co :TComment<CR>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
