@@ -34,7 +34,7 @@ map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby <C-r>% \| less<CR>
 map <Leader>m :Rmodel 
-map <Leader>n ,w,t
+map <Leader>n :set nopaste
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
