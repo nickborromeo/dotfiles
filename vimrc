@@ -136,16 +136,9 @@ map K <Nop>
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
 
-" Show trailing whitespace:
-" highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-" match ExtraWhitespace /\s\+$/
-
-" Don't highlight the extra whitespace while typing, only after leaving insert
-" mode.
-" au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" au InsertLeave * match ExtraWhitespace /\s\+$/
-"
-
+" When loading text files, wrap them and don't split up words.
+au BufNewFile,BufRead *.txt setlocal wrap 
+au BufNewFile,BufRead *.txt setlocal lbr
 
 
 
