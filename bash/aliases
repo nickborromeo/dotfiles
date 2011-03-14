@@ -6,7 +6,7 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
-alias as="cd ~/code/rails/activesupport"
+alias asu="cd ~/code/rails/activesupport"
 alias aliases='vim ~/.dotfiles/bash/aliases'
 alias b='ssh -t ben@benorenstein.com screen -rd irc'
 alias ben='ssh ben@benorenstein.com'
