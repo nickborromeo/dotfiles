@@ -32,11 +32,12 @@ map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
-map <Leader>l :!ruby <C-r>% \| less<CR>
+map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
+map <Leader>r :!ruby -I"test" -I"spec" %<CR>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
@@ -45,7 +46,8 @@ map <Leader>sm :RSmodel
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-map <Leader>t :!ruby -I"test" -I"spec" %<CR>
+" map <Leader>t :!ruby -I"test" -I"spec" %<CR>
+map <Leader>t :!bundle exec rspec % --format documentation<CR>
 map <Leader>u :Runittest 
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
