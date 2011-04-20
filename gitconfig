@@ -3,6 +3,7 @@
 	email = ben.orenstein@gmail.com 
 [alias]
 	co = checkout
+        cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
 [color]
 	diff = auto
 	status = auto
