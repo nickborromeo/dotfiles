@@ -34,7 +34,7 @@ map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
-map <Leader>n :set nopaste
+map <Leader>n :set nopaste<cr>
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>r :!ruby -I"test" -I"spec" %<CR>
@@ -65,6 +65,10 @@ map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
+
+" Emacs-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
 
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
