@@ -17,6 +17,7 @@ alias d='cd ~/.dotfiles'
 alias dbprep='rdm && rdtp'
 alias dod='cd ~/projects/dollar_density'
 alias dr='cd ~/Dropbox'
+alias f='cd ~/projects/dartford'
 alias raar="rdm && rdtp"
 alias g='git status'
 alias gad='git add .'
