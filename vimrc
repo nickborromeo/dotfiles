@@ -46,8 +46,8 @@ map <Leader>sm :RSmodel
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-" map <Leader>t :!ruby -I"test" -I"spec" %<CR>
-map <Leader>t :!bundle exec rspec % --format documentation<CR>
+ map <Leader>t :!ruby -I"test" -I"spec" %<CR>
+" map <Leader>t :!bundle exec rspec % --format documentation<CR>
 map <Leader>u :Runittest 
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
@@ -57,7 +57,9 @@ map <Leader>vm :RVmodel
 map <Leader>vv :RVview 
 map <Leader>w <C-w>w
 
-map <C-h> :nohl<CR>
+" 'Hide' highlighting
+map <C-h> /aoeusnh<cr>
+
 imap <C-l> <Space>=><Space>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
