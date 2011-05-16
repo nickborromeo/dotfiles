@@ -42,12 +42,16 @@ map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
+map <Leader>se :let file_to_run = "<c-r>%"<cr>
 map <Leader>sm :RSmodel 
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
- map <Leader>t :!ruby -I"test" -I"spec" %<CR>
-" map <Leader>t :!bundle exec rspec % --format documentation<CR>
+
+" Execute the results of concatenating the strings below. last_run_file is set
+" above.
+map <Leader>t :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
+
 map <Leader>u :Runittest 
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
