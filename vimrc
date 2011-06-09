@@ -37,7 +37,6 @@ map <Leader>m :Rmodel
 map <Leader>n :set nopaste<cr>
 map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 map <Leader>p :set paste<CR>i
-map <Leader>r :!ruby -I"test" -I"spec" %<CR>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
@@ -50,8 +49,9 @@ map <Leader>sv :RSview
 
 " Execute the results of concatenating the strings below. last_run_file is set
 " above.
-map <Leader>t :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
+map <Leader>r :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
 
+map <Leader>t :!ruby -I"test" -I"spec" %<CR>
 map <Leader>u :Runittest 
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
