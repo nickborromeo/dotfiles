@@ -61,9 +61,7 @@ map <Leader>vm :RVmodel
 map <Leader>vv :RVview 
 map <Leader>w <C-w>w
 
-" 'Hide' highlighting
-map <C-h> /aoeusnh<cr>
-
+map <C-h> :nohl<cr>
 imap <C-l> <Space>=><Space>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
