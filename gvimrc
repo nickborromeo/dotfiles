@@ -1,5 +1,3 @@
-set bg=dark
-
 set wrap
 set lbr
 
