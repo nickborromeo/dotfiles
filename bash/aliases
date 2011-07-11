@@ -10,6 +10,7 @@ alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
 alias aliases='vim ~/.dotfiles/bash/aliases'
 alias b='ssh -t ben@benorenstein.com screen -rd irc'
+alias be='bundle exec'
 alias ben='ssh ben@benorenstein.com'
 alias bi='bundle install'
 alias bu='bundle update'
