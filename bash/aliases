@@ -47,7 +47,7 @@ alias m='cd ~/projects/montague'
 alias patch='git format-patch HEAD^ --stdout > patch.diff'
 alias prepdb='dbprep'
 alias n='cd ~/projects/nucleus'
-alias r='ssh beno@rd2.dfci.harvard.edu'
+alias r='screen -S rails'
 alias ro='cd ~/projects/rootcrop'
 alias restart_apache="sudo /etc/init.d/apache2 restart"
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
