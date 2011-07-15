@@ -35,7 +35,7 @@ map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
-map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
+map <Leader>o :.Rake!<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
@@ -51,7 +51,8 @@ map <Leader>sv :RSview
 " above.
 map <Leader>r :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
 
-map <Leader>t :!ruby -I"test" -I"spec" %<CR>
+" map <Leader>t :!ruby -I"test" -I"spec" %<CR>
+map <Leader>t :Rake!<CR>
 map <Leader>u :Runittest 
 map <Leader>vc :RVcontroller 
 map <Leader>vf :RVfunctional 
