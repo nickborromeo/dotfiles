@@ -53,13 +53,13 @@ map <Leader>r :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
 
 " map <Leader>t :!ruby -I"test" -I"spec" %<CR>
 map <Leader>t :Rake!<CR>
-map <Leader>u :Runittest 
-map <Leader>vc :RVcontroller 
-map <Leader>vf :RVfunctional 
+map <Leader>u :Runittest<cr>
+map <Leader>vc :RVcontroller<cr>
+map <Leader>vf :RVfunctional<cr>
 map <Leader>vi :tabe ~/.vimrc<CR>
 map <Leader>vu :RVunittest<CR>
-map <Leader>vm :RVmodel 
-map <Leader>vv :RVview 
+map <Leader>vm :RVmodel<cr>
+map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
 
 map <C-h> :nohl<cr>
