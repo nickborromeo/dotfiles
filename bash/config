@@ -45,15 +45,26 @@ function new-remote-tracking {
 git checkout -b $1 && git push origin $1 && git branch --set-upstream $1 "origin/$1"
 }
 
+function git_branch_name {
+  val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
+  echo "$val"
+}
 
 #################
 #  prompt stuff #
 #################
 function parse_git_branch {
-  git branch 2>/dev/null | grep '^*' | colrm 1 2 | sed 's_\(.*\)_(\1)_'
+  val=`git_branch_name | sed 's_\(.*\)_(\1)_'`
+  echo "$val"
 }
 YELLOW="\[\033[0;33m\]"
 export PS1="=================================================================================================================================================\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w$YELLOW \$(parse_git_branch) \$\[\033[00m\] "
+
+
+function git-done {
+  branch=`git_branch_name`
+  git checkout master && git pull --rebase && git merge $branch && rake && git push
+}
 
 #####################
 #  ssh-agent stuff  #
