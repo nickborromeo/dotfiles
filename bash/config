@@ -41,6 +41,10 @@ function rrg {
 rake routes | grep $1
 }
 
+function new-remote-tracking {
+git checkout -b $1 && git push origin $1 && git branch --set-upstream $1 "origin/$1"
+}
+
 
 #################
 #  prompt stuff #
