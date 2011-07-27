@@ -49,7 +49,7 @@ function parse_git_branch {
   echo "$val"
 }
 
-function new-remote-tracking {
+function git-new-remote-tracking {
 git checkout -b $1 && git push origin $1 && git branch --set-upstream $1 "origin/$1"
 }
 
