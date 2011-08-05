@@ -60,7 +60,8 @@ function git_branch_name {
 
 function git-done {
   branch=`git_branch_name`
-  git checkout master && git pull --rebase && git merge $branch && rake && git push
+  git checkout master && git pull --rebase 
+  git checkout $branch && git rebase master && git checkout master && git merge $branch && rake && git push
 }
 
 #################
@@ -94,3 +95,9 @@ if [ -f "${SSH_ENV}" ]; then
 else
 	start_agent;
 fi 
+
+#################
+# postgres      #
+#################
+
+# export PGDATA="/usr/local/var/postgres"

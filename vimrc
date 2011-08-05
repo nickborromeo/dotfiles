@@ -36,7 +36,7 @@ map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
 map <Leader>o :.Rake!<CR>
-map <Leader>p :set paste<CR>i
+map <Leader>p :set paste<CR>"*p:set nopaste<cr>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
