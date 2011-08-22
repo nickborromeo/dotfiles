@@ -151,23 +151,18 @@ let g:CommandTMatchWindowAtTop=1
 au BufNewFile,BufRead *.txt setlocal wrap 
 au BufNewFile,BufRead *.txt setlocal lbr
 
+" Better? completion on command line
+set wildmenu
+" What to do when I press 'wildchar'. Worth tweaking to see what feels right.
+set wildmode=list:longest,full
 
+" Center search matches when jumping
+map N Nzz
+map n nzz
 
-"
 " ========================================================================
 " End of things set by me.
 " ========================================================================
-
-
-
-
-
-
-
-
-
-
-
 
 
 
