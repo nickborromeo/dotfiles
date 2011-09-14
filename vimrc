@@ -46,6 +46,7 @@ map <Leader>sm :RSmodel
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
+map <Leader>y :!rspec %<cr>
 
 " Execute the results of concatenating the strings below. last_run_file is set
 " above.
@@ -63,7 +64,7 @@ map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
 
 map <C-h> :nohl<cr>
-imap <C-l> <Space>=><Space>
+imap <C-l> :<Space>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
