@@ -161,6 +161,25 @@ set wildmode=list:longest,full
 map N Nzz
 map n nzz
 
+
+" Merge a tab into a split in the previous window
+function! MergeTabs()
+  if tabpagenr() == 1
+    return
+  endif
+  let bufferName = bufname("%")
+  if tabpagenr("$") == tabpagenr()
+    close!
+  else
+    close!
+    tabprev
+  endif
+  split
+  execute "buffer " . bufferName
+endfunction
+
+nmap <C-W>u :call MergeTabs()<CR>
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
