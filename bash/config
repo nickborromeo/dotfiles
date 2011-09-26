@@ -13,12 +13,6 @@ PROMPT_COMMAND='echo -ne "\033k\033\\"'
 stty start undef
 stty stop undef
 
-# Gimme a huge history
-export HISTSIZE=50000
-
-# Don't store duplicate lines in history
-export HISTCONTROL=ignoreboth
-
 # Switch to a gem directory, trying to match your name the best
 function cdgem {
   gem_dir=`gem env | grep INSTALLATION | cut -d' ' -f6`
