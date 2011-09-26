@@ -13,70 +13,6 @@ PROMPT_COMMAND='echo -ne "\033k\033\\"'
 stty start undef
 stty stop undef
 
-# Switch to a gem directory, trying to match your name the best
-function cdgem {
-  gem_dir=`gem env | grep INSTALLATION | cut -d' ' -f6`
-  cd $gem_dir/gems
-  cd `ls|grep $1|sort|tail -1`
-}
-
-function sgi {
-sudo gem install $1
-}
-
-function sagi {
-sudo apt-get -y install $1 
-}
-
-function syi {
-sudo yum -y install $1
-}
-
-function glg { 
-gem list | grep $1
-}
-
-
-function rrg { 
-rake routes | grep $1
-}
-
-#################
-#   git stuff   #
-#################
-function parse_git_branch {
-  val=`git_branch_name | sed 's_\(.*\)_(\1)_'`
-  echo "$val"
-}
-
-function git-new-remote-tracking {
-git checkout -b $1 && git push origin $1 && git branch --set-upstream $1 "origin/$1"
-}
-
-function git_branch_name {
-  val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
-  echo "$val"
-}
-
-function git-done {
-  branch=`git_branch_name`
-  git checkout master && git pull --rebase 
-  git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && rake && git push && git branch -d $branch && git push origin :$branch
-}
-
-# Creating a remote tracking branch
-function track { 
-  git branch --track $1 "origin/$1"
-}
-
-function g {
-  if [[ $# > 0 ]]; then
-    git $@
-  else
-    git status
-  fi
-}
-
 #################
 #  prompt stuff #
 #################
@@ -108,10 +44,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
 	start_agent;
 fi 
-
-#################
-# postgres      #
-#################
-
-# export PGDATA="/usr/local/var/postgres"
-
