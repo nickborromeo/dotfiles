@@ -19,9 +19,12 @@ augroup END
 
 let mapleader = ","
 
+nmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a{ :Tabularize /{<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
-map <Leader>cc :!cucumber %<CR>
+map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>co :TComment<CR>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
 map <Leader>gac :Gcommit -m -a ""<LEFT>
@@ -35,25 +38,18 @@ map <Leader>i mmgg=G`m<CR>
 map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
-map <Leader>o :.Rake!<CR>
+map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>p :set paste<CR>"*p:set nopaste<cr>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
-map <Leader>se :let file_to_run = "<c-r>%"<cr>
 map <Leader>sm :RSmodel 
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-map <Leader>y :!rspec %<cr>
-
-" Execute the results of concatenating the strings below. last_run_file is set
-" above.
-map <Leader>r :exe '!ruby -I"test" -I"spec"' file_to_run<cr>
-
-" map <Leader>t :!ruby -I"test" -I"spec" %<CR>
-map <Leader>t :Rake!<CR>
+map <Leader>t :call RunCurrentTest()<CR>
+map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
 map <Leader>vf :RVfunctional<cr>
@@ -112,7 +108,7 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 set tags=./tags;
 
 " Use _ as a word-separator
-set iskeyword-=_
+" set iskeyword-=_
 
 " Use Ack instead of grep
 set grepprg=ack
@@ -133,8 +129,8 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
 set nofoldenable " Say no to code folding...
 
-command Q q " Bind :Q to :q
-command Qall qall 
+command! Q q " Bind :Q to :q
+command! Qall qall 
 
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
@@ -179,6 +175,22 @@ function! MergeTabs()
 endfunction
 
 nmap <C-W>u :call MergeTabs()<CR>
+ 
+function! CorrectTestRunner()
+  if match(expand('%'), '\.feature$') != -1
+    return "cucumber"
+  elseif match(expand('%'), '_spec\.rb$') != -1
+     return "rspec"
+   endif
+endfunction
+
+function! RunCurrentTest()
+  exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p')
+endfunction
+
+function! RunCurrentLineInTest()
+  exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p') . ":" . line(".")
+endfunction
 
 " ========================================================================
 " End of things set by me.
