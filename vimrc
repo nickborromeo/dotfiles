@@ -157,7 +157,6 @@ set wildmode=list:longest,full
 map N Nzz
 map n nzz
 
-
 " Merge a tab into a split in the previous window
 function! MergeTabs()
   if tabpagenr() == 1
@@ -191,6 +190,8 @@ endfunction
 function! RunCurrentLineInTest()
   exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p') . ":" . line(".")
 endfunction
+
+imap <Tab> <C-P>
 
 " ========================================================================
 " End of things set by me.
