@@ -35,7 +35,7 @@ function parse_git_branch {
 }
 
 function git-new-remote-tracking {
-git checkout -b $1 && git push origin $1 && git branch --set-upstream $1 "origin/$1"
+  git checkout -b $1 && git push -u origin $1
 }
 
 function git_branch_name {
@@ -46,7 +46,7 @@ function git_branch_name {
 function git-done {
   branch=`git_branch_name`
   git checkout master && git pull --rebase 
-  git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && rdm && bundle exec rake && git push && git branch -d $branch && git push origin :$branch
+  git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && bundle exec rake db:migrate && bundle exec rake && git push && git branch -d $branch && git push origin :$branch
 }
 
 function git-nuke {
