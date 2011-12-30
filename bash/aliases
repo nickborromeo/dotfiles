@@ -39,6 +39,7 @@ alias grake='rspec --drb spec/ && cucumber --drb features/'
 alias h='heroku'
 alias irb='irb --readline -r irb/completion'
 alias journal='vim ~/Dropbox/docs/journal/2011.txt'
+alias pc='production-console'
 alias patch='git format-patch HEAD^ --stdout > patch.diff'
 alias prepdb='dbprep'
 alias remore='!! | more'
@@ -49,11 +50,11 @@ alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
 alias repush="gpr && gpush"
 alias rc='rails console'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare'
-alias rdm="rake db:migrate"
-alias rdtp="rake db:test:prepare"
-alias rs='bundle install && rails server -p 3001 --debugger'
+alias rdm="be rake db:migrate"
+alias rdtp="be rake db:test:prepare"
+alias rs='bundle install && rails server -p 3001'
 alias safepush='git pull --rebase && bundle install && rdm && rake && git push'
-alias sc='script/console'
+alias sc='staging-console'
 alias so='source ~/.dotfiles/bash/aliases'
 alias sp='safepush'
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
@@ -63,3 +64,18 @@ alias t='cd ~/code/trajectory'
 alias u='cd ..'
 alias vi='vim'
 alias y='cd ~/code/ybuy'
+
+# Heroku staging
+alias staging-console='heroku run console --remote staging'
+alias staging-tail='heroku logs --tail --remote staging'
+
+# Heroku production
+alias production-console='heroku run console --remote production'
+alias production-tail='heroku logs --tail --remote production'
+
+# # Heroku databases
+alias db-pull-staging='heroku db:pull --remote staging --confirm `basename $PWD`-staging'
+alias db-pull-production='heroku db:pull --remote production --confirm `basename $PWD`-production'
+alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
+alias db-backup-production='heroku pgbackups:capture --remote production'
+alias db-backups='heroku pgbackups --remote production'
