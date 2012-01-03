@@ -62,6 +62,7 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres
 alias staging='git push heroku-staging master'
 alias t='cd ~/code/trajectory'
 alias u='cd ..'
+alias v='cd ~/code/vertical-server'
 alias vi='vim'
 alias y='cd ~/code/ybuy'
 
