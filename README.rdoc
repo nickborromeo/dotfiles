@@ -12,7 +12,7 @@ I'm also a pretty aggressive aliaser. You might find a few you like in bash/alia
   cd ~/.dotfiles
   rake install
 
-  Vim plugins are store as git sub modules. You'll need to run the following to install them:
+  Vim plugins are stored as git sub modules. You'll need to run the following to install them:
 
   (in the dotfiles root)
   git submodule init
