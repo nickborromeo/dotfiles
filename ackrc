@@ -1,3 +1,2 @@
-# Add the .rake extension to ruby types
 --type-add
-ruby=.haml,.feature,.scss
+ruby=.haml,.feature,.scss,.coffee

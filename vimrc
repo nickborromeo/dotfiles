@@ -46,6 +46,7 @@ map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
 map <Leader>sm :RSmodel 
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
+map <Leader>so :so %<cr>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :call RunCurrentTest()<CR>
@@ -58,6 +59,7 @@ map <Leader>vu :RVunittest<CR>
 map <Leader>vm :RVmodel<cr>
 map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
+map <Leader>x :exec getline(".")<cr>
 
 map <C-h> :nohl<cr>
 imap <C-l> :<Space>
