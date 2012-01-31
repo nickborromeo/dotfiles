@@ -1,0 +1,27 @@
+function git-new-remote-tracking {
+  git checkout -b $1 && git push -u origin $1
+}
+
+function git_branch_name {
+  val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
+  echo "$val"
+}
+
+function git-done {
+  branch=`git_branch_name`
+  git checkout master && git pull --rebase 
+  git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && bundle exec rake db:migrate && bundle exec rake && git push && git branch -d $branch && git push origin :$branch
+}
+
+function git-nuke {
+  git branch -D $1 && git push origin :$1
+}
+
+function g {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+compdef g=git
