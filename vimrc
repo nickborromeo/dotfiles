@@ -39,7 +39,7 @@ map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
-map <Leader>p :set paste<CR>"*p:set nopaste<cr>
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
@@ -176,17 +176,23 @@ function! MergeTabs()
 endfunction
 
 nmap <C-W>u :call MergeTabs()<CR>
- 
+
 function! CorrectTestRunner()
   if match(expand('%'), '\.feature$') != -1
     return "cucumber"
   elseif match(expand('%'), '_spec\.rb$') != -1
-     return "rspec"
-   endif
+    return "rspec"
+  else
+    return "ruby"
+  endif
 endfunction
 
 function! RunCurrentTest()
-  exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p')
+  if CorrectTestRunner() == "ruby"
+    exec "!ruby" expand('%:p')
+  else
+    exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p')
+  endif
 endfunction
 
 function! RunCurrentLineInTest()
