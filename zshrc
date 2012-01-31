@@ -1,11 +1,17 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+
+# Bring in aliases
+source $HOME/.dotfiles/zsh/aliases
+
+# Bring in functions
+source $HOME/.dotfiles/zsh/functions
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -28,12 +34,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git rvm)
 
 source $ZSH/oh-my-zsh.sh
-
-# Bring in aliases
-source $HOME/.dotfiles/zsh/aliases
-
-# Bring in functions
-source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
 export PATH=bin:/Users/ben/.rvm/gems/ruby-1.9.2-p180/bin:/Users/ben/.rvm/gems/ruby-1.9.2-p180@global/bin:/Users/ben/.rvm/rubies/ruby-1.9.2-p180/bin:/Users/ben/.rvm/bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
