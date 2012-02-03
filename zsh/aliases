@@ -8,7 +8,7 @@ fi
 
 alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
-alias aliases='vim ~/.dotfiles/bash/aliases'
+alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias b='ssh -t ben@benorenstein.com screen -rd irc'
 alias bake='bundle exec rake'
 alias be='bundle exec'
@@ -20,6 +20,7 @@ alias bunbang='bundle install && !!'
 alias c='cd ~/code'
 alias d='cd ~/.dotfiles'
 alias dbprep='rdm && rdtp'
+alias dr='cd ~/Dropbox'
 alias gad='git add .'
 alias gc='git commit'
 alias gca='git commit -a'
@@ -57,7 +58,7 @@ alias rdtp="be rake db:test:prepare"
 alias rs='bundle install && rails server -p 3001'
 alias safepush='git pull --rebase && bundle install && rdm && rake && git push'
 alias sc='staging-console'
-alias so='source ~/.dotfiles/bash/aliases'
+alias so='source ~/.dotfiles/zsh/aliases'
 alias sp='safepush'
 alias ss='ruby app.rb'
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
