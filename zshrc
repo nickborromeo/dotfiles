@@ -7,6 +7,11 @@ ZSH=$HOME/.dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Never know when you're gonna need to popd!
+setopt AUTO_PUSHD
+
+bindkey "^N" insert-last-word
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
