@@ -18,6 +18,11 @@ chpwd() {
   ls -lrthG
 }
 
+# Save a ton of history
+HISTSIZE=20000
+HISTFILE=~/.zsh_history
+SAVEHIST=20000
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

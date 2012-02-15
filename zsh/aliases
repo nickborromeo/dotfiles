@@ -72,6 +72,7 @@ alias t='cd ~/code/trajectory'
 alias u='cd ..'
 alias v='cd ~/code/vertical-server'
 alias vi='vim'
+alias vu='cd ~/code/vim-university'
 alias y='cd ~/code/ybuy'
 
 # Heroku staging
