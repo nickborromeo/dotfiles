@@ -10,7 +10,13 @@ ZSH_THEME="robbyrussell"
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
 
+# Allow completing of the remainder of a command
 bindkey "^N" insert-last-word
+
+# Show contents of directory after cd-ing into it
+chpwd() {
+  ls -lrthG
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
