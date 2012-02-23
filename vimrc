@@ -35,6 +35,7 @@ map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
+map <Leader>j :CommandT app/assets/javascripts<CR>
 map <Leader>l :!ruby -I"test" -I"spec" %<CR>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
