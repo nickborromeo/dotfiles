@@ -36,7 +36,7 @@ map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>j :CommandT app/assets/javascripts<CR>
-map <Leader>l :!ruby -I"test" -I"spec" %<CR>
+map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
 map <Leader>n :set nopaste<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
@@ -75,6 +75,9 @@ map <C-p> :cp<CR>
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
+
+" Typo fixes
+imap teh the
 
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode

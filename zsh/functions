@@ -13,9 +13,22 @@ function git-done {
   git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && bundle exec rake db:migrate && bundle exec rake && git push && git branch -d $branch && git push origin :$branch
 }
 
+function vpp-done {
+  branch=`git_branch_name`
+  git checkout master && git pull --rebase 
+  git checkout $branch && git rebase master && git checkout master && git merge $branch && bundle install && bundle exec rake db:migrate && bundle exec rake cucumber:client spec:javascripts && git push && git branch -d $branch && git push origin :$branch && bundle exec kumade
+}
+
 function git-nuke {
   git branch -D $1 && git push origin :$1
 }
+
+function git-on-master {
+  branch=`git_branch_name`
+  git checkout master && git pull --rebase 
+  git checkout $branch
+  git rebase master
+  }
 
 function g {
   if [[ $# > 0 ]]; then
