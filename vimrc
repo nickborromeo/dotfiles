@@ -25,6 +25,7 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
+map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co :TComment<CR>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
 map <Leader>gac :Gcommit -m -a ""<LEFT>
@@ -75,9 +76,6 @@ map <C-p> :cp<CR>
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
-
-" Typo fixes
-imap teh the
 
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -209,6 +207,14 @@ imap <Tab> <C-P>
 " Let's be reasonable, shall we?
 nmap k gk
 nmap j gj
+
+
+" Set up some useful Rails.vim bindings for working with Backbone.js
+autocmd User Rails Rnavcommand template    app/assets/templates               -glob=**/*  -suffix=.jst.ejs
+autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models      -glob=**/*  -suffix=.coffee
+autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -glob=**/*  -suffix=.coffee
+autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.coffee
+autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
 
 " ========================================================================
 " End of things set by me.
