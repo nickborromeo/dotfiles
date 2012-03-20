@@ -216,6 +216,9 @@ autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -g
 autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.coffee
 autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
 
+" Don't add the comment prefix when I hit enter or o/O on a comment line.
+set formatoptions-=or
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
