@@ -27,9 +27,16 @@ vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co :TComment<CR>
+map <Leader>cc :Rjcollection client/
+map <Leader>cm :Rjmodel client/
+map <Leader>ct :Rtemplate client/
+map <Leader>cv :Rjview client/
+map <Leader>cm :Rjmodel client/
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
+map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
+map <Leader>gr :e ~/Dropbox/docs/journal<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>f :sp spec/factories.rb<CR>
 map <Leader>fix :cnoremap % %<CR>
