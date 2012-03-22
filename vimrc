@@ -2,6 +2,28 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" ========================================================================
+" Vundle stuff
+" ========================================================================
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle (required)! 
+Bundle 'gmarik/vundle'
+
+" My bundles
+Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+
+" TODO: set up other bundles later with all stuff currently in submodules
+" My bundles
+" vim-scripts repos
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+
 
 " ================
 " Ruby stuff
