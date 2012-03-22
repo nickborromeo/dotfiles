@@ -15,9 +15,8 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
+Bundle 'git://git.wincent.com/command-t.git'
 
-" TODO: set up other bundles later with all stuff currently in submodules
-" My bundles
 " vim-scripts repos
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
