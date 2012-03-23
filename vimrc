@@ -16,6 +16,7 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'tomtom/tcomment_vim'
 
 " vim-scripts repos
 " Bundle 'L9'
