@@ -13,10 +13,12 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'tomtom/tcomment_vim'
+
+Bundle 'git://git.wincent.com/command-t.git'
 
 " vim-scripts repos
 " Bundle 'L9'
