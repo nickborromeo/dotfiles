@@ -13,10 +13,11 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'ervandew/supertab'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tomtom/tcomment_vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -47,6 +48,7 @@ nmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a{ :Tabularize /{<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
