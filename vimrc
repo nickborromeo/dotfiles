@@ -17,7 +17,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
 
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -80,6 +82,7 @@ map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
 map <Leader>rw :%s/\s\+$//
 map <Leader>sc :sp db/schema.rb<cr>
+map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
 map <Leader>sm :RSmodel 
 map <Leader>sp yss<p>
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
@@ -253,6 +256,15 @@ autocmd User Rails Rnavcommand jspec       spec/javascripts                   -g
 
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
+
+
+function! OpenJasmineSpecInBrowser()
+  let filename = expand('%')
+  let url_fragment = substitute(filename, "spec/javascripts", "evergreen/run", "")
+  let host_fragment = "http://localhost:54982/"
+  let url = host_fragment . url_fragment
+  silent exec "!open ~/bin/chrome" url
+endfunction
 
 " ========================================================================
 " End of things set by me.
