@@ -20,15 +20,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
-
-Bundle 'git://git.wincent.com/command-t.git'
-
-" vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-
+Bundle 'wincent/command-t'
 
 " ================
 " Ruby stuff
@@ -231,12 +223,12 @@ function! RunCurrentTest()
   if CorrectTestRunner() == "ruby"
     exec "!ruby" expand('%:p')
   else
-    exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p')
+    exec "!" . CorrectTestRunner() "--drb" expand('%:p')
   endif
 endfunction
 
 function! RunCurrentLineInTest()
-  exec "!" . CorrectTestRunner() . " --drb" . " " . expand('%:p') . ":" . line(".")
+  exec "!" . CorrectTestRunner() "--drb" expand('%:p') . ":" . line(".")
 endfunction
 
 imap <Tab> <C-P>
