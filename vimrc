@@ -252,6 +252,7 @@ set formatoptions-=or
 
 function! OpenJasmineSpecInBrowser()
   let filename = expand('%')
+  "                  substitute(exprsson, pattern,            substitution,    flags)
   let url_fragment = substitute(filename, "spec/javascripts", "evergreen/run", "")
   let host_fragment = "http://localhost:54982/"
   let url = host_fragment . url_fragment
