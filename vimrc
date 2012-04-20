@@ -166,17 +166,12 @@ set nofoldenable " Say no to code folding...
 command! Q q " Bind :Q to :q
 command! Qall qall 
 
-set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
-" that I trigger 40x a day.
+" Disable Ex mode
 map Q <Nop>
 
 " Disable K looking stuff up
 map K <Nop>
-
-let g:CommandTMaxHeight=50
-let g:CommandTMatchWindowAtTop=1
 
 " When loading text files, wrap them and don't split up words.
 au BufNewFile,BufRead *.txt setlocal wrap 
@@ -258,6 +253,11 @@ function! OpenJasmineSpecInBrowser()
   let url = host_fragment . url_fragment
   silent exec "!open ~/bin/chrome" url
 endfunction
+
+set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+let g:CommandTMaxHeight=50
+let g:CommandTMatchWindowAtTop=1
 
 " ========================================================================
 " End of things set by me.
