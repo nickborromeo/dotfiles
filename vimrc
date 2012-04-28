@@ -55,6 +55,7 @@ map <Leader>cv :Rjview client/
 map <Leader>cm :Rjmodel client/
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
 map <Leader>dr :e ~/Dropbox<cr>
+map <Leader>ec :e ~/code/
 map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gr :e ~/Dropbox/docs/journal<CR>
