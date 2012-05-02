@@ -17,8 +17,10 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/command-t'
 
@@ -80,6 +82,7 @@ map <Leader>sm :RSmodel
 map <Leader>sp yss<p>
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>so :so %<cr>
+map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :call RunCurrentTest()<CR>
@@ -217,7 +220,7 @@ endfunction
 
 function! RunCurrentTest()
   if CorrectTestRunner() == "ruby"
-    exec "!ruby" expand('%:p')
+    exec "!ruby" "-Itest" expand('%:p')
   else
     exec "!" . CorrectTestRunner() "--drb" expand('%:p')
   endif
@@ -250,7 +253,7 @@ function! OpenJasmineSpecInBrowser()
   let filename = expand('%')
   "                  substitute(exprsson, pattern,            substitution,    flags)
   let url_fragment = substitute(filename, "spec/javascripts", "evergreen/run", "")
-  let host_fragment = "http://localhost:54982/"
+  let host_fragment = "http://localhost:3001/"
   let url = host_fragment . url_fragment
   silent exec "!open ~/bin/chrome" url
 endfunction
