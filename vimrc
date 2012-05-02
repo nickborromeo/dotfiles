@@ -22,7 +22,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/command-t'
+Bundle 'wincent/Command-T'
 
 " ================
 " Ruby stuff
