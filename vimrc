@@ -263,6 +263,13 @@ set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
 
+" Don't wait so long for the next keypress (particularly in ambigious Leader
+" situations.
+set timeoutlen=500
+
+" Don't go past 80 chars on levelup:
+autocmd BufNewFile,BufRead /Users/ben/code/levelup/* set colorcolumn=81
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
