@@ -23,6 +23,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
+Bundle 'koron/nyancat-vim'
 
 " ================
 " Ruby stuff
@@ -258,7 +259,7 @@ function! OpenJasmineSpecInBrowser()
   silent exec "!open ~/bin/chrome" url
 endfunction
 
-set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
@@ -268,7 +269,7 @@ let g:CommandTMatchWindowAtTop=1
 set timeoutlen=500
 
 " Don't go past 80 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/* set colorcolumn=81
+autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=81
 
 " ========================================================================
 " End of things set by me.

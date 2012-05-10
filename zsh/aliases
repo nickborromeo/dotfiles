@@ -58,8 +58,8 @@ alias remore='!! | more'
 alias reguard='killall -9 ruby ; guard'
 alias rerake='!! && rake'
 alias restart_apache="sudo /etc/init.d/apache2 restart"
-alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
-alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log * && coffeetags -R -f >> tags'
+alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
+alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp * && coffeetags -R -f >> tags'
 alias repush="gpr && gpush"
 alias review="git diff master"
 alias rc='rails console'
