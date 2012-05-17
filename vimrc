@@ -49,7 +49,7 @@ nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
-map <Leader>co :TComment<CR>
+map <Leader>co ggVG"*y
 map <Leader>cc :Rjcollection client/
 map <Leader>cj :Rjspec client/
 map <Leader>cm :Rjmodel client/
@@ -76,7 +76,7 @@ map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
-map <Leader>rw :%s/\s\+$//
+map <Leader>rw :%s/\s\+$//<cr>
 map <Leader>sc :sp db/schema.rb<cr>
 map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
 map <Leader>sm :RSmodel 
@@ -270,6 +270,13 @@ set timeoutlen=500
 
 " Don't go past 80 chars on levelup:
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=81
+
+" Enter insert mode automatically when editing git commit messages
+au FileType gitcommit startinsert
+
+" Highlight bad whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " ========================================================================
 " End of things set by me.

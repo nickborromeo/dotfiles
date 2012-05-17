@@ -38,3 +38,7 @@ function g {
   fi
 }
 compdef g=git
+
+function rrg {
+  rake routes | grep $1
+}
