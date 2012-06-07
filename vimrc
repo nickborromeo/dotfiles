@@ -8,7 +8,7 @@ call pathogen#helptags()
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Let Vundle manage Vundle (required)! 
+" Let Vundle manage Vundle (required)!
 Bundle 'gmarik/vundle'
 
 " My bundles
@@ -63,7 +63,7 @@ map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gr :e ~/Dropbox/docs/journal<CR>
 map <Leader>gs :Gstatus<CR>
-map <Leader>f :sp spec/factories.rb<CR>
+map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>h :CommandT<CR>
@@ -71,19 +71,21 @@ map <Leader>i mmgg=G`m<CR>
 map <Leader>j :CommandT app/assets/javascripts<cr>client/
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
-map <Leader>n :set nopaste<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
-map <Leader>rw :%s/\s\+$//<cr>
+map <Leader>rt q:?!ruby<cr><cr>
+map <Leader>rw :%s/\s\+$//<cr>:w<cr>
 map <Leader>sc :sp db/schema.rb<cr>
+map <Leader>sg :sp<cr>:grep 
 map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
 map <Leader>sm :RSmodel 
 map <Leader>sp yss<p>
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>so :so %<cr>
 map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
+map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :call RunCurrentTest()<CR>
@@ -91,6 +93,7 @@ map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
 map <Leader>vf :RVfunctional<cr>
+map <Leader>vg :vsp<cr>:grep 
 map <Leader>vi :tabe ~/.vimrc<CR>
 map <Leader>vu :RVunittest<CR>
 map <Leader>vm :RVmodel<cr>
@@ -187,10 +190,6 @@ set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:longest,full
 
-" Center search matches when jumping
-map N Nzz
-map n nzz
-
 " Merge a tab into a split in the previous window
 function! MergeTabs()
   if tabpagenr() == 1
@@ -231,7 +230,7 @@ function! RunCurrentLineInTest()
   exec "!" . CorrectTestRunner() "--drb" expand('%:p') . ":" . line(".")
 endfunction
 
-imap <Tab> <C-P>
+inoremap <Tab> <C-P>
 
 " Let's be reasonable, shall we?
 nmap k gk
@@ -269,14 +268,36 @@ let g:CommandTMatchWindowAtTop=1
 set timeoutlen=500
 
 " Don't go past 80 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=81
+autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=80
 
 " Enter insert mode automatically when editing git commit messages
 au FileType gitcommit startinsert
 
-" Highlight bad whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+" Remove trailing whitespace on save for ruby files.
+au BufWritePre *.rb :%s/\s\+$//e
+
+function! OpenFactoryFile()
+  if filereadable("test/factories.rb")
+    execute ":sp test/factories.rb"
+  else
+    execute ":sp spec/factories.rb"
+  end
+endfunction
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
 
 " ========================================================================
 " End of things set by me.
