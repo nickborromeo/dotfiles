@@ -41,9 +41,6 @@ augroup END
 
 let mapleader = ","
 
-nmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a{ :Tabularize /{<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
@@ -270,9 +267,6 @@ set timeoutlen=500
 
 " Don't go past 80 chars on levelup:
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=80
-
-" Enter insert mode automatically when editing git commit messages
-au FileType gitcommit startinsert
 
 " Remove trailing whitespace on save for ruby files.
 au BufWritePre *.rb :%s/\s\+$//e
