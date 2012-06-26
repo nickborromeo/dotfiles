@@ -86,7 +86,7 @@ map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
 map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-map <Leader>t :call RunTestFile()<CR>
+map <Leader>t :call RunCurrentTest()<CR>
 map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
@@ -206,6 +206,27 @@ endfunction
 
 nmap <C-W>u :call MergeTabs()<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Test-running stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RunCurrentTest()
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  end
+  
+  exec "!ruby" "-Itest" g:bjo_test_file
+endfunction
+
+function! RunCurrentLineInTest()
+  exec "!" . CorrectTestRunner() expand('%:p') . ":" . line(".")
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let g:bjo_test_file=@%
+endfunction
+
 function! CorrectTestRunner()
   if match(expand('%'), '\.feature$') != -1
     return "cucumber"
@@ -216,17 +237,7 @@ function! CorrectTestRunner()
   endif
 endfunction
 
-function! RunCurrentTest()
-  if CorrectTestRunner() == "ruby"
-    exec "!ruby" "-Itest" expand('%:p')
-  else
-    exec "!" . CorrectTestRunner() expand('%:p')
-  endif
-endfunction
-
-function! RunCurrentLineInTest()
-  exec "!" . CorrectTestRunner() expand('%:p') . ":" . line(".")
-endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 inoremap <Tab> <C-P>
 
@@ -293,42 +304,6 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Test-running stuff ganked from Gary Bernhardt.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
-
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    exec ":!rspec --color " . a:filename
-endfunction
 
 " ========================================================================
 " End of things set by me.
