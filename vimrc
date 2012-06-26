@@ -215,7 +215,7 @@ function! RunCurrentTest()
     call SetTestFile()
   end
   
-  exec "!ruby" "-Itest" g:bjo_test_file
+  exec "!rspec" g:bjo_test_file
 endfunction
 
 function! RunCurrentLineInTest()
