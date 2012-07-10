@@ -215,16 +215,31 @@ function! RunCurrentTest()
     call SetTestFile()
   end
   
-  exec "!rspec" g:bjo_test_file
+  if match(expand('%'), '\.feature$') != -1
+    exec "!cucumber" g:bjo_test_file
+  elseif match(expand('%'), '_spec\.rb$') != -1
+    exec "!rspec" g:bjo_test_file
+  else
+    exe "!ruby -Itest" g:bjo_test_file
+  endif
 endfunction
 
 function! RunCurrentLineInTest()
-  exec "!" . CorrectTestRunner() expand('%:p') . ":" . line(".")
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFileWithLine()
+  end
+
+  exec "!rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
 endfunction
 
 function! SetTestFile()
-  " Set the spec file that tests will be run for.
   let g:bjo_test_file=@%
+endfunction
+
+function! SetTestFileWithLine()
+  let g:bjo_test_file=@%
+  let g:bjo_test_file_line=line(".")
 endfunction
 
 function! CorrectTestRunner()
@@ -276,8 +291,8 @@ let g:CommandTMatchWindowAtTop=1
 " situations.
 set timeoutlen=500
 
-" Don't go past 80 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=80
+" Don't go past 100 chars on levelup:
+autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
 
 " Remove trailing whitespace on save for ruby files.
 au BufWritePre *.rb :%s/\s\+$//e
