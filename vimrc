@@ -154,6 +154,9 @@ set tags=./tags;
 " Use Ack instead of grep
 set grepprg=ack
 
+" Get rid of the delay when hitting esc!
+set noesckeys
+
 " Make the omnicomplete text readable
 :highlight PmenuSel ctermfg=black
 
