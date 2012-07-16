@@ -83,6 +83,7 @@ map <Leader>sp yss<p>
 map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>so :so %<cr>
 map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
+map <Leader>ss ds)i <esc>:w<cr>
 map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
@@ -186,7 +187,7 @@ au BufNewFile,BufRead *.txt setlocal lbr
 " Better? completion on command line
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
-set wildmode=list:longest,full
+set wildmode=list:full
 
 " Merge a tab into a split in the previous window
 function! MergeTabs()
@@ -213,15 +214,24 @@ function! RunCurrentTest()
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
   if in_test_file
     call SetTestFile()
-  end
-  
-  if match(expand('%'), '\.feature$') != -1
-    exec "!cucumber" g:bjo_test_file
-  elseif match(expand('%'), '_spec\.rb$') != -1
-    exec "!rspec" g:bjo_test_file
+
+    if match(expand('%'), '\.feature$') != -1
+      call SetTestRunner("!cucumber")
+      exec g:bjo_test_runner g:bjo_test_file
+    elseif match(expand('%'), '_spec\.rb$') != -1
+      call SetTestRunner("!rspec")
+      exec g:bjo_test_runner g:bjo_test_file
+    else
+      call SetTestRunner("!ruby -Itest")
+      exec g:bjo_test_runner g:bjo_test_file
+    endif
   else
-    exe "!ruby -Itest" g:bjo_test_file
+    exec g:bjo_test_runner g:bjo_test_file
   endif
+endfunction
+
+function! SetTestRunner(runner)
+  let g:bjo_test_runner=a:runner
 endfunction
 
 function! RunCurrentLineInTest()
