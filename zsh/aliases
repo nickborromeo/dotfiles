@@ -102,4 +102,4 @@ alias db-backup-production='heroku pgbackups:capture --remote production'
 alias db-backups='heroku pgbackups --remote production'
 
 alias levelup-get-production='curl -o ~/Downloads/latest.dump `heroku pgbackups:url --app levelup-production`'
-alias levelup-db-fix='killruby ; rake db:drop:all db:create:all ; pg_restore --verbose --clean --no-acl --no-owner -d levelup_development ~/Downloads/latest.dump && prepdb'
+alias levelup-db-fix='killruby ; rake db:drop:all db:create:all ; pg_restore --verbose --clean --no-acl --no-owner -d levelup_development ~/Downloads/latest.dump ; prepdb'
