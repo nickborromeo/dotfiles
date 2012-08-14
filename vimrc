@@ -80,7 +80,7 @@ map <Leader>sg :sp<cr>:grep
 map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
 map <Leader>sm :RSmodel 
 map <Leader>sp yss<p>
-map <Leader>snip :e ~/.vim/snippets/ruby.snippets<CR>
+map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>so :so %<cr>
 map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
 map <Leader>ss ds)i <esc>:w<cr>

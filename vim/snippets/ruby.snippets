@@ -474,3 +474,7 @@ snippet letb
 	let!(:${1}) { ${2} }
 snippet puts
 	puts "\n\n************ #{${1}} **************\n\n"
+snippet mm
+	def method_missing(method, *args, &block)
+	  @target.send(method, *args, &block)
+	end
