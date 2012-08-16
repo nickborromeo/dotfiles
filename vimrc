@@ -193,6 +193,9 @@ set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:full
 
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+
 " Merge a tab into a split in the previous window
 function! MergeTabs()
   if tabpagenr() == 1
