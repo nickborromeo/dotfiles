@@ -33,6 +33,10 @@ task :install do
   system %Q{rm "$HOME/.ssh/id_dsa.pub"}
   system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
 
+  # Need to do this to make vim use RVM's ruby version
+  puts "Moving zshenv to zshrc"
+  system %Q{sudo mv /etc/zshenv /etc/zshrc}
+
 end
 
 def replace_file(file)
