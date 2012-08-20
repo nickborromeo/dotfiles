@@ -58,3 +58,5 @@ source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
 export PATH=bin:/Users/ben/.rvm/gems/ruby-1.9.2-p180/bin:/Users/ben/.rvm/gems/ruby-1.9.2-p180@global/bin:/Users/ben/.rvm/rubies/ruby-1.9.2-p180/bin:/Users/ben/.rvm/bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
