@@ -478,3 +478,7 @@ snippet mm
 	def method_missing(method, *args, &block)
 	  @target.send(method, *args, &block)
 	end
+snippet defi
+	def initialize(${1})
+	  ${2}
+	end
