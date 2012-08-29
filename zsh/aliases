@@ -61,6 +61,7 @@ alias remore='!! | more'
 alias reguard='killall -9 ruby ; guard'
 alias rerake='!! && rake'
 alias restart_apache="sudo /etc/init.d/apache2 restart"
+alias restart_postgres="stoppostgres && startpostgres"
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
 alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp * && coffeetags -R -f >> tags'
 alias repush="gpr && gpush"
@@ -104,4 +105,4 @@ alias db-backup-production='heroku pgbackups:capture --remote production'
 alias db-backups='heroku pgbackups --remote production'
 
 alias levelup-get-production='curl -o ~/Downloads/latest.dump `heroku pgbackups:url --app levelup-production-cedar`'
-alias levelup-db-fix='killruby ; rake db:drop:all db:create:all ; pg_restore --verbose --clean --no-acl --no-owner -d levelup_development ~/Downloads/latest.dump ; prepdb && rake levelup:dev:create_admin && rails runner CreditCard.delete_all'
+alias levelup-db-fix='killruby ; rake db:drop:all db:create:all ; pg_restore -h /var/pgsql_socket --verbose --clean --no-acl --no-owner -d levelup_development ~/Downloads/latest.dump ; prepdb && rake levelup:dev:create_admin && rails runner CreditCard.delete_all'
