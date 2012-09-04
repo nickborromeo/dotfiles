@@ -300,7 +300,7 @@ function! OpenJasmineSpecInBrowser()
   silent exec "!open ~/bin/chrome" url
 endfunction
 
-" set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
