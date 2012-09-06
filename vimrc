@@ -75,6 +75,7 @@ map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>
+map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
 map <Leader>sc :sp db/schema.rb<cr>

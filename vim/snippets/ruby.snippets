@@ -319,16 +319,6 @@ snippet opt
 	         "${4:Option description.}") do |${5:opt}|
 		${6}
 	end
-snippet tc
-	require "test/unit"
-
-	require "${1:library_file_name}"
-
-	class Test${2:$1} < Test::Unit::TestCase
-		def test_${3:case_name}
-			${4}
-		end
-	end
 snippet ts
 	require "test/unit"
 
@@ -480,5 +470,11 @@ snippet mm
 	end
 snippet defi
 	def initialize(${1})
+	  ${2}
+	end
+snippet test
+	require 'test_helper'
+
+	class ${1}Test < ActiveSupport::TestCase
 	  ${2}
 	end
