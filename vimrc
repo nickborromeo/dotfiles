@@ -52,7 +52,7 @@ map <Leader>cj :Rjspec client/
 map <Leader>cm :Rjmodel client/
 map <Leader>ct :Rtemplate client/
 map <Leader>cv :Rjview client/
-map <Leader>cm :Rjmodel client/
+map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>ec :e ~/code/
@@ -60,6 +60,7 @@ map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gr :e ~/Dropbox/docs/journal<CR>
 map <Leader>gs :Gstatus<CR>
+map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
