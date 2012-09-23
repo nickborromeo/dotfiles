@@ -71,6 +71,7 @@ alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump 
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 alias rs='bundle install && rails server -p 3001'
+alias s='sync'
 alias safepush='git pull --rebase && bundle install && rdm && rake && git push'
 alias sfh='cd ~/code/speaking-for-hackers-book'
 alias shpush='rake && hpush'
