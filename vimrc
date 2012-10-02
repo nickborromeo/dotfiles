@@ -75,7 +75,7 @@ map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
-map <Leader>rf :CommandTFlush<CR>
+map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
