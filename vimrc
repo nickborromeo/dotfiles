@@ -198,6 +198,8 @@ set wildmode=list:full
 
 " (Hopefully) removes the delay when hitting esc in insert mode
 set noesckeys
+set ttimeout
+set ttimeoutlen=1
 
 " Merge a tab into a split in the previous window
 function! MergeTabs()
