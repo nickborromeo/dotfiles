@@ -37,6 +37,7 @@ task :install do
   puts "Moving zshenv to zshrc"
   system %Q{sudo mv /etc/zshenv /etc/zshrc}
 
+  system %Q{mkdir ~/.tmp}
 end
 
 def replace_file(file)
