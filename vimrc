@@ -202,7 +202,7 @@ set ttimeout
 set ttimeoutlen=1
 
 " Turn on spell-checking in markdown and text.
-au BufRead,BufNewFile *.md,*.txt setlocal spell
+" au BufRead,BufNewFile *.md,*.txt setlocal spell
 
 " Merge a tab into a split in the previous window
 function! MergeTabs()
