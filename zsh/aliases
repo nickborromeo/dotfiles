@@ -6,6 +6,12 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+alias zshconfig="vim ~/.dotfiles/zshrc"
+alias vimconfig="vim ~/.dotfiles/vimrc"
+#alias ohmyzsh="vim ~/.oh-my-zsh"
+alias greasemonkey="cd /Users/nickborromeo/Library/Application\ Support/Firefox/Profiles/r2afdg8r.default/gm_scripts"
+alias tmux="TERM=screen-256color-bce tmux"
+
 alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias be='bundle exec'
@@ -21,11 +27,13 @@ alias gca='git commit -a'
 alias gcaa='git commit -a --amend -C HEAD'
 alias gcl='git clone'
 alias gcm='git commit -m'
+alias glog='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias gl='glog --graph'
 alias gco='git checkout'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias get='sudo apt-get install'
-alias gg='git lg'
+alias gs='git status -sb'
 alias gpush='git push'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'

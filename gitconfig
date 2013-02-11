@@ -3,7 +3,6 @@
 	email = ngborromeo@gmail.com
 [alias]
 	co = checkout
-  lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
   editor = vim --noplugin
 	excludesfile = ~/.gitignore_global

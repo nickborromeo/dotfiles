@@ -1,19 +1,11 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-
-# Example aliases
- alias zshconfig="vim ~/.zshrc"
- alias vimconfig="vim ~/.vimrc"
- alias psqlstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
- alias greasemonkey="cd /Users/nickborromeo/Library/Application\ Support/Firefox/Profiles/r2afdg8r.default/gm_scripts"
- alias tmux="TERM=screen-256color-bce tmux"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -36,6 +28,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git git-flow)
 
 source $ZSH/oh-my-zsh.sh
+
+# Source my custom files after oh-my-zsh so I can override things.
+source $HOME/.dotfiles/zsh/aliases
+source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin::/Users/nickborromeo/.rvm/bin:/Users/nickborromeo/JRuby/jruby-1.7.0.preview2/bin
