@@ -1,7 +1,7 @@
 [user]
 	name = Nick Borromeo
 	email = ngborromeo@gmail.com
-[malias]
+[alias]
 	co = checkout
   lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
