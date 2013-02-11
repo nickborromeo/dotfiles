@@ -1,14 +1,11 @@
-=== Ben Orenstein's dot files
+=== Nick Borromeo's dot files
 
-These are config files to set up a system the way I like it.
+Config files to setup most of my dev environment and the rest are just some sprikles to make life more prodcutive. 
 
-Vim-users will likely find useful stuff in .vimrc, and also vim/snippets.
-
-I'm also a pretty aggressive aliaser. You might find a few you like in bash/aliases.
 
 == Installation
 
-  git clone git://github.com/r00k/dotfiles ~/.dotfiles
+  git clone git://github.com/nickborromeo/dotfiles ~/.dotfiles
   cd ~/.dotfiles
   rake install
 

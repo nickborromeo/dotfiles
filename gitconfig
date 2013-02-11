@@ -1,33 +1,22 @@
 [user]
-	name = Ben Orenstein
-	email = ben.orenstein@gmail.com 
-[alias]
+	name = Nick Borromeo
+	email = ngborromeo@gmail.com
+[malias]
 	co = checkout
-        cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-
-[color "diff"]
-        meta = yellow 
-
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim --noplugin
+  editor = vim --noplugin
+	excludesfile = ~/.gitignore_global
 [apply]
-	whitespace = nowarn
-
-[alias]
-      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-[help]
-	autocorrect = 1
-[branch]
-	autosetupmerge = true
-        autosetuprebase = always
-[push]
-	default = current
-[rerere]
-	enabled = 1
+  whitespace = nowarn
+[color]
+	ui = true
+	branch = true
+	diff = true
+	interactive = true
+	status = true
+	commit = true
+[credential]
+  helper = osxkeychain
 [github]
-	user = r00k
+  user = nickborromeo
