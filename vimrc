@@ -12,6 +12,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
@@ -33,6 +34,13 @@ nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>ga :Git add 
+map <Leader>s :sh
+map <Leader>m :Rmodel 
+map <Leader>vm :RVmodel 
+map <Leader>c :Rcontroller 
+map <Leader>vc :RVcontroller 
+map <Leader>v :Rview 
+map <Leader>vv :RVview 
 
 " BINDINGS
 " ===============
@@ -44,6 +52,12 @@ command! Qall qall
 " So we don't have to press shift when we want to get into command mode.
 nnoremap ; :
 vnoremap ; :
+
+" Force to break the habit of using the arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
  
 "easy split nav
 nnoremap <C-h> <C-w>h
@@ -54,8 +68,9 @@ nnoremap <C-l> <C-w>l
 " Project Navigation 
 map <C-t> :NERDTreeToggle<CR>
 
-map <C-s> <Esc>:w<CR>
-imap <C-s> <Esc>:w<CR>
+map <C-h> :nohl<cr>
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
 " map <C-t> <Esc>:tabnew<CR>
 " Tabs
 vmap <Tab> >gv
