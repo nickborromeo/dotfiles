@@ -6,6 +6,11 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+# zsh
+alias vim="stty stop '' -ixoff ; vim"
+# # `Frozing' tty, so after any command terminal settings will be restored
+ttyctl -f
+
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias vimconfig="vim ~/.dotfiles/vimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -20,6 +25,7 @@ alias be='bundle exec'
 alias bu='bundle update'
 alias dev='cd ~/Development'
 alias dot='cd ~/.dotfiles'
+alias ga='git add'
 alias gad='git add .'
 alias gadu='git add -u .'
 alias gc='git commit'
