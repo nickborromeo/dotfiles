@@ -37,10 +37,15 @@ map <Leader>ga :Git add
 map <Leader>s :sh
 map <Leader>m :Rmodel 
 map <Leader>vm :RVmodel 
+map <Leader>sm :RSmodel
 map <Leader>c :Rcontroller 
 map <Leader>vc :RVcontroller 
+map <Leader>sc :RScontroller
 map <Leader>v :Rview 
 map <Leader>vv :RVview 
+map <Leader>sv :RSview
+map <Leader>hs :split 
+map <Leader>vs :vsplit 
 
 " BINDINGS
 " ===============
@@ -68,7 +73,7 @@ nnoremap <C-l> <C-w>l
 " Project Navigation 
 map <C-t> :NERDTreeToggle<CR>
 
-map <C-h> :nohl<cr>
+map <C-r> :nohl<cr>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 " map <C-t> <Esc>:tabnew<CR>
