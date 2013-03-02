@@ -34,8 +34,14 @@ source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin::/Users/nickborromeo/.rvm/bin:/Users/nickborromeo/JRuby/jruby-1.7.0.preview2/bin
+export PATH=/usr/local/opt/ruby/bin:usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin
 export ORACLE_HOME=/opt/oracle/instantclient
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$ORACLE_HOME:$DYLD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$ORACLE_HOME:$DYLD_LIBRARY_PATH
 export TNS_ADMIN="/opt/oralce/instantclient/network/admin"
 export CLASSPATH="/Users/nickborromeo/JRuby/Oracle-Driver/ojdbc6.jar"
+
+# NOTABLE GMAIL Credentials
+export GMAIL_USERNAME=notableteam@gmail.com
+export GMAIL_PASSWORD=notable.im
+
+PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
