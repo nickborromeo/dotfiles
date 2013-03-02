@@ -18,6 +18,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'mileszs/ack.vim'
 
 " Get that filetype stuff happening
 filetype on
