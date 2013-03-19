@@ -10,7 +10,6 @@ filetype plugin indent on
 " ===============
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
@@ -74,7 +73,6 @@ nnoremap <C-l> <C-w>l
 " Project Navigation 
 map <C-t> :NERDTreeToggle<CR>
 
-map <C-r> :nohl<cr>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 " map <C-t> <Esc>:tabnew<CR>
