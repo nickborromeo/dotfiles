@@ -15,7 +15,7 @@ alias zshconfig="vim ~/.dotfiles/zshrc"
 alias vimconfig="vim ~/.dotfiles/vimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias greasemonkey="cd /Users/nickborromeo/Library/Application\ Support/Firefox/Profiles/r2afdg8r.default/gm_scripts"
-#alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux"
 
 alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'

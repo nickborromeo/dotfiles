@@ -14,7 +14,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
@@ -46,6 +47,8 @@ map <Leader>vv :RVview
 map <Leader>sv :RSview
 map <Leader>hs :split 
 map <Leader>vs :vsplit 
+" CtrlP
+map <Leader>f :CtrlP<CR>
 
 " BINDINGS
 " ===============
@@ -100,3 +103,4 @@ set ruler
 set showmode
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
+set t_Co=256
