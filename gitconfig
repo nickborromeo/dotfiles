@@ -19,3 +19,5 @@
   helper = osxkeychain
 [github]
   user = nickborromeo
+[push]
+	default = simple

@@ -6,12 +6,16 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+# MINTED
+alias minted-dev="mysql -u minted_dev -pminted_dev minted_dev"
+
 # zsh
 alias vim="stty stop '' -ixoff ; vim"
 # # `Frozing' tty, so after any command terminal settings will be restored
 ttyctl -f
 
 alias zshconfig="vim ~/.dotfiles/zshrc"
+alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 alias vimconfig="vim ~/.dotfiles/vimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias greasemonkey="cd /Users/nickborromeo/Library/Application\ Support/Firefox/Profiles/r2afdg8r.default/gm_scripts"

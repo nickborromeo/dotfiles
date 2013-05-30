@@ -90,6 +90,7 @@ imap <Tab> <C-N>
 highlight StatusLine ctermfg=blue ctermbg=yellow
 set autoindent
 set backupdir=~/.tmp
+set clipboard=unnamed
 set directory=~/.tmp
 set hidden
 set hlsearch
