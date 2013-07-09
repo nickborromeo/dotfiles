@@ -6,14 +6,6 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
-# MINTED
-alias dbprod="mysql -u drupal -pqsi9wAMX4D1OJx --host db00-p.p2.ord.minted.com drupal"
-alias db="mysql -u minted_dev -pminted_dev minted_dev"
-alias webserver="ssh web0-p.p2.ord.minted.com"
-alias mbo="ssh mboweb0-p.p2.ord.minted.com"
-alias uwsigi="fab vagrant monit:'restart uwsgi'"
-alias site="cd ~/Work/Minted/minted"
-
 # zsh
 alias vim="stty stop '' -ixoff ; vim"
 # # `Frozing' tty, so after any command terminal settings will be restored
