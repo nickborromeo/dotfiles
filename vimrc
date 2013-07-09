@@ -14,11 +14,15 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
+" Bundle 'wincent/Command-T'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nono/jquery.vim'
 
 " Get that filetype stuff happening
 filetype on
@@ -47,8 +51,14 @@ map <Leader>vv :RVview
 map <Leader>sv :RSview
 map <Leader>hs :split 
 map <Leader>vs :vsplit 
-" CtrlP
+map <Leader>a :vnew<cr>:Ack 
+
+" CTRL {
+" ===============
 map <Leader>f :CtrlP<CR>
+let g:ctrlp_by_filename = 1
+let g:ctrlp_max_height = 10
+let g:ctrlp_working_path_mode = 0
 
 " BINDINGS
 " ===============
@@ -72,6 +82,17 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+" buffer
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
  
 " Project Navigation 
 map <C-t> :NERDTreeToggle<CR>

@@ -7,7 +7,12 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 # MINTED
-alias minted-dev="mysql -u minted_dev -pminted_dev minted_dev"
+alias dbprod="mysql -u drupal -pqsi9wAMX4D1OJx --host db00-p.p2.ord.minted.com drupal"
+alias db="mysql -u minted_dev -pminted_dev minted_dev"
+alias webserver="ssh web0-p.p2.ord.minted.com"
+alias mbo="ssh mboweb0-p.p2.ord.minted.com"
+alias uwsigi="fab vagrant monit:'restart uwsgi'"
+alias site="cd ~/Work/Minted/minted"
 
 # zsh
 alias vim="stty stop '' -ixoff ; vim"
@@ -18,7 +23,6 @@ alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 alias vimconfig="vim ~/.dotfiles/vimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
-alias greasemonkey="cd /Users/nickborromeo/Library/Application\ Support/Firefox/Profiles/r2afdg8r.default/gm_scripts"
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias amend="git commit --amend"

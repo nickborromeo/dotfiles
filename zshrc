@@ -38,6 +38,8 @@ export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/my
 export ORACLE_HOME=/opt/oracle/instantclient
 # export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$ORACLE_HOME:$DYLD_LIBRARY_PATH
 
+export DISABLE_AUTO_TITLE="true"
+
 # NOTABLE GMAIL Credentials
 export GMAIL_USERNAME=notableteam@gmail.com
 export GMAIL_PASSWORD=notable.im
