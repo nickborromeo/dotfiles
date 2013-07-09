@@ -22,6 +22,7 @@ ttyctl -f
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 alias vimconfig="vim ~/.dotfiles/vimrc"
+alias gvimconfig="vim ~/.dotfiles/gvimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
 
