@@ -21,6 +21,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
+Bundle 'wincent/Command-T'
 
 " Get that filetype stuff happening
 filetype on
