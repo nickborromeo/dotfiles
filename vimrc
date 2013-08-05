@@ -2,10 +2,10 @@
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
- 
+
  " let Vundle manage Vundle
  Bundle 'gmarik/vundle'
- 
+
 " My Bundles
 " ===============
 Bundle 'tpope/vim-rails'
@@ -21,16 +21,16 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
-Bundle 'wincent/Command-T'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Get that filetype stuff happening
 filetype on
- 
+
 " THEMES
 " ===============
 syntax on
 colors molokai
- 
+
 let mapleader = ","
 
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
@@ -52,7 +52,7 @@ map <Leader>hs :split
 map <Leader>vs :vsplit 
 map <Leader>a :vnew<cr>:Ack 
 
-" Command-T 
+" Command-T
 " ===============
 let g:CommandTMaxHeight = 7
 
@@ -72,7 +72,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
- 
+
 "easy split nav
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -89,8 +89,8 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
- 
-" Project Navigation 
+
+" Project Navigation
 map <C-t> :NERDTreeToggle<CR>
 
 map <C-s> <esc>:w<CR>
@@ -122,6 +122,7 @@ set showmode
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
 set t_Co=256
+set list listchars=tab:>-,trail:.,extends:> " Trailing White Space
 
 " Custom Functions
 " ==============
