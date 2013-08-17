@@ -2,10 +2,10 @@
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
- 
+
  " let Vundle manage Vundle
- Bundle 'gmarik/vundle'
- 
+Bundle 'gmarik/vundle'
+
 " My Bundles
 " ===============
 Bundle 'tpope/vim-rails'
@@ -21,15 +21,19 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'wojtekmach/vim-rename'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Get that filetype stuff happening
 filetype on
- 
+
 " THEMES
 " ===============
-syntax on
+let g:solarized_termcolors=256
+syntax enable
 colors molokai
- 
+
 let mapleader = ","
 
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
@@ -50,10 +54,24 @@ map <Leader>sv :RSview
 map <Leader>hs :split 
 map <Leader>vs :vsplit 
 map <Leader>a :vnew<cr>:Ack 
+map <Leader>fw :FixWhitespace<CR>
+map <Leader>h :nohl<CR>
+map <Leader>tn :tabnew<CR>
+map <Leader>tc :tabclose<CR>
 
-" Command-T 
+"" Quick Theme Change
+map <Leader>l :colorscheme solarized<CR>
+map <Leader>d :colorscheme molokai<CR>
+
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<CR>
+map <Leader>i mmgg=G`m<CR>
+
+" Command-T
 " ===============
-let g:CommandTMaxHeight = 7
+let g:CommandTMaxHeight = 10
+let g:CommandTMaxFiles = 50000
+let g:CommandTMaxDepth = 30
+
 
 " BINDINGS
 " ===============
@@ -71,12 +89,16 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
- 
+
 "easy split nav
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" buffer navigation
+nnoremap <C-n> :bn<CR>
+nmap <C-p> :bp<CR>
 
 " window
 nmap <leader>sw<left>  :topleft  vnew<CR>
@@ -88,8 +110,8 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
- 
-" Project Navigation 
+
+" Project Navigation
 map <C-t> :NERDTreeToggle<CR>
 
 map <C-s> <esc>:w<CR>
@@ -111,17 +133,25 @@ set directory=~/.tmp
 set hidden
 set hlsearch
 set incsearch
+set laststatus=2
 set lazyredraw
 set mouse=a
 set nocompatible
 set nofoldenable
-set number
+set relativenumber
 set ruler
 set showmode
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
 set t_Co=256
+set list listchars=tab:\|_,trail:·
+" Window focus
+set winwidth=200
+set winheight=5
+set winminheight=5
+set winheight=999
 
+highlight StatusLine ctermfg=67 ctermbg=yellow
 " Custom Functions
 " ==============
 
@@ -172,4 +202,5 @@ endfunction
 
 map <leader>s :call RunTestFile()<cr>
 map <leader>S :call RunNearestTest()<cr>
+
 

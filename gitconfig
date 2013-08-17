@@ -5,7 +5,7 @@
 	co = checkout
 [core]
   editor = vim --noplugin
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore
 [apply]
   whitespace = nowarn
 [color]
@@ -21,3 +21,7 @@
   user = nickborromeo
 [push]
 	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false

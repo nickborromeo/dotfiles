@@ -40,3 +40,8 @@ Thumbs.db
 # Temp files #
 ######################
 tmp/
+
+# TAGS #
+######################
+TAGS
+tags
