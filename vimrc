@@ -4,7 +4,7 @@ call vundle#rc()
 filetype plugin indent on
 
  " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+ Bundle 'gmarik/vundle'
 
 " My Bundles
 " ===============
@@ -21,7 +21,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nono/jquery.vim'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'wojtekmach/vim-rename'
 Bundle 'bronson/vim-trailing-whitespace'
 
@@ -125,7 +124,6 @@ imap <Tab> <C-N>
 
 " SETTINGS
 " ==============
-highlight StatusLine ctermfg=blue ctermbg=yellow
 set autoindent
 set backupdir=~/.tmp
 set clipboard=unnamed
