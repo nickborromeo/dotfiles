@@ -43,4 +43,8 @@ tmp/*
 # ######################
 TAGS
 tags
+.agignore
 
+# Minted #
+# ######################
+zsh/minted-aliases

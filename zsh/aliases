@@ -18,8 +18,12 @@ alias gvimconfig="vim ~/.dotfiles/gvimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
 
+#Unix commands
+alias ll='ls -lah'
+
 alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias minted-aliases='vim ~/.dotfiles/zsh/minted-aliases'
 alias be='bundle exec'
 alias bi='bundle install'
 alias be='bundle exec'
@@ -55,13 +59,3 @@ alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
-
-# MINTED
-alias site="cd ~/Work/Minted/minted"
-alias uwisgi="fab vagrant monit:'restart uwsgi'"
-alias mboserver="ssh nickb@mboweb0-p.p2.ord.minted.com"
-alias webserver="ssh nickb@web0-p.p2.ord.minted.com"
-alias stageserver="ssh nickb@web0.s2.useast1c.minted.com"
-alias sql='mysql --host=localhost --user=minted_dev -p minted_dev'
-alias pr='post-review -g --target-groups fulfillment'
-alias prr='post-review -r'

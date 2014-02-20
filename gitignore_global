@@ -45,3 +45,4 @@ tmp/
 ######################
 TAGS
 tags
+.agignore

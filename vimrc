@@ -8,21 +8,25 @@ filetype plugin indent on
 
 " My Bundles
 " ===============
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-fugitive'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'godlygeek/tabular'
+Bundle 'groenewege/vim-less'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'koron/nyancat-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'nono/jquery.vim'
+Bundle 'nrocco/vim-phplint'
+Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nono/jquery.vim'
 Bundle 'wojtekmach/vim-rename'
-Bundle 'bronson/vim-trailing-whitespace'
 
 " Get that filetype stuff happening
 filetype on
@@ -39,20 +43,22 @@ nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 " Git Stuff
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>ga :Git add 
+map <Leader>ga :Git add
 map <Leader>s :sh
-map <Leader>m :Rmodel 
-map <Leader>vm :RVmodel 
+map <Leader>m :Rmodel
+map <Leader>vm :RVmodel
 map <Leader>sm :RSmodel
-map <Leader>c :Rcontroller 
-map <Leader>vc :RVcontroller 
+map <Leader>c :Rcontroller
+map <Leader>vc :RVcontroller
 map <Leader>sc :RScontroller
-map <Leader>v :Rview 
-map <Leader>vv :RVview 
+map <Leader>v :Rview
+map <Leader>vv :RVview
 map <Leader>sv :RSview
-map <Leader>hs :split 
-map <Leader>vs :vsplit 
-map <Leader>a :vnew<cr>:Ack 
+map <Leader>ut :Runittest
+map <Leader>vut :RVunittest
+map <Leader>hs :split
+map <Leader>vs :vsplit
+map <Leader>a :Ack
 map <Leader>fw :FixWhitespace<CR>
 map <Leader>h :nohl<CR>
 map <Leader>tn :tabnew<CR>
@@ -71,6 +77,10 @@ let g:CommandTMaxHeight = 10
 let g:CommandTMaxFiles = 50000
 let g:CommandTMaxDepth = 30
 
+" Ag with Ack
+" ===============
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " BINDINGS
 " ===============
@@ -137,6 +147,7 @@ set mouse=a
 set nocompatible
 set nofoldenable
 set relativenumber
+set number
 set ruler
 set showmode
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
@@ -148,8 +159,12 @@ set winwidth=200
 set winheight=5
 set winminheight=5
 set winheight=999
+" Cursor
+set cul
+hi CursorLine term=none cterm=none ctermbg=236
 
 highlight StatusLine ctermfg=67 ctermbg=yellow
+
 " Custom Functions
 " ==============
 
@@ -200,5 +215,18 @@ endfunction
 
 map <leader>s :call RunTestFile()<cr>
 map <leader>S :call RunNearestTest()<cr>
+
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set nonumber
+    set relativenumber
+  endif
+endfunc
+
+map <leader>n :call NumberToggle()<cr>
 
 

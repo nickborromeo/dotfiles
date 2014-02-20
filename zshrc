@@ -31,18 +31,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.dotfiles/zsh/aliases
+source $HOME/.dotfiles/zsh/minted-aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin
-export ORACLE_HOME=/opt/oracle/instantclient
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$ORACLE_HOME:$DYLD_LIBRARY_PATH
+export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/
 
 export DISABLE_AUTO_TITLE="true"
 
-# NOTABLE GMAIL Credentials
-export GMAIL_USERNAME=notableteam@gmail.com
-export GMAIL_PASSWORD=notable.im
-
 PATH=/Applications/MAMP/Library/bin/:$PATH
 PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
+
+export PGHOST=localhost
