@@ -41,10 +41,16 @@ let mapleader = ","
 
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 " Git Stuff
-map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>ga :Git add
+map <Leader>gad :Git add .<CR>
+map <Leader>gc :Gcommit -m ""<LEFT>
+map <Leader>gcv :Gcommit --verbose<CR>
+map <Leader>gs :Gstatus<CR>
 map <Leader>s :sh
+map <Leader>gb :Git branch<CR>
+map <Leader>gbr :Git branch -r<CR>
+
+"Rails
 map <Leader>m :Rmodel
 map <Leader>vm :RVmodel
 map <Leader>sm :RSmodel
@@ -56,6 +62,8 @@ map <Leader>vv :RVview
 map <Leader>sv :RSview
 map <Leader>ut :Runittest
 map <Leader>vut :RVunittest
+
+" Utilities
 map <Leader>hs :split
 map <Leader>vs :vsplit
 map <Leader>a :Ack
@@ -63,6 +71,9 @@ map <Leader>fw :FixWhitespace<CR>
 map <Leader>h :nohl<CR>
 map <Leader>tn :tabnew<CR>
 map <Leader>tc :tabclose<CR>
+
+" vimconfig
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 "" Quick Theme Change
 map <Leader>l :colorscheme solarized<CR>
@@ -121,16 +132,24 @@ nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
 
 " Project Navigation
-map <C-t> :NERDTreeToggle<CR>
+" map <C-t> :NERDTreeToggle<CR>
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 " map <C-t> <Esc>:tabnew<CR>
+
 " Tabs
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+map <C-t> :tabnew<CR>
+map <C-w> :tabclose<CR>
+
 " code complete
 imap <Tab> <C-N>
+
+" Quick Fix
+map <C-]> :cnext<CR>
+map <C-[> :cprev<CR>
 
 " SETTINGS
 " ==============
@@ -143,22 +162,23 @@ set hlsearch
 set incsearch
 set laststatus=2
 set lazyredraw
+set list listchars=tab:\|_,trail:·
 set mouse=a
 set nocompatible
 set nofoldenable
-set relativenumber
 set number
+set relativenumber
 set ruler
 set showmode
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set t_Co=256
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
-set t_Co=256
-set list listchars=tab:\|_,trail:·
 " Window focus
-set winwidth=200
-set winheight=5
-set winminheight=5
-set winheight=999
+" set winwidth=200
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 " Cursor
 set cul
 hi CursorLine term=none cterm=none ctermbg=236
@@ -179,9 +199,9 @@ function! RunTests(filename)
    if filereadable("script/test")
      exec ":!script/test " . a:filename
    elseif filereadable("Gemfile")
-     exec ":!zeus rspec --color " . a:filename
+     exec ":!rspec --color " . a:filename
    else
-     exec ":!zeus rspec --color " . a:filename
+     exec ":!rspec --color " . a:filename
    end
  end
 endfunction
@@ -229,4 +249,8 @@ endfunc
 
 map <leader>n :call NumberToggle()<cr>
 
+if has("autocmd")
+  " Source the vimrc file after saving it
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
