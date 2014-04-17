@@ -18,13 +18,14 @@ Bundle 'mileszs/ack.vim'
 Bundle 'nono/jquery.vim'
 Bundle 'nrocco/vim-phplint'
 Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vinegar'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wojtekmach/vim-rename'
 
@@ -131,9 +132,6 @@ nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
 
-" Project Navigation
-" map <C-t> :NERDTreeToggle<CR>
-
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 " map <C-t> <Esc>:tabnew<CR>
@@ -146,10 +144,6 @@ map <C-w> :tabclose<CR>
 
 " code complete
 imap <Tab> <C-N>
-
-" Quick Fix
-map <C-]> :cnext<CR>
-map <C-[> :cprev<CR>
 
 " SETTINGS
 " ==============
