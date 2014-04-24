@@ -9,6 +9,7 @@ filetype plugin indent on
 " My Bundles
 " ===============
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'chrisbra/csv.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'groenewege/vim-less'
 Bundle 'jelera/vim-javascript-syntax'
@@ -24,8 +25,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-vinegar'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wojtekmach/vim-rename'
 
