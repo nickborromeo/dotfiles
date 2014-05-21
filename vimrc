@@ -84,11 +84,16 @@ map <Leader>d :colorscheme molokai<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<CR>
 map <Leader>i mmgg=G`m<CR>
 
+" ctags refresh
+map <Leader>ct :!ctags -R .<CR>
+
 " Command-T
 " ===============
 let g:CommandTMaxHeight = 10
 let g:CommandTMaxFiles = 50000
 let g:CommandTMaxDepth = 30
+let g:CommandTInputDebounce = 200
+let g:CommandTFileScanner = 'find'
 
 " Ag with Ack
 " ===============
@@ -140,8 +145,6 @@ imap <C-s> <esc>:w<CR>
 " Tabs
 vmap <Tab> >gv
 vmap <S-Tab> <gv
-map <C-t> :tabnew<CR>
-map <C-w> :tabclose<CR>
 
 " code complete
 imap <Tab> <C-N>
@@ -151,6 +154,7 @@ imap <Tab> <C-N>
 set autoindent
 set backupdir=~/.tmp
 set clipboard=unnamed
+set complete-=i
 set directory=~/.tmp
 set hidden
 set hlsearch

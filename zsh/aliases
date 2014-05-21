@@ -59,3 +59,4 @@ alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+alias space='du -sk * | sort -rn | head'
