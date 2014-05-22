@@ -8,6 +8,7 @@ filetype plugin indent on
 
 " My Bundles
 " ===============
+Bundle 'SirVer/ultisnips'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'chrisbra/csv.vim'
 Bundle 'godlygeek/tabular'
@@ -99,6 +100,13 @@ let g:CommandTFileScanner = 'find'
 " ===============
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" UltiSnips
+" ===============
+let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
 " BINDINGS
 " ===============
