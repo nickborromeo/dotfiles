@@ -98,7 +98,7 @@ let g:CommandTFileScanner = 'find'
 
 " Ag with Ack
 " ===============
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir=drupal/static/src/js/vendor/ --ignore-dir=drupal/forum/ --ignore-dir=chef/cookbooks --ignore-dir=build/ --ignore-dir=blog/'
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " UltiSnips
