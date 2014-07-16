@@ -21,6 +21,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 #Unix commands
 alias ll='ls -lah'
 
+alias ag="git grep"
 alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias minted-aliases='vim ~/.dotfiles/zsh/minted-aliases'

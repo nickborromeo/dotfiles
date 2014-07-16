@@ -29,16 +29,11 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vinegar'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/taglist.vim'
 Bundle 'wojtekmach/vim-rename'
 
 " Get that filetype stuff happening
 filetype on
-
-" THEMES
-" ===============
-let g:solarized_termcolors=256
-syntax enable
-colors molokai
 
 let mapleader = ","
 
@@ -79,14 +74,19 @@ map <Leader>tc :tabclose<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 "" Quick Theme Change
-map <Leader>l :colorscheme solarized<CR>
-map <Leader>d :colorscheme molokai<CR>
+map <Leader>l :colors solarized<CR>
+map <Leader>d :colors molokai<CR>
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<CR>
 map <Leader>i mmgg=G`m<CR>
 
 " ctags refresh
 map <Leader>ct :!ctags -R .<CR>
+
+" fast save and quit
+noremap <leader>q :q<cr>
+nnoremap <leader>s :w<cr>
+inoremap <leader>s <C-c>:w<cr>
 
 " Command-T
 " ===============
@@ -100,6 +100,10 @@ let g:CommandTFileScanner = 'find'
 " ===============
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir=drupal/static/src/js/vendor/ --ignore-dir=drupal/forum/ --ignore-dir=chef/cookbooks --ignore-dir=build/ --ignore-dir=blog/'
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Fugitive
+" ===============
+autocmd QuickFixCmdPost *grep* cwindow
 
 " BINDINGS
 " ===============
@@ -171,7 +175,6 @@ set relativenumber
 set ruler
 set showmode
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-set t_Co=256
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
 " Window focus
@@ -179,9 +182,15 @@ set wildmode=list:longest,full
 " set winheight=5
 " set winminheight=5
 " set winheight=999
+" THEMES
+" ===============
+let g:solarized_termcolors=16
+syntax enable
+set background=light
+colors solarized
+
 " Cursor
 set cul
-hi CursorLine term=none cterm=none ctermbg=236
 
 highlight StatusLine ctermfg=67 ctermbg=yellow
 
@@ -233,8 +242,8 @@ function! RunNearestTest()
   call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
-map <leader>s :call RunTestFile()<cr>
-map <leader>S :call RunNearestTest()<cr>
+" map <leader>s :call RunTestFile()<cr>
+" map <leader>S :call RunNearestTest()<cr>
 
 
 function! NumberToggle()
