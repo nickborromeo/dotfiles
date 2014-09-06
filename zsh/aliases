@@ -21,7 +21,6 @@ alias tmux="TERM=screen-256color-bce tmux"
 #Unix commands
 alias ll='ls -lah'
 
-alias ag="git grep"
 alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias minted-aliases='vim ~/.dotfiles/zsh/minted-aliases'
@@ -29,6 +28,7 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
+alias ctags="`brew --prefix`/bin/ctags"
 alias dev='cd ~/Development'
 alias dot='cd ~/.dotfiles'
 alias ga='git add'

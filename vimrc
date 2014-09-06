@@ -74,8 +74,7 @@ map <Leader>tc :tabclose<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 "" Quick Theme Change
-map <Leader>l :colors solarized<CR>
-map <Leader>d :colors molokai<CR>
+map <Leader>l :set colorcolumn=80 <CR>
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<CR>
 map <Leader>i mmgg=G`m<CR>
@@ -87,6 +86,9 @@ map <Leader>ct :!ctags -R .<CR>
 noremap <leader>q :q<cr>
 nnoremap <leader>s :w<cr>
 inoremap <leader>s <C-c>:w<cr>
+
+" Blame
+map <leader>b :Gblame<cr>
 
 " Command-T
 " ===============
@@ -159,7 +161,8 @@ imap <Tab> <C-N>
 set autoindent
 set backupdir=~/.tmp
 set clipboard=unnamed
-set complete-=i
+set complete-=t
+set nocursorline
 set directory=~/.tmp
 set hidden
 set hlsearch
@@ -177,6 +180,9 @@ set showmode
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildmode=list:longest,full
+if exists('+colorcolumn') " hint to keep lines short
+  set colorcolumn=80
+endif
 " Window focus
 " set winwidth=200
 " set winheight=5
@@ -184,15 +190,34 @@ set wildmode=list:longest,full
 " set winheight=999
 " THEMES
 " ===============
-let g:solarized_termcolors=16
-syntax enable
-set background=light
-colors solarized
+syntax on
+set background=dark
+colors base16-railscasts
 
 " Cursor
 set cul
 
-highlight StatusLine ctermfg=67 ctermbg=yellow
+" set up some custom colors
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
+
+" highlight the status bar when in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+endif
 
 " Custom Functions
 " ==============

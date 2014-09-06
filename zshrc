@@ -29,6 +29,9 @@ plugins=(git git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
+# User VIM Keys
+#bindkey -v
+
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/minted-aliases
