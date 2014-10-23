@@ -8,6 +8,7 @@ filetype plugin indent on
 
 " My Bundles
 " ===============
+Bundle 'benmills/vimux'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'chrisbra/csv.vim'
 Bundle 'godlygeek/tabular'
@@ -86,6 +87,15 @@ map <Leader>ct :!ctags -R .<CR>
 noremap <leader>q :q<cr>
 nnoremap <leader>s :w<cr>
 inoremap <leader>s <C-c>:w<cr>
+
+" vimux
+let g:VimuxPromptString = ""
+map <Leader>op :VimuxRunCommand("")<CR>
+map <Leader>cp :VimuxCloseRunner<CR>
+map <Leader>vc :VimuxPromptCommand<CR>
+map <Leader>pi :call VimuxRunCommand("python")<CR>
+map <Leader>vu :call VimuxRunCommand("cd /Users/nickb/Work/Minted/minted && vagrant up")<CR>
+map <Leader>vg :call VimuxRunCommand("vagrant ssh")<CR>
 
 " Blame
 map <leader>b :Gblame<cr>
@@ -179,6 +189,7 @@ set ruler
 set showmode
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
+set wildignore+=*.pyc
 set wildmode=list:longest,full
 if exists('+colorcolumn') " hint to keep lines short
   set colorcolumn=80

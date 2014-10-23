@@ -46,3 +46,4 @@ PATH=/Applications/MAMP/Library/bin/:$PATH
 PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
 
 export PGHOST=localhost
+export EDITOR='vim'
