@@ -14,8 +14,10 @@ Bundle 'chrisbra/csv.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'groenewege/vim-less'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'jlanzarotta/bufexplorer'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'koron/nyancat-vim'
+Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'mileszs/ack.vim'
 Bundle 'nono/jquery.vim'
 Bundle 'nrocco/vim-phplint'
@@ -23,6 +25,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'rodjek/vim-puppet'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
@@ -31,6 +34,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vinegar'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'wincent/Command-T'
 Bundle 'wojtekmach/vim-rename'
 
 " Get that filetype stuff happening
@@ -108,6 +112,10 @@ let g:CommandTMaxDepth = 30
 let g:CommandTInputDebounce = 200
 let g:CommandTFileScanner = 'find'
 
+" BufExplorer
+" ===============
+map <leader>be :BufExplorerHorizontalSplit<CR>
+
 " Ag with Ack
 " ===============
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir=drupal/static/src/js/vendor/ --ignore-dir=drupal/forum/ --ignore-dir=chef/cookbooks --ignore-dir=build/ --ignore-dir=blog/'
@@ -180,6 +188,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list listchars=tab:\|_,trail:·
+set macmeta
 set mouse=a
 set nocompatible
 set nofoldenable
@@ -187,7 +196,7 @@ set number
 set relativenumber
 set ruler
 set showmode
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%{exists('g:loaded_fugitive')?fugitive#statusline():''}%=%-14.(%l,%c%V%)\ %P
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
 set wildignore+=*.pyc
 set wildmode=list:longest,full

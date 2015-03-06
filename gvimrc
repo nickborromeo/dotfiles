@@ -27,11 +27,12 @@ Bundle 'nono/jquery.vim'
 " Get that filetype stuff happening
 filetype on
 
+syntax on
+set background=dark
+colors base16-railscasts
+
 " THEMES
 " ===============
-syntax on
-colors molokai
-
 let mapleader = ","
 
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>

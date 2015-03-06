@@ -42,8 +42,10 @@ export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/my
 
 export DISABLE_AUTO_TITLE="true"
 
-PATH=/Applications/MAMP/Library/bin/:$PATH
 PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
 
 export PGHOST=localhost
 export EDITOR='vim'
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/nickb/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
