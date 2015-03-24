@@ -30,6 +30,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vinegar'
 Bundle 'vim-ruby/vim-ruby'
@@ -162,6 +163,8 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
+" copy file name to clip board
+nmap cp :let @+=expand("%")<CR>
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -273,7 +276,7 @@ function!  RunTestFile(...)
  endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.py)$') != -1
   if in_test_file
     call SetTestFile()
   elseif !exists("t:grb_test_file")
@@ -287,6 +290,14 @@ function! RunNearestTest()
   call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
+function! RunVagrantTest()
+  :w
+  :silent !clear
+  let t:grb_test_file=@%
+  exec ":!clear && tmux send-keys -t bottom 'vagrant ssh -- sudo nosetests " .  t:grb_test_file . "' C-m"
+endfunction
+
+map <leader>r :call RunVagrantTest()<cr>
 " map <leader>s :call RunTestFile()<cr>
 " map <leader>S :call RunNearestTest()<cr>
 
