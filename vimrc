@@ -102,16 +102,13 @@ map <Leader>pi :call VimuxRunCommand("python")<CR>
 map <Leader>vu :call VimuxRunCommand("cd /Users/nickb/Work/Minted/minted && vagrant up")<CR>
 map <Leader>vg :call VimuxRunCommand("vagrant ssh")<CR>
 
-" Blame
-map <leader>b :Gblame<cr>
-
 " Command-T
 " ===============
 let g:CommandTMaxHeight = 10
 let g:CommandTMaxFiles = 50000
 let g:CommandTMaxDepth = 30
 let g:CommandTInputDebounce = 200
-let g:CommandTFileScanner = 'find'
+let g:CommandTFileScanner = 'git'
 
 " BufExplorer
 " ===============
@@ -138,10 +135,10 @@ nnoremap ; :
 vnoremap ; :
 
 " Force to break the habit of using the arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
 "easy split nav
 nnoremap <C-h> <C-w>h
@@ -214,6 +211,11 @@ endif
 " THEMES
 " ===============
 syntax on
+" light theme
+" set background=light
+" colors solarized
+
+" dark theme
 set background=dark
 colors base16-railscasts
 
@@ -294,7 +296,7 @@ function! RunVagrantTest()
   :w
   :silent !clear
   let t:grb_test_file=@%
-  exec ":!clear && tmux send-keys -t bottom 'vagrant ssh -- sudo nosetests " .  t:grb_test_file . "' C-m"
+  exec ":!clear && tmux send-keys -t bottom 'vagrant ssh -- sudo env MINTED_CONF_PATH=/srv/minted/etc/www.yml PYTHONPATH=/srv/minted/releases/latest/py/ nosetests /vagrant/" .  t:grb_test_file . "' C-m"
 endfunction
 
 map <leader>r :call RunVagrantTest()<cr>
@@ -318,4 +320,7 @@ if has("autocmd")
   " Source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+set t_Co=256                        " force vim to use 256 colors
+let g:solarized_termcolors=256      " use solarized 256 fallback
 
