@@ -38,7 +38,7 @@ source $HOME/.dotfiles/zsh/minted-aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/
+export PATH=/Users/nickb/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/
 
 export DISABLE_AUTO_TITLE="true"
 

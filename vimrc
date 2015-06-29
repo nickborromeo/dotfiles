@@ -23,6 +23,8 @@ Bundle 'nono/jquery.vim'
 Bundle 'nrocco/vim-phplint'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rodjek/vim-puppet'
+Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-eunuch'
@@ -34,6 +36,7 @@ Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vinegar'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/dbext.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'wincent/Command-T'
 Bundle 'wojtekmach/vim-rename'
@@ -50,7 +53,7 @@ map <Leader>gad :Git add .<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gcv :Gcommit --verbose<CR>
 map <Leader>gs :Gstatus<CR>
-map <Leader>s :sh
+" map <Leader>s :sh
 map <Leader>gb :Git branch<CR>
 map <Leader>gbr :Git branch -r<CR>
 
@@ -90,8 +93,8 @@ map <Leader>ct :!ctags -R .<CR>
 
 " fast save and quit
 noremap <leader>q :q<cr>
-nnoremap <leader>s :w<cr>
-inoremap <leader>s <C-c>:w<cr>
+" nnoremap <leader>s :w<cr>
+" inoremap <leader>s <C-c>:w<cr>
 
 " vimux
 let g:VimuxPromptString = ""
@@ -323,4 +326,8 @@ endif
 
 set t_Co=256                        " force vim to use 256 colors
 let g:solarized_termcolors=256      " use solarized 256 fallback
+
+" Database Profiles
+let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=minted_dev:passwd=minted_dev:dbname:minted_dev'
+
 
