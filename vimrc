@@ -11,6 +11,8 @@ filetype plugin indent on
 Bundle 'benmills/vimux'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'chrisbra/csv.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'gioele/vim-autoswap'
 Bundle 'godlygeek/tabular'
 Bundle 'groenewege/vim-less'
 Bundle 'jelera/vim-javascript-syntax'
