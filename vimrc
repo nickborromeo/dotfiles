@@ -25,7 +25,6 @@ Bundle 'nono/jquery.vim'
 Bundle 'nrocco/vim-phplint'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rodjek/vim-puppet'
-Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
@@ -329,7 +328,5 @@ endif
 set t_Co=256                        " force vim to use 256 colors
 let g:solarized_termcolors=256      " use solarized 256 fallback
 
-" Database Profiles
-let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=minted_dev:passwd=minted_dev:dbname:minted_dev'
-
-
+" Read Database Profiles
+source /Users/nickb/.dotfiles/vim/dbext/dbext-profiles.vim
