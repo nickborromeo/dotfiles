@@ -1,0 +1,20 @@
+snippet tests "stub for starting tests"
+
+#!/usr/bin/env python
+# vim: set et ts=2 sw=2 tw=72:
+#
+# Copyright (C) ${1:`date +%Y`} Minted LLC
+#
+# All Rights Reserved
+"""Tests $0
+"""
+
+import unittest
+
+import mock
+from mock import patch
+
+
+class $1(unittest.TestCase):
+
+endsnippet

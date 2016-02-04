@@ -43,7 +43,12 @@ tmp/*
 TAGS
 tags
 .agignore
+tags.*
 
 # Minted #
 # ######################
 zsh/minted-aliases
+
+# PYENV #
+######################
+.python-version

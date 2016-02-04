@@ -38,14 +38,17 @@ source $HOME/.dotfiles/zsh/minted-aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-export PATH=/Users/nickb/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/
+export PATH=$PATH:/Users/nickb/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/:/usr/bin/java
 
 export DISABLE_AUTO_TITLE="true"
 
-PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
+# PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
 
 export PGHOST=localhost
 export EDITOR='vim'
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/nickb/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+source ~/.profile
+source ~/.rvm/scripts/rvm

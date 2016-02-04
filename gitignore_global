@@ -46,3 +46,7 @@ tmp/
 TAGS
 tags
 .agignore
+
+# PYENV #
+######################
+.python-version

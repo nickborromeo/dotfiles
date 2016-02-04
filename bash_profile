@@ -4,6 +4,7 @@ source ~/.bash/completions
 source ~/.bash/paths
 source ~/.bash/config
 source ~/.bash/history_config
+source ~/.profile
 
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
