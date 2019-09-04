@@ -23,7 +23,6 @@ alias ll='ls -lah'
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias amend="git commit --amend"
 alias be='bundle exec'
-alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
 alias ctags="`brew --prefix`/bin/ctags"
@@ -31,46 +30,31 @@ alias dev='cd ~/Development'
 alias dot='cd ~/.dotfiles'
 alias ga='git add'
 alias gad='git add .'
-alias gadu='git add -u .'
+alias gap='git add -p'
 alias gc='git commit'
-alias gca='git commit -a'
-alias gcaa='git commit -a --amend -C HEAD'
-alias gcl='git clone'
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcv='git commit -v'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias get='sudo apt-get install'
-alias git=hub
 alias gl='glog --graph'
 alias glog='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
-alias gpr='git pull-request'
-alias gpush='git push'
 alias gpo='git push origin'
 alias grc='git rebase --continue'
 alias gs='git status -sb'
 alias guf='git fetch --all && git pull --rebase upstream master && git push'
 alias gvd='git difftool'
-alias hpush='git push heroku'
 alias irb='irb --readline -r irb/completion'
-alias minted-aliases='vim ~/.dotfiles/zsh/minted-aliases'
-alias notes='cd /Users/nickb/Box\ Sync/nickb/notes'
-alias oss='cd ~/OSS/'
 alias prune='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
-alias rc='rails console'
+alias rc='bin/console'
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
-alias restart_apache="sudo /etc/init.d/apache2 restart"
-alias restart_postgres="stoppostgres && startpostgres"
 alias space='du -sk * | sort -rn | head'
-alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+alias mux="tmuxinator"
 
-# Vagrant
-alias vup='vagrant up'
-alias vh='vagrant halt'
-alias vssh='vagrant ssh'
+# Workflow
+alias push="git branch | grep \* | cut -d ' ' -f2 | xargs git push origin"
+alias pull="git branch | grep \* | cut -d ' ' -f2 | xargs git pull origin"
 
 #tmux
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"

@@ -26,6 +26,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git git-flow)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,7 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.dotfiles/zsh/aliases
-source $HOME/.dotfiles/zsh/minted-aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
@@ -42,13 +42,8 @@ export PATH=$PATH:/Users/nickb/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/l
 
 export DISABLE_AUTO_TITLE="true"
 
-# PATH=$PATH:$HOME/.rvm/bin:/usr/local/Cellar/ruby # Add RVM to PATH for scripting
-
-export PGHOST=localhost
 export EDITOR='vim'
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/nickb/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
 
-source ~/.profile
-source ~/.rvm/scripts/rvm
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(rbenv init -)"
