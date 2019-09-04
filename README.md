@@ -1,9 +1,9 @@
-### Nick Borromeo's dot files
+## Nick Borromeo's dot files
 
 Config files to setup most of my dev environment and the rest are just some sprinkles to make life more productive. 
 
 
-### Installation
+## Installation
 
   git clone git://github.com/nickborromeo/dotfiles ~/.dotfiles
   cd ~/.dotfiles
