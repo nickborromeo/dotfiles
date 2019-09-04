@@ -99,7 +99,7 @@ map <Leader>vc :VimuxPromptCommand<CR>
 
 " Ag with Ack
 " ===============
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir=drupal/static/src/js/vendor/ --ignore-dir=drupal/forum/ --ignore-dir=chef/cookbooks --ignore-dir=build/ --ignore-dir=blog/'
+let g:ackprg = 'rg --column --hidden --no-ignore --smart-case'
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Fugitive
