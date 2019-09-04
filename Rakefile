@@ -4,6 +4,7 @@ desc "install the dot files into user's home directory"
 
 task :install do
   install_homebrew
+  puts
   install_homebrew_packages
 
   replace_all = false
@@ -47,10 +48,8 @@ end
 
 def install_homebrew
   sh %{brew -v &> /dev/null} do |ok, res|
-    puts ok
-    puts res
     if !ok
-      sh "echo '🍺 Installing Homebrew.'"
+      puts "🍺 Installing Homebrew."
       sh '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
     end
   end
@@ -59,7 +58,7 @@ end
 def install_homebrew_packages
   sh %{brew bundle check} do |ok, res|
     if !ok
-      sh "echo '📦 Running `brew bundle install` to install desired packages.'"
+      puts "📦 Running `brew bundle install` to install desired packages."
       sh "brew bundle install"
     end
   end
