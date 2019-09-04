@@ -1,64 +1,56 @@
-" Vundle Setup
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-filetype plugin indent on
-
- " let Vundle manage Vundle
- Bundle 'gmarik/vundle'
-
-" My Bundles
+" THEMES
 " ===============
-Bundle 'benmills/vimux'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'chrisbra/csv.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'gioele/vim-autoswap'
-Bundle 'godlygeek/tabular'
-Bundle 'groenewege/vim-less'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'koron/nyancat-vim'
-Bundle 'ludovicchabant/vim-gutentags'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'mileszs/ack.vim'
-Bundle 'nono/jquery.vim'
-Bundle 'nrocco/vim-phplint'
-Bundle 'pangloss/vim-javascript'
-Bundle 'rodjek/vim-puppet'
-Bundle 'sjl/gundo.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-tbone'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-vinegar'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/dbext.vim'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'wincent/Command-T'
-Bundle 'wojtekmach/vim-rename'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-notes'
+syntax on
+" dark theme
+colors gruvbox
+
+" My Plugins
+" ===============
+call plug#begin('~/.vim/plugged')
+
+Plug 'benmills/vimux'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'bswinnerton/vim-test-github'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'koron/nyancat-vim'
+Plug 'mileszs/ack.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-ruby/vim-ruby'
+Plug 'wojtekmach/vim-rename'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+
+call plug#end()
 
 " Get that filetype stuff happening
 filetype on
 
 let mapleader = ","
 
-nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 " Git Stuff
 map <Leader>ga :Git add
 map <Leader>gad :Git add .<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gcv :Gcommit --verbose<CR>
 map <Leader>gs :Gstatus<CR>
-" map <Leader>s :sh
 map <Leader>gb :Git branch<CR>
+map <Leader>gh :Gbrowse<CR>
 map <Leader>gbr :Git branch -r<CR>
 
 "Rails
@@ -96,7 +88,7 @@ map <Leader>ct :!ctags -R .<CR>
 
 " fast save and quit
 noremap <leader>q :q<cr>
-" nnoremap <leader>s :w<cr>
+nnoremap <leader>s :w<cr>
 " inoremap <leader>s <C-c>:w<cr>
 
 " vimux
@@ -104,25 +96,6 @@ let g:VimuxPromptString = ""
 map <Leader>op :VimuxRunCommand("")<CR>
 map <Leader>cp :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxPromptCommand<CR>
-map <Leader>pi :call VimuxRunCommand("python")<CR>
-map <Leader>vu :call VimuxRunCommand("cd /Users/nickb/Work/Minted/minted && vagrant up")<CR>
-map <Leader>vg :call VimuxRunCommand("vagrant ssh")<CR>
-
-" Command-T
-" ===============
-let g:CommandTMaxHeight = 10
-let g:CommandTMaxFiles = 50000
-let g:CommandTMaxDepth = 30
-let g:CommandTInputDebounce = 200
-let g:CommandTFileScanner = 'git'
-
-" Notes
-" ===============
-let g:notes_directories = ['~/Dropbox/minted_notes']
-
-" BufExplorer
-" ===============
-map <leader>be :BufExplorerHorizontalSplit<CR>
 
 " Ag with Ack
 " ===============
@@ -132,6 +105,18 @@ nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Fugitive
 " ===============
 autocmd QuickFixCmdPost *grep* cwindow
+
+" Vim-Test
+" ===============
+let test#strategy = "vimux"
+
+map <silent> <leader>r :TestNearest<CR>
+nmap <silent> <leader>rf :TestFile<CR>
+
+" FZF
+" ===============
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <leader>t :FZF<cr>
 
 " BINDINGS
 " ===============
@@ -198,7 +183,6 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list listchars=tab:\|_,trail:·
-set macmeta
 set mouse=a
 set nocompatible
 set nofoldenable
@@ -218,17 +202,6 @@ endif
 " set winheight=5
 " set winminheight=5
 " set winheight=999
-" THEMES
-" ===============
-syntax on
-" light theme
-" set background=light
-" colors solarized
-
-" dark theme
-set background=dark
-colors base16-railscasts
-" colors benlight
 
 " Cursor
 set cul
@@ -254,86 +227,3 @@ if version >= 700
   au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
-
-" Custom Functions
-" ==============
-
-" " run rspec tests, via Gary Bernhardt
-function! RunTests(filename)
- " Write the file and run tests for the given filename
- :w
- :silent !clear
- if match(a:filename, '\.feature$') != -1
-   exec ":!script/features " . a:filename
- else
-   if filereadable("script/test")
-     exec ":!script/test " . a:filename
-   elseif filereadable("Gemfile")
-     exec ":!rspec --color " . a:filename
-   else
-     exec ":!rspec --color " . a:filename
-   end
- end
-endfunction
-
-function! SetTestFile()
- " Set the spec file that tests will be run for.
- let t:grb_test_file=@%
-endfunction
-
-function!  RunTestFile(...)
- if a:0
-   let command_suffix = a:1
- else
-   let command_suffix = ""
- endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.py)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-function! RunVagrantTest()
-  :w
-  :silent !clear
-  let t:grb_test_file=@%
-  exec ":!clear && tmux send-keys -t bottom 'vagrant ssh -- sudo env MINTED_CONF_PATH=/srv/minted/etc/www.yml PYTHONPATH=/srv/minted/releases/latest/py/ nosetests /vagrant/" .  t:grb_test_file . "' C-m"
-endfunction
-
-map <leader>r :call RunVagrantTest()<cr>
-" map <leader>s :call RunTestFile()<cr>
-" map <leader>S :call RunNearestTest()<cr>
-
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
-    set number
-  else
-    set nonumber
-    set relativenumber
-  endif
-endfunc
-
-map <leader>n :call NumberToggle()<cr>
-
-if has("autocmd")
-  " Source the vimrc file after saving it
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
-set t_Co=256                        " force vim to use 256 colors
-let g:solarized_termcolors=256      " use solarized 256 fallback
-
-" Read Database Profiles
-source /Users/nickb/.dotfiles/vim/dbext/dbext-profiles.vim
