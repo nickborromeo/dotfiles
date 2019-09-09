@@ -8,6 +8,8 @@ fi
 
 # zsh
 alias vim="stty stop '' -ixoff ; vim"
+alias cat="bat"
+
 # # `Frozing' tty, so after any command terminal settings will be restored
 ttyctl -f
 
