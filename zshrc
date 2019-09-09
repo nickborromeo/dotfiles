@@ -37,8 +37,11 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
+export GOPATH=$HOME/go
+
 # Customize to your needs...
 export PATH=$PATH:/Users/nickb/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin/Users/nickborromeo/.rvm/bin:/usr/bin/rails:/usr/local/share/npm/lib/node_modules/less/bin/:/usr/bin/java
+export PATH=$PATH:$GOPATH/bin
 
 export DISABLE_AUTO_TITLE="true"
 
