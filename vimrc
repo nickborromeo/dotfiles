@@ -108,6 +108,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 " Vim-Test
 " ===============
+let test#runners = {'Ruby': ['GitHub']}
 let test#strategy = "vimux"
 
 map <silent> <leader>r :TestNearest<CR>
