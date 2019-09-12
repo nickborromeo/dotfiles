@@ -96,9 +96,9 @@ map <Leader>op :VimuxRunCommand("")<CR>
 map <Leader>cp :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxPromptCommand<CR>
 
-" Ag with Ack
+" rg with Ack
 " ===============
-let g:ackprg = 'rg --column --hidden --no-ignore --smart-case'
+let g:ackprg = 'rg -g "!vendor/*" -g "!node_modules/*" -g "!public/assets/*" -g "!.git/*" --column --hidden --no-ignore --smart-case '
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Fugitive
