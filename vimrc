@@ -84,8 +84,7 @@ map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<CR>
 map <Leader>i mmgg=G`m<CR>
 
 " ctags refresh
-map <Leader>ct :!ctags -R .<CR>
-
+map <Leader>ct :!git ls-files \| ctags -L - --tag-relative=yes --extras=+f -Rf.git/tags --languages=-javascript,sql<cr><cr>
 " fast save and quit
 noremap <leader>q :q<cr>
 nnoremap <leader>s :w<cr>
