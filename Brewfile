@@ -4,6 +4,7 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 
 brew 'bat'
+brew 'ctags'
 brew 'curl'
 brew 'fzf'
 brew 'ripgrep'
