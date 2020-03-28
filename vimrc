@@ -195,15 +195,17 @@ set mouse=a
 set nocompatible
 set nofoldenable
 set number
-set relativenumber
+" set relativenumber
+set re=1
 set ruler
 set showmode
 set statusline=%<%f\ %h%m%r%{exists('g:loaded_fugitive')?fugitive#statusline():''}%=%-14.(%l,%c%V%)\ %P
 set ts=2 sts=2 sw=2 expandtab " Tabs and Spaces
+set tw=120
 set wildignore+=*.pyc
 set wildmode=list:longest,full
 if exists('+colorcolumn') " hint to keep lines short
-  set colorcolumn=80
+  set colorcolumn=120
 endif
 " Window focus
 " set winwidth=200
