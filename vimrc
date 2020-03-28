@@ -99,7 +99,8 @@ map <Leader>vc :VimuxPromptCommand<CR>
 
 " rg with Ack
 " ===============
-let g:ackprg = 'rg -g "!vendor/*" -g "!node_modules/*" -g "!public/assets/*" -g "!.git/*" --column --hidden --no-ignore --smart-case '
+" let g:ackprg = 'rg -g "!vendor/*" -g "!node_modules/*" -g "!public/assets/*" -g "!.git/*" -g "!log/*" -g "!test/*/*_test.rb" -g "!test/*/*/*_test.rb" -g "!test/*/*/*/*_test.rb" --column --hidden --no-ignore --smart-case '
+let g:ackprg = 'rg -g "!vendor/*" -g "!node_modules/*" -g "!public/assets/*" -g "!.git/*" -g "!log/*" --column --hidden --no-ignore --smart-case '
 nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Fugitive
