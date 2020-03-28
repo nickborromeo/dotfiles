@@ -120,6 +120,12 @@ nmap <silent> <leader>rf :TestFile<CR>
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>t :FZF<cr>
 
+" Notes
+" ===============
+let g:notes_directories = ['~/Notes', '~/Google Drive/notes']
+let g:notes_suffix = '.md'
+let g:notes_smart_quotes = 0
+
 " BINDINGS
 " ===============
 command! Q q
