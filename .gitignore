@@ -2,3 +2,4 @@ vim/.netrwhist
 vim/bundle
 vim/doc/tags-ja
 vim/dbext
+*.DS_Store
