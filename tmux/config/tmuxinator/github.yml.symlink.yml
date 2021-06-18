@@ -1,0 +1,8 @@
+# /Users/nickborromeo/.config/tmuxinator/github.yml
+
+name: github
+root: ~/github
+
+windows:
+  - terminal:
+  - app:

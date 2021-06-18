@@ -1,0 +1,10 @@
+# /Users/nickborromeo/.config/tmuxinator/open-source.yml
+
+name: open source
+root: ~/OSS
+
+windows:
+  - terminal:
+  - app:
+  - console:
+  - server:

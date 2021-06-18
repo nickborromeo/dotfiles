@@ -1,0 +1,14 @@
+# /Users/nickborromeo/.config/tmuxinator/dotcom.yml
+
+name: dotcom
+root: ~/github/github
+
+windows:
+  - terminal:
+  - vim: vim .
+  - console:
+    - bin/console
+  - server:
+    - script/server
+  - gh cli:
+

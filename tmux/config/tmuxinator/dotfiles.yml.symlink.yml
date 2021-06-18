@@ -1,0 +1,9 @@
+# /Users/nickborromeo/.config/tmuxinator/dotfiles.yml
+
+name: dotfiles
+root: ~/.dotfiles
+
+windows:
+  - vim config: vim ~/.vimrc
+  - tmux config: vim ~/.tmux.conf
+  - zsh config: vim ~/.zshrc

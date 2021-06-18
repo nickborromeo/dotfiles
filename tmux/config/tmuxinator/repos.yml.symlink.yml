@@ -1,0 +1,8 @@
+# /Users/nickborromeo/.config/tmuxinator/repos.yml
+
+name: repos
+root: ~/github/pe-repos
+
+windows:
+  - terminal:
+  - app:
