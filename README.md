@@ -1,21 +1,11 @@
-## Nick Borromeo's dot files
+## Nick Borromeo's dotfiles
 
-Config files to setup most of my dev environment and the rest are just some sprinkles to make life more productive. 
+Config files to setup most of my dev environment and the rest are just some sprinkles to make life more productive.
 
 
 ## Installation
 
-  ```shell
-  git clone git://github.com/nickborromeo/dotfiles ~/.dotfiles
-  cd ~/.dotfiles
-  rake install
-  ```
-
-  Vim plugins are managed through Vim Plug. You'll need to install [vim-plug](https://github.com/junegunn/vim-plug) to get them.
-
-  ```shell
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  ```
-  
-  Run `:PlugInstall` in vim.
+```shell
+ git clone git://github.com/nickborromeo/dotfiles ~/.dotfiles
+ ~/.dotfiles/install.sh
+```
