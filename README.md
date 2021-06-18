@@ -6,6 +6,6 @@ Config files to setup most of my dev environment and the rest are just some spri
 ## Installation
 
 ```shell
- git clone git://github.com/nickborromeo/dotfiles ~/.dotfiles
+ git clone https://github.com/nickborromeo/dotfiles ~/.dotfiles
  ~/.dotfiles/install.sh
 ```
