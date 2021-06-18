@@ -2,7 +2,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
+ZSH_THEME="nickborromeo"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -23,16 +23,15 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git git-flow)
-fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/usr/local/share/zsh-completions $fpath)
 
-source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # User VIM Keys
 #bindkey -v
 
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.zsh/aliases
-source $HOME/.zsh/functions
 
 export GOPATH=$HOME/go
 
