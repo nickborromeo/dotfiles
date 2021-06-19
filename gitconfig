@@ -1,0 +1,27 @@
+ [user]
+	name = Nick Borromeo
+	email = ngborromeo@gmail.com
+[alias]
+	co = checkout
+[core]
+  editor = vim --noplugin
+	excludesfile = ~/.gitignore
+[apply]
+  whitespace = nowarn
+[color]
+	ui = true
+	branch = true
+	diff = true
+	interactive = true
+	status = true
+	commit = true
+[credential]
+  helper = osxkeychain
+[github]
+  user = nickborromeo
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
