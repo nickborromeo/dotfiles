@@ -14,8 +14,8 @@ Plug 'bswinnerton/vim-test-github'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'janko-m/vim-test'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'koron/nyancat-vim'
 Plug 'leafgarland/typescript-vim'
@@ -80,7 +80,8 @@ map <Leader>op :VimuxRunCommand("")<CR>
 map <Leader>cp :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxPromptCommand<CR>
 
-nnoremap K :Rg<CR>
+nnoremap K :Rg <C-R><C-W><CR>
+nnoremap KT :Rg <C-R><C-W> -g '!test/'<CR>
 
 " Fugitive
 " ===============
@@ -97,8 +98,10 @@ nmap <silent> <leader>rf :TestFile<CR>
 
 " FZF
 " ===============
-let g:fzf_command_prefix = 'Fzf'
+let g:fzf_tags_command = 'ctags -R'
+
 nnoremap <silent> <leader>t :FZF<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
 
 " CoAuthor
 " ===============
@@ -220,7 +223,6 @@ set winheight=999
 
 " Cursor
 set cul
-set virtualedit=all
 
 " Search
 nnoremap <C-n> :silent! nohls<cr>
@@ -241,4 +243,4 @@ endif
 
 " Workarounds
 " There is a bug with gx that it will not open a url in the browser anymore
-nmap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
+nmap gx yiW:!xdg-open <cWORD><CR> <C-r>" & <CR><CR>
