@@ -4,10 +4,10 @@ DIR="$(pwd -P $0)/bash"
 
 echo "Setting up Bash"
 
-if [ ! -d ~/.bash ]; then
+if [ ! -d $HOME/.bash ]; then
   if [ $(uname) = "Darwin" ]; then
-    ln -s $DIR ~/.bash
+    ln -s $DIR $HOME/.bash
   else
-    ln -sd $DIR ~/.bash
+    ln -sd $DIR $HOME/.bash
   fi
 fi

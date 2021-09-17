@@ -42,6 +42,7 @@ export PATH=$PATH:$GOPATH/bin
 export DISABLE_AUTO_TITLE="true"
 
 export EDITOR='vim'
+export GITHUB_TOKEN=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
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
