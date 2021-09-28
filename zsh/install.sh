@@ -5,7 +5,7 @@ MY_CONFIG="$HOME/.zshrc.pre-oh-my-zsh"
 DEFAULT_CONFIG="$HOME/.zshrc"
 DIR="$(pwd -P $0)/zsh"
 
-if [ ! -d ~/.oh-my-zsh ]; then
+if [ ! -d $HOME/.oh-my-zsh ]; then
   echo 'Installing OhMyZsh.'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi

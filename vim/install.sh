@@ -10,7 +10,7 @@ if [ $(uname) = "Darwin" ]; then
   fi
 else
   if [ ! -d $HOME/.vim ]; then
-    ln -sd $DIR ~/.vim
+    ln -sd $DIR $HOME/.vim
   fi
 fi
 
