@@ -7,7 +7,6 @@ MUX_DIR=$HOME/.config/tmuxinator
 echo "Install tmuxinator..."
 gem install tmuxinator
 
-if [ ! -d $HOME/.config/tmuxinator ]; then
-  mkdir $MUX_DIR
-  cp $DIR/**/*.yml $MUX_DIR
-fi
+echo "📋️ Copying tmuxinator templates..."
+mkdir $MUX_DIR
+cp $DIR/**/*.yml $MUX_DIR
