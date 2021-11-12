@@ -10,11 +10,8 @@ gem install tmuxinator
 if [ ! -d $HOME/.config/tmuxinator ]; then
   mkdir $MUX_DIR
 
-  for linkable in $DIR/**/*.symlink; do
-    target=$MUX_DIR"/."$(basename $linkable | sed 's/.symlink//')
-    if [ ! -L $target ]; then
-      echo "🔗 Linking $target → $linkable."
-      ln -Ff -s $linkable $target
-    fi
+  for config in $DIR/**/*.yml; do
+    echo "📋️ copying $config"
+    cp $config $MUX_DIR
   done
 fi

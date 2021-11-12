@@ -27,7 +27,6 @@ alias amend="git commit --amend"
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-alias ctags="`brew --prefix`/bin/ctags"
 alias dev='cd ~/Development'
 alias dot='cd ~/.dotfiles'
 alias ga='git add'
