@@ -22,6 +22,13 @@ if [ -d $HOME/.oh-my-zsh ]; then
     echo "Copying theme..."
     cp $DIR/theme $HOME/.oh-my-zsh/themes/nickborromeo.zsh-theme
   fi
+
+  if [ ! -f $HOME/.zsh/aliases ]; then
+    echo "Copying aliases.."
+    cp $DIR/aliases $HOME/.zsh/aliases
+  fi
 fi
+
+chsh -s $(which zsh)
 
 echo "Oh My ZSH! We are done!"
