@@ -35,8 +35,3 @@ for executable in $DIR/**/install.sh; do
   echo "👟 Running $executable."
   sh $executable
 done
-
-# Install tmuxinator
-echo "Install tmuxinator..."
-gem install tmuxinator
-
