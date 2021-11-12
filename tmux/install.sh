@@ -9,9 +9,5 @@ gem install tmuxinator
 
 if [ ! -d $HOME/.config/tmuxinator ]; then
   mkdir $MUX_DIR
-
-  for config in $DIR/**/*.yml; do
-    echo "📋️ copying $config"
-    cp $config $MUX_DIR
-  done
+  cp $DIR/**/*.yml $MUX_DIR
 fi
