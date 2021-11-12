@@ -40,7 +40,6 @@ export PATH=$PATH:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/lo
 export PATH=$PATH:$GOPATH/bin
 
 export DISABLE_AUTO_TITLE="true"
-export GITHUB_TOKEN=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
 
 export EDITOR='vim'
 

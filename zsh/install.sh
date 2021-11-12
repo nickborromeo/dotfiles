@@ -25,6 +25,7 @@ if [ -d $HOME/.oh-my-zsh ]; then
 
   if [ ! -f $HOME/.zsh/aliases ]; then
     echo "Copying aliases.."
+    mkdir $HOME/.zsh
     cp $DIR/aliases $HOME/.zsh/aliases
   fi
 fi
