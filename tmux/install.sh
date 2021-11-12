@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR="$(pwd -P $0)"
+DIR="$(pwd -P $0)/tmux"
 MUX_DIR="$HOME/.config/tmuxinator"
 
 echo "📋️ Copying tmuxinator templates..."
