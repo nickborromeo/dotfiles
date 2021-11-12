@@ -36,3 +36,7 @@ for executable in $DIR/**/install.sh; do
   sh $executable
 done
 
+# Install tmuxinator
+echo "Install tmuxinator..."
+gem install tmuxinator
+
