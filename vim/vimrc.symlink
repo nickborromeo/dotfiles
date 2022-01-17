@@ -1,4 +1,4 @@
-" THEMES
+"THEMES
 " ===============
 colors gruvbox
 let g:gruvbox_contrast_dark = "medium"
@@ -99,8 +99,10 @@ nmap <silent> <leader>rf :TestFile<CR>
 " FZF
 " ===============
 let g:fzf_tags_command = 'ctags -R'
+let g:fzf_preview_window = ['right:60%', 'ctrl-/']
+let g:fzf_layout = { 'down':  '40%'}
 
-nnoremap <silent> <leader>t :FZF<cr>
+nnoremap <silent> <leader>t :Files<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 
 " CoAuthor
@@ -185,7 +187,7 @@ nmap <silent> gv :vsp<CR><Plug>(coc-definition)
 " SETTINGS
 " ==============
 set autoindent
-set backupdir=~/.tmp
+" set backupdir=~/.tmp
 set clipboard=unnamed
 set complete-=t
 set nocursorline

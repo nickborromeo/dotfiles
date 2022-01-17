@@ -1,7 +1,11 @@
 # /Users/nickborromeo/.config/tmuxinator/open-source.yml
 
 name: open source
-root: ~/OSS
+# for local
+# root: ~/OSS
+
+# for codespace
+root: /workspaces
 
 windows:
   - terminal:

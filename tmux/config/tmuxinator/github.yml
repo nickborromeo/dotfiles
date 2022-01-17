@@ -1,7 +1,11 @@
 # /Users/nickborromeo/.config/tmuxinator/github.yml
 
 name: github
-root: ~/github
+# for local
+# root: ~/github
+
+# for codespaces
+root: /workspaces
 
 windows:
   - terminal:

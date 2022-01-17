@@ -1,6 +1,7 @@
  [user]
 	name = Nick Borromeo
-	email = ngborromeo@gmail.com
+	; email = ngborromeo@gmail.com
+	email = nickborromeo@github.com
 [alias]
 	co = checkout
 [core]

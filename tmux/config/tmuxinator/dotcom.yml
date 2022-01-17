@@ -1,7 +1,11 @@
 # /Users/nickborromeo/.config/tmuxinator/dotcom.yml
 
 name: dotcom
-root: ~/github/github
+# for local
+# root: ~/github/github
+
+# for codespaces
+root: /workspaces/github
 
 windows:
   - terminal:
