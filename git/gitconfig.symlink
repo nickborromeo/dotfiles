@@ -1,6 +1,7 @@
 [user]
 	name = Nick Borromeo
-	email = ngborromeo@gmail.com
+	; email = ngborromeo@gmail.com ; personal
+	email = nickborromeo@github.com ; work
 [alias]
 	co = checkout
 [core]
@@ -16,7 +17,7 @@
 	status = true
 	commit = true
 [credential]
-  helper = osxkeychain
+  ; helper = osxkeychain ; uncomment for non codespace
 [github]
   user = nickborromeo
 [push]
