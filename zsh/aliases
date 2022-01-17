@@ -63,3 +63,6 @@ alias tat="tmux attach-session -t "
 alias tls="tmux list-sessions"
 alias tst="tmux switch -t "
 
+# only for codespaces
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'

@@ -3,14 +3,14 @@ set -g default-shell $SHELL
 
 # copy and paste
 # set-option -g default-command "command -v reattach-to-user-namespace >/dev/n    ull 2>&1 && reattach-to-user-namespace -l $SHELL || $SHELL -l"
-set -g default-command "reattach-to-user-namespace -l zsh"
+# set -g default-command "reattach-to-user-namespace -l zsh" # uncomment for non codespace
 
 # Use vim keybindings in copy mode
 set -g mode-keys vi
 
 # # Setup 'v' to begin selection as in Vim
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
-bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+# bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # ucomment for non codespace
 
 # # Update default binding of `Enter` to also use copy-pipe
 unbind -T copy-mode-vi Enter
