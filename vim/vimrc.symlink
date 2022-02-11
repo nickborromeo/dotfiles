@@ -19,6 +19,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'koron/nyancat-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'ojroques/vim-oscyank'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -140,8 +141,8 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
-" copy file name to clip board
-nmap cp :let @+=expand("%")<CR>
+" copy file name to unamed register
+nmap cp :let @*=expand("%")<CR>
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -150,6 +151,12 @@ imap <C-s> <esc>:w<CR>
 " Tabs
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+" Yanking in SSH session
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+let g:oscyank_max_length = 1000000
+let g:oscyank_silent = v:true
 
 " SETTINGS
 " ==============
