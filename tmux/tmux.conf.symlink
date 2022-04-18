@@ -67,6 +67,11 @@ bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 # bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
 
+bind -n M-h resize-pane -L 5
+bind -n M-l resize-pane -R 5
+bind -n M-j resize-pane -D 5
+bind -n M-k resize-pane -U 5
+
 bind C-l send-keys 'C-l'
 
 bind -n S-Left  previous-window

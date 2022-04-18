@@ -26,3 +26,6 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[oh-my-zsh]
+	hide-dirty = 1
+	hide-status = 1

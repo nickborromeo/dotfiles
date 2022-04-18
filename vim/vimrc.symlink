@@ -19,7 +19,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'koron/nyancat-vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'ojroques/vim-oscyank'
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -157,6 +157,7 @@ autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | exe
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
 let g:oscyank_max_length = 1000000
 let g:oscyank_silent = v:true
+let g:oscyank_term = 'tmux'
 
 " SETTINGS
 " ==============
@@ -198,7 +199,11 @@ set winminheight=5
 set winheight=999
 
 " Cursor
+" ===============
 set cul
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+autocmd VimLeave * !echo -e "\e[0 q"
 
 " Search
 nnoremap <C-n> :silent! nohls<cr>

@@ -1,13 +1,16 @@
+# env:
+  # TERM: xterm-256color
+  # TERM: alacritty
 font:
   normal:
     family: Iosevka Term
     style: Regular
-  size: 16.0
+  size: 14.0
   use_thin_strokes: true
 
 window:
   startup_mode: Windowed
-  decorations: none
+  decorations: buttonless
   padding:
       x: 5
       y: 0
@@ -41,6 +44,7 @@ colors:
   #   foreground: None
   #   background: None
   selection:
+    save_to_clipboard: true
     text:       CellBackground
     background: CellForeground
   bright:
@@ -74,15 +78,51 @@ colors:
 
 draw_bold_text_with_bright_colors: false
 
-mouse:
-  hide_when_typing: true
-  url:
-    launcher: open
-    modifiers: Command
+cursor:
+  # Cursor style
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Beam
+
+    # Cursor blinking state
+    #
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: On
+
+  # Vi mode cursor style
+  #
+  # If the vi mode cursor style is `None` or not specified, it will fall back to
+  # the style of the active value of the normal cursor.
+  #
+  # See `cursor.style` for available options.
+  # vi_mode_style: Block
+
+  # Cursor blinking interval in milliseconds.
+  #blink_interval: 750
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+  # Thickness of the cursor relative to the cell width as floating point number
+  # from `0.0` to `1.0`.
+  #thickness: 0.15
 
 scrolling:
   history: 10000
   multiplier: 3
+
+mouse:
+  hide_when_typing: true
 
 key_bindings:
   - { key: F,      mods: Command|Shift,                   action: ToggleSimpleFullscreen }
@@ -97,3 +137,6 @@ key_bindings:
   - { key: F,        mods: Command,       chars: "`/"                       }  # search (upwards) (see tmux.conf)
   - { key: LBracket,        mods: Command,       chars: "`["                       } # scroll up
   - { key: Z,        mods: Command,       chars: "`z"                       } # toggle max or min
+
+# Live config reload (changes require restart)
+live_config_reload: true
