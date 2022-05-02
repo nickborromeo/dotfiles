@@ -31,6 +31,7 @@ if [ -d $HOME/.oh-my-zsh ]; then
 fi
 
 sudo chsh -s $(which zsh)
-zsh
 
 echo "Oh My ZSH! We are done!"
+
+zsh
