@@ -33,3 +33,5 @@ fi
 sudo chsh -s $(which zsh)
 
 echo "Oh My ZSH! We are done!"
+
+zsh
