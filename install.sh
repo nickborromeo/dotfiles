@@ -35,6 +35,3 @@ for executable in $DIR/**/install.sh; do
   echo "👟 Running $executable."
   sh $executable
 done
-
-# Use ZSH Shell
-zsh
