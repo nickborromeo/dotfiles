@@ -44,5 +44,3 @@ export DISABLE_AUTO_TITLE="true"
 export EDITOR='vim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(rbenv init -)"
