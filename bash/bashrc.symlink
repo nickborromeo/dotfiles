@@ -1,5 +1,4 @@
 source ~/.bash/aliases
-source ~/.profile
 
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
