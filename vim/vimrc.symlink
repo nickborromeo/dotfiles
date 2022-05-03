@@ -46,7 +46,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
   let g:gruvbox_contrast_dark = "medium"
   set bg=dark
 
-  #set up some custom colors
+  " set up some custom colors
   highlight Visual       cterm=bold ctermbg=11   ctermfg=239
   highlight StatusLineNC ctermbg=238 ctermfg=0
   highlight StatusLine   ctermbg=235 ctermfg=12
