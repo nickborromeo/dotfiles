@@ -30,6 +30,6 @@ if [ -d $HOME/.oh-my-zsh ]; then
   fi
 fi
 
-sudo chsh -s $(which zsh)
+sudo chsh -s "$(which zsh)" "$(whoami)"
 
 echo "Oh My ZSH! We are done!"
