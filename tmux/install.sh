@@ -9,5 +9,5 @@ mv $DIR/config/tmuxinator/*.yml $MUX_DIR
 
 # Install tmuxinator
 echo "Install tmuxinator..."
-gem install tmuxinator
+sudo gem install tmuxinator
 
