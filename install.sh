@@ -19,7 +19,7 @@ fi
 if [ -n "$CODESPACES" ]; then
   # Install Packages
   echo 'Installing some packages into the Codespace...'
-  apt-get install -y fzf libfuse2 rbenv ruby-dev tmux ripgrep zsh bat vim-gtk xsel
+  apt-get install -y fzf libfuse2 rbenv ruby-dev tmux ripgrep zsh bat vim-gtk xsel universal-ctags
 fi
 
 # Link all linkable files
