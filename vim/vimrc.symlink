@@ -196,10 +196,10 @@ vmap <S-Tab> <gv
 
 " Yanking in SSH session
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+" autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
 let g:oscyank_max_length = 1000000
 let g:oscyank_silent = v:true
-let g:oscyank_term = 'tmux'
+let g:oscyank_term = 'default'
 
 " SETTINGS
 " ==============
