@@ -4,12 +4,12 @@ DIR=$(pwd -P "$0")/nvim
 
 echo "Setting up NeoVim."
 
-if [ ! -d ~/.config/nvim ]; then
-  ln -s "$DIR" ~/.config/nvim
+if [ ! -d $HOME/.config/nvim ]; then
+  ln -sd "$DIR" $HOME/.config/nvim
 fi
 
 if command -v nvim > /dev/null; then
-  nvim -u ~/.config/nvim/install.vim
+  nvim -u $HOME/.config/nvim/install.vim
 else
   echo "Whooops! No Neovim!"
 fi
