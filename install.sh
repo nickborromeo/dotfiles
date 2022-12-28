@@ -29,10 +29,6 @@ if [ -n "$CODESPACES" ]; then
   $BREW install universal-ctags
 
   /home/linuxbrew/.linuxbrew/opt/fzf/install --key-bindings --completion --update-rc
-
-  echo 'Installing Packer for Neovim'
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
 # Link all linkable files
