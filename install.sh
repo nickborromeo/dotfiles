@@ -17,9 +17,19 @@ if [ "$OS" = "Darwin" ]; then
 fi
 
 if [ -n "$CODESPACES" ]; then
-  # Install Packages
   echo 'Installing some packages into the Codespace...'
-  apt-get install -y fzf libfuse2 rbenv ruby-dev tmux ripgrep zsh bat vim-gtk xsel universal-ctags neovim
+  BREW=/home/linuxbrew/.linuxbrew/bin/brew
+
+  $BREW install bat
+  $BREW install zsh
+  $BREW install fzf
+  $BREW install neovim
+  $BREW install ripgrep
+  $BREW install tmux
+  $BREW install tmuxinator
+  $BREW install universal-ctags
+
+  /home/linuxbrew/.linuxbrew/opt/fzf/install --key-bindings --completion --update-rc
 
   echo 'Installing Packer for Neovim'
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
