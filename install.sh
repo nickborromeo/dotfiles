@@ -18,17 +18,11 @@ fi
 
 if [ -n "$CODESPACES" ]; then
   echo 'Installing some packages into the Codespace...'
-  BREW=/home/linuxbrew/.linuxbrew/bin/brew
-
-  $BREW install bat
-  $BREW install fzf
-  $BREW install neovim
-  $BREW install ripgrep
-  $BREW install tmux
-  $BREW install tmuxinator
-  $BREW install universal-ctags
-
-  /home/linuxbrew/.linuxbrew/opt/fzf/install --key-bindings --completion --update-rc
+  apt-get install -y fzf \
+    neovim \
+    tmux \
+    universal-ctags \
+    ripgrep
 fi
 
 # Link all linkable files
