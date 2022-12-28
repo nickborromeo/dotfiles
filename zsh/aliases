@@ -7,7 +7,6 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 # zsh
-alias vim="stty stop '' -ixoff ; vim"
 alias cat="bat"
 
 # # `Frozing' tty, so after any command terminal settings will be restored
@@ -18,6 +17,9 @@ alias vimconfig="vim ~/.dotfiles/vimrc"
 alias gvimconfig="vim ~/.dotfiles/gvimrc"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
+
+# use nvim instead of vim
+alias vim="nvim"
 
 #Unix commands
 alias ll='ls -lah'

@@ -174,13 +174,14 @@ scrolling:
 
 mouse:
   hide_when_typing: true
-
 key_bindings:
   - { key: F,      mods: Command|Shift,                   action: ToggleSimpleFullscreen }
   - { key: I,      mods: Command,         mode: ~Search, action: ToggleViMode           }
   - { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   - { key: Y,                           mode: Vi|~Search, action: Copy                    }
   - { key: K,              mods: Command,  action: ClearHistory     }
+  - { key: N,  mods: Command,  action: CreateNewWindow }
+  - { key: Q, mods: Control, action: Quit }
 
     # shortcuts for tmux. the leader key is control-b (0x02)
   - { key: W,        mods: Command,       chars: "`&"                       }  # close tab (kill)
@@ -188,6 +189,8 @@ key_bindings:
   - { key: F,        mods: Command,       chars: "`/"                       }  # search (upwards) (see tmux.conf)
   - { key: LBracket,        mods: Command,       chars: "`["                       } # scroll up
   - { key: Z,        mods: Command,       chars: "`z"                       } # toggle max or min
+  - { key: N,  mods: Command,  action: CreateNewWindow }
+  - { key: Q, mods: Control, action: Quit }
 
 # Live config reload (changes require restart)
 live_config_reload: true
