@@ -21,7 +21,6 @@ if [ -n "$CODESPACES" ]; then
   BREW=/home/linuxbrew/.linuxbrew/bin/brew
 
   $BREW install bat
-  $BREW install zsh
   $BREW install fzf
   $BREW install neovim
   $BREW install ripgrep
