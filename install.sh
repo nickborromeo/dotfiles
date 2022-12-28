@@ -19,7 +19,7 @@ fi
 if [ -n "$CODESPACES" ]; then
   # Install Packages
   echo 'Installing some packages into the Codespace...'
-  sudo apt-get install -y fzf libfuse2 rbenv ruby-dev tmux ripgrep zsh bat vim-gtk xsel universal-ctags neovim
+  apt-get install -y fzf libfuse2 rbenv ruby-dev tmux ripgrep zsh bat vim-gtk xsel universal-ctags neovim
 
   echo 'Installing Packer for Neovim'
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
