@@ -23,11 +23,10 @@ if [ -n "$CODESPACES" ]; then
     universal-ctags \
     ripgrep
 
-
-  echo 'Installing Neovim'
-  BREW=/home/linuxbrew/.linuxbrew/bin/brew
-
-  $BREW install neovim
+  echo 'Installing neovim...'
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  ./nvim.appimage
 fi
 
 # Link all linkable files
