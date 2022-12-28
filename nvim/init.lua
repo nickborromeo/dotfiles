@@ -1,0 +1,5 @@
+require "plugins"
+require "config.colorscheme"
+require "config.settings"
+require "config.keymaps"
+require "config.telescope"
