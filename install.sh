@@ -18,7 +18,7 @@ fi
 
 if [ -n "$CODESPACES" ]; then
   echo 'Installing some packages into the Codespace...'
-  apt-get install -y fzf \
+  sudo apt-get install -y fzf \
     neovim \
     tmux \
     universal-ctags \
