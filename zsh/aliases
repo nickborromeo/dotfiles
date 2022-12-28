@@ -19,7 +19,7 @@ alias gvimconfig="vim ~/.dotfiles/gvimrc"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # use nvim instead of vim
-alias vim="nvim"
+#alias vim="nvim"
 
 #Unix commands
 alias ll='ls -lah'
