@@ -23,10 +23,9 @@ if [ -n "$CODESPACES" ]; then
     universal-ctags \
     ripgrep
 
-  echo 'Installing neovim...'
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  chmod u+x nvim.appimage
-  ./nvim.appimage
+  echo 'Installing latest neovim...'
+  curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+  sudo apt install ./nvim-linux64.deb
 fi
 
 # Link all linkable files
