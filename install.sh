@@ -27,7 +27,7 @@ if [ -n "$CODESPACES" ]; then
 
   # Install neovim
   NVIM_VERSION=0.8.1
-  curl -L -o $HOME/bin/nvim https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage
+  curl -L -o $HOME/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage
   chmod a+x $HOME/bin/nvim
 fi
 
