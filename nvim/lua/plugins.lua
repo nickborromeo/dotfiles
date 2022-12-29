@@ -26,7 +26,7 @@ return require('packer').startup(function()
   use 'leafgarland/typescript-vim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use 'ojroques/nvim-osc52'
   use 'sheerun/vim-polyglot'
   use 'tpope/vim-commentary'
