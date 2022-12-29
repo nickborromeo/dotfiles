@@ -18,14 +18,14 @@ fi
 
 if [ -n "$CODESPACES" ]; then
   echo 'Installing some packages into the Codespace...'
-  sudo apt-get install -y fzf \
-    tmux \
-    universal-ctags \
-    ripgrep
 
-  echo 'Installing latest neovim...'
-  curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-  sudo apt install ./nvim-linux64.deb
+  BREW=/home/linuxbrew/.linuxbrew/bin/brew
+
+  $BREW install fzf
+  $BREW install neovim
+  $BREW install ripgrep
+  $BREW install tmux
+  $BREW install universal-ctags
 fi
 
 # Link all linkable files

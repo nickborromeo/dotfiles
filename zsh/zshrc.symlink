@@ -43,4 +43,6 @@ export DISABLE_AUTO_TITLE="true"
 
 export EDITOR='vim'
 
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
