@@ -22,10 +22,13 @@ if [ -n "$CODESPACES" ]; then
   sudo apt-get install -y fzf \
     tmux \
     universal-ctags \
-    ripgrep
+    ripgrep \
+    libfuse2
 
-  BREW=/home/linuxbrew/.linuxbrew/bin/brew
-  $BREW install neovim
+  # Install neovim
+  NVIM_VERSION=0.8.1
+  curl -L -o $HOME/bin/nvim https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage
+  chmod a+x $HOME/bin/nvim
 fi
 
 # Link all linkable files
