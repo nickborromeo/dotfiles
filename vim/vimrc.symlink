@@ -93,8 +93,8 @@ map <Leader>c :Vcontroller<CR>
 map <Leader>tt :RV<CR>
 
 " Utilities
-map <Leader>hs :split
-map <Leader>vs :vsplit
+map <Leader>hs :split<CR>
+map <Leader>vs :vsplit<CR>
 map <Leader>a :Rg
 map <Leader>fw :FixWhitespace<CR>
 map <Leader>tn :tabnew<CR>
