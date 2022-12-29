@@ -1,48 +1,31 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+local Plug = vim.fn['plug#']
 
-local packer_bootstrap = ensure_packer()
+vim.call('plug#begin', '~/.config/nvim/plugged')
 
-return require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
+Plug 'benmills/vimux'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'bswinnerton/vim-test-github'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'cwebster2/github-coauthors.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'godlygeek/tabular'
+Plug 'janko-m/vim-test'
+Plug 'jremmen/vim-ripgrep'
+Plug 'leafgarland/typescript-vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'ojroques/nvim-osc52'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 
-  use 'benmills/vimux'
-  use 'bronson/vim-trailing-whitespace'
-  use 'bswinnerton/vim-test-github'
-  use 'christoomey/vim-tmux-navigator'
-  use 'cwebster2/github-coauthors.nvim'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'godlygeek/tabular'
-  use 'janko-m/vim-test'
-  use 'jremmen/vim-ripgrep'
-  use 'leafgarland/typescript-vim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-  use 'ojroques/nvim-osc52'
-  use 'sheerun/vim-polyglot'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-endwise'
-  use 'tpope/vim-eunuch'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rails'
-  use 'tpope/vim-rhubarb'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-tbone'
-  use 'tpope/vim-unimpaired'
-  use 'tpope/vim-vinegar'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+vim.call('plug#end')

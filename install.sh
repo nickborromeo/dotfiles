@@ -29,6 +29,10 @@ if [ -n "$CODESPACES" ]; then
   NVIM_VERSION=0.8.1
   curl -L -o $HOME/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage
   chmod a+x $HOME/bin/nvim
+
+  # Vim Plug
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
 
 # Link all linkable files
