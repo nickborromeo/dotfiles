@@ -19,13 +19,13 @@ fi
 if [ -n "$CODESPACES" ]; then
   echo 'Installing some packages into the Codespace...'
 
-  BREW=/home/linuxbrew/.linuxbrew/bin/brew
+  sudo apt-get install -y fzf \
+    tmux \
+    universal-ctags \
+    ripgrep
 
-  $BREW install fzf
+  BREW=/home/linuxbrew/.linuxbrew/bin/brew
   $BREW install neovim
-  $BREW install ripgrep
-  $BREW install tmux
-  $BREW install universal-ctags
 fi
 
 # Link all linkable files
