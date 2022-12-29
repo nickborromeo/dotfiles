@@ -9,7 +9,7 @@ if [ ! -d $HOME/.config/nvim ]; then
 fi
 
 if command -v nvim > /dev/null; then
-  nvim -Es --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 else
   echo "Whooops! No Neovim!"
 fi
