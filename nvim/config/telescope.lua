@@ -1,6 +1,4 @@
 local telescope = require('telescope')
-telescope.load_extension('fzf')
-telescope.load_extension('githubcoauthors')
 
 local actions = require("telescope.actions")
 telescope.setup{
@@ -23,6 +21,8 @@ telescope.setup{
       }
   },
 }
+
+telescope.load_extension('githubcoauthors')
 
 -- Disable copilot in Telescope
 vim.g.copilot_filetypes = vim.g.copilot_filetypes or {}
