@@ -184,7 +184,7 @@ nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
 " copy file name to unamed register
-nmap cp :let @*=expand("%")<CR>
+nmap cp :let @"=expand("%")<CR>
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -195,7 +195,7 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " Yanking in SSH session
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 " autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
 let g:oscyank_max_length = 1000000
 let g:oscyank_silent = v:true
