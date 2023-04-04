@@ -13,6 +13,9 @@ if [ "$OS" = "Darwin" ]; then
   if ! brew bundle check; then
     echo 'Bundling them up for you now...'
     brew bundle install
+    
+    echo 'FZF install useful key bindings and fuzzy completion'
+    $(brew --prefix)/opt/fzf/install
   fi
 fi
 
