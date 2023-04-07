@@ -1,19 +1,13 @@
-# PROMPT='
-# $(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)
-# %{$fg_bold[red]%}➜ %{$reset_color%} '
-
 PROMPT='
-${_current_dir} $(git_prompt_info)
+${_current_dir} %{$fg[green]%}$(parse_git_branch)
 %{$fg_bold[yellow]%}❯ %{$reset_color%}'
 
 local _current_dir="%{$fg[blue]%}%3~%{$reset_color%} "
 local _return_status="%{$fg[red]%}%(?..⍉)%{$reset_color%}"
 local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
-function _vi_status() {
-  if {echo $fpath | grep -q "plugins/vi-mode"}; then
-    echo "$(vi_mode_prompt_info)"
-  fi
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'
 }
 
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
