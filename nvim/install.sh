@@ -9,7 +9,7 @@ if [ ! -d $HOME/.config/nvim ]; then
 fi
 
 if command -v nvim > /dev/null; then
-  nvim +PlugInstall +qall
+  nvim --headless "+Lazy! install" +qa
 else
   echo "Whooops! No Neovim!"
 fi

@@ -14,12 +14,12 @@ ttyctl -f
 
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias vimconfig="vim ~/.dotfiles/vimrc"
-alias gvimconfig="vim ~/.dotfiles/gvimrc"
+alias nvimconfig="vim ~/.config/nvim/init.lua"
 #alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # use nvim instead of vim
-#alias vim="nvim"
+alias vim="nvim"
 
 #Unix commands
 alias ll='ls -lah'
