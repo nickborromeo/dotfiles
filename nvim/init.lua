@@ -345,7 +345,6 @@ vim.opt.showmatch = true     -- Highlight matching parenthesis
 vim.opt.splitright = true    -- Split windows right to the current windows
 vim.opt.splitbelow = true    -- Split windows below to the current windows
 vim.opt.autowrite = true     -- Automatically save before :next, :make etc.
-vim.opt.autochdir = true     -- Change CWD when I open a file
 
 vim.opt.mouse = 'a'                -- Enable mouse support
 vim.opt.clipboard = 'unnamed'  -- Copy/paste to system clipboard
@@ -428,8 +427,21 @@ vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', 'K', grep_cword, {})
 
 -- copy file name to unamed register
-vim.keymap.set('n', 'cp', ':let @"=expand("%")<CR>')
+vim.keymap.set('n', 'cp', ':let @*=expand("%")<CR>')
+vim.keymap.set('n', 'yp', ':let @*=expand("%:p")<CR>')
 
 -- Run Tests
-vim.keymap.set('', '<leader>r', ':TestNearest -strategy=neovim <CR>', { silent = true })
-vim.keymap.set('n', '<leader>rf', ':TestFile -strategy=neovim <CR>', { silent = true })
+vim.g["test#strategy"] = "neovim"
+vim.g["test#ruby#use_binstubs"] = 1
+vim.g["test#enabled_runners"] = { "ruby#rails" }
+
+vim.keymap.set('', '<leader>r', ':TestNearest<CR>', { silent = true })
+vim.keymap.set('n', '<leader>rf', ':TestFile<CR>', { silent = true })
+
+-- Yanking in SSH session
+vim.cmd([[
+  autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
+]])
+vim.g.oscyank_max_length = 1000000
+vim.g.oscyank_silent = 'v:true'
+vim.g.oscyank_term = 'default'
