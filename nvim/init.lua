@@ -25,7 +25,19 @@ require("lazy").setup({
       dependencies = { 'nvim-tree/nvim-web-devicons' },
       config = function ()
         require("lualine").setup({
-            options = { theme = 'gruvbox' }
+            options = { 
+              icons_enabled = false,
+              theme = 'gruvbox' 
+            },
+ 
+            sections = {
+              lualine_a = {'mode'},
+              lualine_b = {'branch', 'diff'},
+              lualine_c = {'filename'},
+              lualine_x = {},
+              lualine_y = {},
+              lualine_z = {'encoding', 'fileformat', 'filetype'},
+            },
           })
       end,
     },
