@@ -434,6 +434,8 @@ vim.keymap.set('n', 'yp', ':let @*=expand("%:p")<CR>')
 vim.g["test#strategy"] = "neovim"
 vim.g["test#ruby#use_binstubs"] = 1
 vim.g["test#enabled_runners"] = { "ruby#rails" }
+vim.g["test#neovim#start_normal"] = 1
+vim.g["test#neovim#term_position"] = "hor bo 15"
 
 vim.keymap.set('', '<leader>r', ':TestNearest<CR>', { silent = true })
 vim.keymap.set('n', '<leader>rf', ':TestFile<CR>', { silent = true })
