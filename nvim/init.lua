@@ -337,6 +337,12 @@ require("lazy").setup({
 -- Ripgrep
 { "jremmen/vim-ripgrep" },
 
+-- Go
+{ "fatih/vim-go" },
+
+-- Terraform
+{ "hashivim/vim-terraform" }
+
 })
 
 ----------------
