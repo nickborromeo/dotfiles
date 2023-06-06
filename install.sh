@@ -22,6 +22,7 @@ fi
 if [ -n "$CODESPACES" ]; then
   echo 'Installing some packages into the Codespace...'
 
+  sudo apt update
   sudo apt-get install -y fzf \
     tmux \
     universal-ctags \
