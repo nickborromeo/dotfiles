@@ -84,6 +84,58 @@ require("lazy").setup({
       end,
     },
 
+    -- lsp-config
+    {
+      "neovim/nvim-lspconfig", 
+      config = function ()
+        util = require "lspconfig/util"
+
+        local capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        require("lspconfig").gopls.setup({
+          capabilities = capabilities,
+          flags = { debounce_text_changes = 200 },
+          settings = {
+            gopls = {
+              usePlaceholders = true,
+              gofumpt = true,
+              analyses = {
+                nilness = true,
+                unusedparams = true,
+                unusedwrite = true,
+                useany = true,
+              },
+              codelenses = {
+                gc_details = false,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
+              },
+              experimentalPostfixCompletions = true,
+              completeUnimported = true,
+              staticcheck = true,
+              directoryFilters = { "-.git", "-node_modules" },
+              semanticTokens = true,
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+            },
+          },
+        })
+      end,
+    },
+
     -- commenting out lines
     {
       "numToStr/Comment.nvim",
@@ -320,28 +372,43 @@ require("lazy").setup({
             { name = "cmdline" },
           }),
       })
-  end,
-},
+    end,
+  },
 
--- TPope Stuff
-{ "tpope/vim-fugitive" },
-{ "tpope/vim-surround" },
-{ "tpope/vim-endwise" },
+  -- TPope Stuff
+  { "tpope/vim-fugitive" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-endwise" },
 
--- Codespaces Copy
-{ "ojroques/vim-oscyank" },
+  -- Codespaces Copy
+  { "ojroques/vim-oscyank" },
 
--- Testing
-{ "vim-test/vim-test" },
+  -- Testing
+  { "vim-test/vim-test" },
 
--- Ripgrep
-{ "jremmen/vim-ripgrep" },
+  -- Ripgrep
+  { "jremmen/vim-ripgrep" },
 
--- Go
-{ "fatih/vim-go" },
+  -- Go
+  _,
+  {  "fatih/vim-go",
+    config = function ()
+      -- we disable most of these features because treesitter and nvim-lsp
+      -- take care of it
+      vim.g['go_gopls_enabled'] = 0
+      vim.g['go_code_completion_enabled'] = 0
+      vim.g['go_fmt_autosave'] = 0
+      vim.g['go_imports_autosave'] = 0
+      vim.g['go_mod_fmt_autosave'] = 0
+      vim.g['go_doc_keywordprg_enabled'] = 0
+      vim.g['go_def_mapping_enabled'] = 0
+      vim.g['go_textobj_enabled'] = 0
+      vim.g['go_list_type'] = 'quickfix'
+    end,
+  },
 
--- Terraform
-{ "hashivim/vim-terraform" }
+  -- Terraform
+  { "hashivim/vim-terraform" }
 
 })
 
@@ -465,3 +532,9 @@ vim.cmd([[
 vim.g.oscyank_max_length = 1000000
 vim.g.oscyank_silent = 'v:true'
 vim.g.oscyank_term = 'default'
+
+-- Vim-Go
+vim.g.go_def_mode='gopls'
+vim.g.go_info_mode='gopls'
+vim.g.go_metalinter_command='gopls'
+vim.g.go_metalinter_autosave=1
