@@ -36,7 +36,10 @@ if [ -n "$CODESPACES" ]; then
 
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
-  ./nvim.appimage
+  ./nvim.appimage --appimage-extract
+  ./squashfs-root/AppRun --version
+  sudo mv squashfs-root /
+  sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
   # Vim Plug
   # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
