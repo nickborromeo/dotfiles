@@ -377,6 +377,7 @@ require("lazy").setup({
 
   -- TPope Stuff
   { "tpope/vim-fugitive" },
+  { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
   { "tpope/vim-endwise" },
 
@@ -461,7 +462,7 @@ vim.g.mapleader = ','
 -- Git Stuff
 vim.keymap.set('', '<leader>gs', ':Git<CR>')
 vim.keymap.set('', '<leader>gb', ':Git blame<CR>')
-vim.keymap.set('', '<leader>gh', ':GBrowse<CR>')
+vim.keymap.set('', '<leader>gh', ':GBrowse!<CR>')
 
 -- Fast saving
 vim.keymap.set('n', '<leader>w', ':write!<CR>')
