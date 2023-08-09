@@ -134,3 +134,5 @@ set-option -g message-style fg=white,bg=black,bright
 #
 # # clock
 # set-window-option -g clock-mode-colour green #green
+
+set-option -sg escape-time 10
