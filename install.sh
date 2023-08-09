@@ -27,7 +27,8 @@ if [ -n "$CODESPACES" ]; then
     tmux \
     universal-ctags \
     ripgrep \
-    libfuse2
+    libfuse2 \ 
+    xsel
 
   # Install neovim
   #NVIM_VERSION=0.8.1
