@@ -519,7 +519,7 @@ vim.keymap.set('n', 'yp', ':let @*=expand("%:p")<CR>')
 -- Run Tests
 vim.g["test#strategy"] = "neovim"
 vim.g["test#ruby#use_binstubs"] = 1
-vim.g["test#enabled_runners"] = { "ruby#rails" }
+vim.g["test#enabled_runners"] = { "ruby#rails", "go#gotest" }
 vim.g["test#neovim#start_normal"] = 1
 vim.g["test#neovim#term_position"] = "hor bo 15"
 
