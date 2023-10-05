@@ -507,8 +507,8 @@ local builtin = require('telescope.builtin')
 local function grep_cword()
   return builtin.grep_string({cwd = "%:p:h"})
 end
-vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-vim.keymap.set('n', '<leader>t', builtin.git_files, {})
+vim.keymap.set('n', '<leader>t', builtin.find_files, {})
+vim.keymap.set('n', '<leader>f', builtin.git_files, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', 'K', grep_cword, {})
 
