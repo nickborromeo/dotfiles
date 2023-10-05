@@ -472,7 +472,7 @@ vim.keymap.set('n', '<leader>q', ':q!<CR>', { silent = true })
 vim.keymap.set('n', '<C-n>', ':nohlsearch<CR>')
 
 -- Search under cursor
-vim.keymap.set('n', 'K', ':Rg <C-R><C-W><CR>')
+-- vim.keymap.set('n', 'K', ':Rg <C-R><C-W><CR>')
 
 -- Utilities
 vim.keymap.set('', '<leader>hs', ':split<CR>')
@@ -505,7 +505,7 @@ vim.keymap.set('n', '<leader>f', ':NvimTreeFindFileToggle<CR>', { noremap = true
 -- telescope
 local builtin = require('telescope.builtin')
 local function grep_cword()
-  return builtin.grep_string({cwd = "%:p:h"})
+  return builtin.grep_string({})
 end
 vim.keymap.set('n', '<leader>t', builtin.find_files, {})
 vim.keymap.set('n', '<leader>f', builtin.git_files, {})
