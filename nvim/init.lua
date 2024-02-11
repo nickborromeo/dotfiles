@@ -534,8 +534,6 @@ vim.g.oscyank_max_length = 1000000
 vim.g.oscyank_silent = 'v:true'
 vim.g.oscyank_term = 'default'
 
--- Vim-Go
-vim.g.go_def_mode='gopls'
-vim.g.go_info_mode='gopls'
-vim.g.go_metalinter_command='gopls'
-vim.g.go_metalinter_autosave=1
+-- LSP format
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
