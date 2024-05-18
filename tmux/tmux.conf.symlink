@@ -1,51 +1,27 @@
 # zsh is kinda tight
 set -g default-shell $SHELL
 
-# copy and paste
-# set-option -g default-command "command -v reattach-to-user-namespace >/dev/n    ull 2>&1 && reattach-to-user-namespace -l $SHELL || $SHELL -l"
-# set -g default-command "reattach-to-user-namespace -l zsh" # uncomment for non codespace
+# Set Color
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",xterm*:RGB"
 
-# Use vim keybindings in copy mode
-set -g mode-keys vi
+# Theme
+run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux
 
 # Clipboard
 set -s set-clipboard on
 
-# # Setup 'v' to begin selection as in Vim
-bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
-# bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # ucomment for non codespace
-
-# # Update default binding of `Enter` to also use copy-pipe
-unbind -T copy-mode-vi Enter
-# bind -T copy-mode-vi Enter send -X copy-selection-and-cancel\; run "tmux save-buffer - | pbcopy"
-bind -T copy-mode-vi Enter send -X copy-selection-and-cancel\; run "tmux save-buffer - | xsel" # for codespaces
-
-bind-key -n DoubleClick1Pane \
-    select-pane \; \
-    copy-mode -M \; \
-    send-keys -X select-word \; \
-    run-shell "sleep .5s" \; \
-    # send-keys -X copy-selection-and-cancel\; run "tmux save-buffer - | pbcopy"
-    send-keys -X copy-selection-and-cancel\; run "tmux save-buffer - | xsel" # for codespaces
-
+# Mouse
 setw -g mouse on
-
 
 # Scroll History
 set -g history-limit 30000
-
-# look good
-set -g default-terminal "screen-256color"
-# set -g default-terminal "alacritty"
-set-window-option -g automatic-rename off
 
 # Change Prefix to `
 unbind C-b
 set -g prefix `
 bind ` send-prefix
 bind-key L last-window
-#set -g prefix C-a
-#bind-key C-a send-prefix
 
 # horizontal and vertical splits
 unbind |
@@ -55,84 +31,59 @@ bind _ split-window
 
 #VIM settings
 setw -g mode-keys vi
-bind-key j select-pane -D
-unbind-key k
-bind-key k select-pane -U
-unbind-key h
-bind-key h select-pane -L
-unbind-key l
-bind-key l select-pane -R
 
-# smart pane switching with awareness of vim splits
-bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
-bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
-bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
-bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
-# bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+# Navigation
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
 
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+# Resizing
 bind -n M-h resize-pane -L 5
 bind -n M-l resize-pane -R 5
 bind -n M-j resize-pane -D 5
 bind -n M-k resize-pane -U 5
 
-bind C-l send-keys 'C-l'
-
+# Windows
 bind -n S-Left  previous-window
 bind -n S-Right next-window
 
 ###########################
-# Status Bar
+# status bar
 ###########################
+
+set -g base-index 1
+setw -g pane-base-index 1
 
 # set refresh interval for status bar
 set -g status-interval 30
 
 # center the status bar
 set -g status-justify left
+set -g status-style fg="#cad3f5",bg="#24273a"
 
 # show session, window, pane in left status bar
 set -g status-left-length 40
-set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default]'
+set -g status-left ''
 
 # show name, date and git branch in right status bar
 set-option -g status-right '#[fg=cyan]#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)#[default] | #[fg=red]#{b:pane_current_path}#[default] | %m/%d/%y %I:%M'
 set -g status-right-length 400
-# set -g status-right ''
 
-###########################
-# Colors
-###########################
-
-
-# highlight current window
-# set -g status-fg black
-# set -g status-interval 1
-# set -g status-right-length 60
-set -g renumber-windows on
-set -g base-index 1
-setw -g pane-base-index 1
-
-# Dark Theme
-set-window-option -g window-status-current-style bg=green,fg=black
-# color status bar
-set-option -g status-style fg=white,bg=default,default
-set-option -g message-style fg=white,bg=black,bright
-
-#Light Theme
-# # default statusbar colors
-# set-option -g status-bg white #base2
-# set-option -g status-fg yellow #yellow
-# set-option -g status-attr default
-#
-# # default window title colors
-# set-window-option -g window-status-fg brightyellow #base00
-# set-window-option -g window-status-bg default
-#
-# # active window title colors
-# set-window-option -g window-status-current-fg brightred #orange
-# set-window-option -g window-status-current-bg default
-#
-# # clock
-# set-window-option -g clock-mode-colour green #green
-
-set-option -sg escape-time 10
+# current window
+set-window-option -g window-status-current-style fg="#eed49f"
+set-window-option -g window-status-current-style bg="#5b6078"
