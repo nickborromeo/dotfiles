@@ -1,0 +1,31 @@
+import = [
+  "~/.config/alacritty/catppuccin-macchiato.toml"
+]
+
+[env]
+term = "xterm-256color"
+
+[window]
+startup_mode = "Windowed"
+decorations = "Buttonless"
+padding = { x = 5, y = 0}
+
+[font]
+normal = { family = "Iosevka", style = "Regular"}
+size = 14.0
+
+[cursor]
+style = { shape = "Beam", blinking = "On"}
+
+[scrolling]
+history = 15000
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+  { key = "I", mods = "Command", action = "ToggleViMode" },
+  { key = "F", mods = "Command|Shift", action = "ToggleSimpleFullScreen"},
+  { key = "K", mods = "Command", action = "ClearHistory"},
+]
