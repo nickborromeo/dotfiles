@@ -174,7 +174,6 @@ require("lazy").setup({
     -- fuzzy finder framework
     {
       "nvim-telescope/telescope.nvim",
-      tag = '0.1.1',
       dependencies = {
         "nvim-lua/plenary.nvim" ,
         "nvim-treesitter/nvim-treesitter",
@@ -182,6 +181,14 @@ require("lazy").setup({
       },
       config = function ()
         require("telescope").setup({
+            pickers = {
+              find_files = {
+                disable_devicons = true
+              },
+              git_files = {
+                disable_devicons = true
+              },
+            },
             extensions = {
               -- fzf = {
               --   fuzzy = true,                    -- false will only do exact matching
