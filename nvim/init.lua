@@ -4,6 +4,7 @@ if not vim.loop.fs_stat(lazypath) then
       "git",
       "clone",
       "--filter=blob:none",
+ 
       "https://github.com/folke/lazy.nvim.git",
       "--branch=stable", -- latest stable release
       lazypath,
@@ -16,8 +17,22 @@ vim.opt.rtp:prepend(lazypath)
 ----------------
 require("lazy").setup({
 
+    -- tmux navigate
+    {
+      "christoomey/vim-tmux-navigator",
+    },
+
     -- colorscheme
-    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    { 
+      "catppuccin/nvim", 
+      name = "catppuccin", 
+      priority = 1000,
+      config = function ()
+        require("catppuccin").setup({
+          flavour = "macchiato",
+        })
+      end,
+    },
 
     -- lualine
     {
@@ -27,7 +42,8 @@ require("lazy").setup({
         require("lualine").setup({
             options = { 
               icons_enabled = false,
-              theme = 'gruvbox' 
+
+              theme = 'catppuccin' 
             },
  
             sections = {
@@ -93,7 +109,11 @@ require("lazy").setup({
         local capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        require("lspconfig").gopls.setup({
+        local lspconfig = require('lspconfig')
+
+        lspconfig.tsserver.setup({})
+
+        lspconfig.gopls.setup({
           capabilities = capabilities,
           flags = { debounce_text_changes = 200 },
           settings = {
@@ -183,33 +203,6 @@ require("lazy").setup({
       end,
     },
 
-    -- Alternate between files, such as foo.go and foo_test.go
-    {
-      "rgroli/other.nvim",
-      keys = {
-        { ":A", "<cmd>Other<cr>", {noremap = true, silent = true}},
-        { ":AV", "<cmd>OtherVSplit<cr>", {noremap = true, silent = true}},
-        { ":AS", "<cmd>OtherSplit<cr>", {noremap = true, silent = true}},
-      },
-      config = function ()
-        require("other-nvim").setup({
-            mappings = {
-              "rails", --builtin mapping
-              {
-                pattern = "(.*).go$",
-                target = "%1_test.go",
-                context = "test",
-              },
-              {
-                pattern = "(.*)_test.go$",
-                target = "%1.go",
-                context = "file",
-              },
-            },
-          })
-      end,
-    },
-
     -- Highlight, edit, and navigate code
     {
       'nvim-treesitter/nvim-treesitter',
@@ -265,15 +258,15 @@ require("lazy").setup({
                   ['[]'] = '@function.outer',
                 },
               },
-              swap = {
-                enable = true,
-                swap_next = {
-                  ['<leader>x'] = '@parameter.inner',
-                },
-                swap_previous = {
-                  ['<leader>X'] = '@parameter.inner',
-                },
-              },
+              -- swap = {
+              --   enable = true,
+              --   swap_next = {
+              --     ['<leader>a'] = '@parameter.inner',
+              --   },
+              --   swap_previous = {
+              --     ['<leader>A'] = '@parameter.inner',
+              --   },
+              -- },
             },
           })
       end,
@@ -377,9 +370,9 @@ require("lazy").setup({
 
   -- TPope Stuff
   { "tpope/vim-fugitive" },
-  { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
   { "tpope/vim-endwise" },
+  { "tpope/vim-rhubarb" },
 
   -- Codespaces Copy
   { "ojroques/vim-oscyank" },
@@ -391,7 +384,6 @@ require("lazy").setup({
   { "jremmen/vim-ripgrep" },
 
   -- Go
-  _,
   {  "fatih/vim-go",
     config = function ()
       -- we disable most of these features because treesitter and nvim-lsp
@@ -405,6 +397,7 @@ require("lazy").setup({
       vim.g['go_def_mapping_enabled'] = 0
       vim.g['go_textobj_enabled'] = 0
       vim.g['go_list_type'] = 'quickfix'
+      vim.g['go_rename_command'] = 'gorename'
     end,
   },
 
@@ -421,10 +414,8 @@ require("lazy").setup({
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.termguicolors = true -- Enable 24-bit RGB colors
-
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+vim.o.termguicolors = true
+vim.cmd.colorscheme 'catppuccin'
 
 vim.opt.number = true        -- Show line numbers
 vim.opt.showmatch = true     -- Highlight matching parenthesis
@@ -462,7 +453,7 @@ vim.g.mapleader = ','
 -- Git Stuff
 vim.keymap.set('', '<leader>gs', ':Git<CR>')
 vim.keymap.set('', '<leader>gb', ':Git blame<CR>')
-vim.keymap.set('', '<leader>gh', ':GBrowse!<CR>')
+vim.keymap.set('', '<leader>gh', ':GBrowse<CR>')
 
 -- Fast saving
 vim.keymap.set('n', '<leader>w', ':write!<CR>')
@@ -472,7 +463,7 @@ vim.keymap.set('n', '<leader>q', ':q!<CR>', { silent = true })
 vim.keymap.set('n', '<C-n>', ':nohlsearch<CR>')
 
 -- Search under cursor
--- vim.keymap.set('n', 'K', ':Rg <C-R><C-W><CR>')
+vim.keymap.set('n', 'K', ':Rg <C-R><C-W><CR>')
 
 -- Utilities
 vim.keymap.set('', '<leader>hs', ':split<CR>')
@@ -505,10 +496,10 @@ vim.keymap.set('n', '<leader>f', ':NvimTreeFindFileToggle<CR>', { noremap = true
 -- telescope
 local builtin = require('telescope.builtin')
 local function grep_cword()
-  return builtin.grep_string({})
+  return builtin.grep_string({cwd = "%:p:h"})
 end
-vim.keymap.set('n', '<leader>t', builtin.find_files, {})
-vim.keymap.set('n', '<leader>f', builtin.git_files, {})
+vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+vim.keymap.set('n', '<leader>t', builtin.git_files, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', 'K', grep_cword, {})
 
@@ -519,12 +510,17 @@ vim.keymap.set('n', 'yp', ':let @*=expand("%:p")<CR>')
 -- Run Tests
 vim.g["test#strategy"] = "neovim"
 vim.g["test#ruby#use_binstubs"] = 1
-vim.g["test#enabled_runners"] = { "ruby#rails", "go#gotest" }
+vim.g["test#enabled_runners"] = { "ruby#rails" }
 vim.g["test#neovim#start_normal"] = 1
 vim.g["test#neovim#term_position"] = "hor bo 15"
 
 vim.keymap.set('', '<leader>r', ':TestNearest<CR>', { silent = true })
 vim.keymap.set('n', '<leader>rf', ':TestFile<CR>', { silent = true })
+
+-- Go To Definition
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+
 
 -- Yanking in SSH session
 vim.cmd([[
@@ -534,8 +530,26 @@ vim.g.oscyank_max_length = 1000000
 vim.g.oscyank_silent = 'v:true'
 vim.g.oscyank_term = 'default'
 
--- Vim-Go
-vim.g.go_def_mode='gopls'
-vim.g.go_info_mode='gopls'
-vim.g.go_metalinter_command='gopls'
-vim.g.go_metalinter_autosave=1
+-- LSP format
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- LSP Diagnostics
+-- Show all diagnostics on current line in floating window
+vim.keymap.set(
+  'n', '<Leader>d', ':lua vim.diagnostic.open_float()<CR>', 
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  'n', '<Leader>k', ':lua vim.lsp.buf.hover()<CR>', 
+  { noremap = true, silent = true }
+)
+
+-- Navigation
+vim.cmd([[
+  nnoremap <silent> <C-h> <Cmd>TmuxNavigateLeft<CR>
+  nnoremap <silent> <C-j> <Cmd>TmuxNavigateDown<CR>
+  nnoremap <silent> <C-k> <Cmd>TmuxNavigateUp<CR>
+  nnoremap <silent> <C-l> <Cmd>TmuxNavigateRight<CR>
+  nnoremap <silent> <C-\> <Cmd>TmuxNavigateLastActive<CR>
+  nnoremap <silent> <C-Space> <Cmd>TmuxNavigateNext<CR>
+]])
