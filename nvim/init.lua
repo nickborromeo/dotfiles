@@ -192,7 +192,7 @@ vim.opt.splitbelow = true    -- Split windows below to the current windows
 vim.opt.autowrite = true     -- Automatically save before :next, :make etc.
 
 vim.opt.mouse = 'a'                -- Enable mouse support
--- vim.opt.clipboard = 'unnamed'  -- Copy/paste to system clipboard
+-- vim.opt.clipboard = 'unnamedplus'  -- Copy/paste to system clipboard
 vim.opt.swapfile = false           -- Don't use swapfile
 vim.opt.ignorecase = true          -- Search case insensitive...
 vim.opt.smartcase = true           -- ... but not it begins with upper case
@@ -288,14 +288,24 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
-    ['+'] = require('vim.clipboard.osc52').copy,
-    ['*'] = require('vim.clipboard.osc52').copy,
+    ['+'] = require('vim.ui.clipboard.osc52').copy,
+    ['*'] = require('vim.ui.clipboard.osc52').copy,
   },
   paste = {
-    ['+'] = require('vim.clipboard.osc52').paste,
-    ['*'] = require('vim.clipboard.osc52').paste,
+    ['+'] = require('vim.ui.clipboard.osc52').paste,
+    ['*'] = require('vim.ui.clipboard.osc52').paste,
   },
 }
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("osc52", { clear = true }),
+  callback = function()
+    -- vim.print(vim.v.event)
+    if vim.v.operator == "y" then
+      require("vim.ui.clipboard.osc52").copy("+")(vim.v.event.regcontents)
+      -- require("osc52").copy_register("+")
+    end
+  end,
+})
 
 -- LSP
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
