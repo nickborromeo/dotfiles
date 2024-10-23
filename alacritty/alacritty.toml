@@ -29,3 +29,6 @@ bindings = [
   { key = "F", mods = "Command|Shift", action = "ToggleSimpleFullScreen"},
   { key = "K", mods = "Command", action = "ClearHistory"},
 ]
+
+[terminal]
+osc52 = "CopyPaste"
