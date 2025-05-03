@@ -67,6 +67,8 @@ require("lazy").setup({
 	     vim.g['go_textobj_enabled'] = 0
 	     vim.g['go_list_type'] = 'quickfix'
 	     vim.g['go_rename_command'] = 'gorename'
+	     vim.g['go_diagnostics_level'] = 1
+	     vim.g['go_metalinter_autosave'] = 1
      end,
     },
 
@@ -77,6 +79,14 @@ require("lazy").setup({
     },
 
     {'nvim-telescope/telescope-ui-select.nvim' },
+
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim"
+      },
+    },
 
     -- fuzzy finder framework
     {
@@ -260,7 +270,8 @@ vim.keymap.set('n', '<leader>p', builtin.find_files, {})
 vim.keymap.set('n', '<leader>t', builtin.git_files, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', 'K', grep_cword, {})
-vim.keymap.set('', '<leader>a', grep_something, {})
+vim.keymap.set('', '<leader>g', grep_something, {})
+vim.keymap.set('', '<leader>a', ':Rg ', {})
 
 -- copy file name to unamed register
 vim.keymap.set('n', 'cp', ':let @*=expand("%")<CR>')
@@ -279,10 +290,6 @@ vim.keymap.set('n', '<leader>rf', ':TestFile<CR>', { silent = true })
 -- Fix Whitespace
 vim.g["strip_whitespace_on_save"] = 1
 vim.g["strip_whitespace_confirm"] = 0
-
--- Go To Definition
--- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 
 -- Copy and Paste
 vim.g.clipboard = {
@@ -309,12 +316,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- LSP
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(args)
---     -- Unmap K
---     vim.keymap.del('n', 'K', { buffer = args.buf })
---   end,
--- })
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
+
+    vim.keymap.set('n', 'OP', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+  end,
+})
 
 -- Navigation
 vim.cmd([[
