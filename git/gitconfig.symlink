@@ -5,8 +5,10 @@
 [alias]
 	co = checkout
 [core]
-  editor = vim --noplugin
+  editor = nvim --noplugin
 	excludesfile = ~/.gitignore
+  fsmonitor = true
+  untrackedCache = true
 [apply]
   whitespace = nowarn
 [color]
@@ -22,10 +24,23 @@
   user = nickborromeo
 [push]
 	default = simple
+  autoSetupRemote = true
 [diff]
+  algorithm = histogram
+  colorMoved = true
 	tool = vimdiff
+[commit]
+  verbose = true
 [difftool]
 	prompt = false
 [oh-my-zsh]
 	hide-dirty = 1
 	hide-status = 1
+[branch]
+  sort = -committerdate
+[pager]
+  branch = false
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
