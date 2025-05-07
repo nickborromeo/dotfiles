@@ -1,41 +1,41 @@
 [user]
-	name = Nick Borromeo
-	; email = ngborromeo@gmail.com ; personal
-	email = nickborromeo@github.com ; work
+  name = Nick Borromeo
+  ; email = ngborromeo@gmail.com ; personal
+  email = nickborromeo@github.com ; work
 [alias]
-	co = checkout
+  co = checkout
 [core]
   editor = nvim --noplugin
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
   fsmonitor = true
   untrackedCache = true
 [apply]
   whitespace = nowarn
 [color]
-	ui = true
-	branch = true
-	diff = true
-	interactive = true
-	status = true
-	commit = true
+  ui = true
+  branch = true
+  diff = true
+  interactive = true
+  status = true
+  commit = true
 [credential]
   ; helper = osxkeychain ; uncomment for non codespace
 [github]
   user = nickborromeo
 [push]
-	default = simple
+  default = simple
   autoSetupRemote = true
 [diff]
   algorithm = histogram
   colorMoved = true
-	tool = vimdiff
+  tool = vimdiff
 [commit]
   verbose = true
 [difftool]
-	prompt = false
+  prompt = false
 [oh-my-zsh]
-	hide-dirty = 1
-	hide-status = 1
+  hide-dirty = 1
+  hide-status = 1
 [branch]
   sort = -committerdate
 [pager]
