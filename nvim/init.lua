@@ -135,11 +135,7 @@ require("lazy").setup({
 
         local lspconfig = require('lspconfig')
 
-        lspconfig.ruby_lsp.setup({
-          init_options = {
-            formatter = 'auto',
-          },
-        })
+	lspconfig.sorbet.setup({})
         lspconfig.ts_ls.setup({})
 
         lspconfig.gopls.setup({
