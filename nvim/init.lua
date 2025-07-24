@@ -135,9 +135,12 @@ require("lazy").setup({
 
         local lspconfig = require('lspconfig')
         
-				lspconfig.sorbet.setup({})
+				lspconfig.sorbet.setup({
+            cmd = { "/workspaces/github/bin/srb", "tc", "--lsp" }
+        })
         
-      	lspconfig.ruby_lsp.setup({
+      	--[[
+				lspconfig.ruby_lsp.setup({
       		init_options = {
       			formatter = "rubocop",
       			linters = { "rubocop" },
@@ -169,7 +172,8 @@ require("lazy").setup({
       			},
       		},
       	})
-				
+				--]]
+        
         lspconfig.ts_ls.setup({})
 
         lspconfig.gopls.setup({
