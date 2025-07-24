@@ -45,6 +45,14 @@ if [ -n "$CODESPACES" ]; then
   # Vim Plug
   # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
   #     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+  # Install ruby-lsp
+  # Only run this inside a dotcom codespace
+  if [ -d "/workspaces/github" ]; then
+    export RAILS_ROOT="/workspaces/github"
+    export PATH=$RAILS_ROOT/vendor/ruby/"$(/workspaces/github/config/ruby-version)"/bin:$PATH
+    gem install ruby-lsp
+  fi
 fi
 
 # Link all linkable files
