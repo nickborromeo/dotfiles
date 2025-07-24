@@ -134,39 +134,41 @@ require("lazy").setup({
         util = require "lspconfig/util"
 
         local lspconfig = require('lspconfig')
-
-	lspconfig.ruby_lsp.setup({
-		init_options = {
-			formatter = "rubocop",
-			linters = { "rubocop" },
-			enabledFeatures = {
-				codeActions = false,
-				codeLens = false,
-				completion = true,
-				definition = true,
-				diagnostics = true,
-				documentHighlights = false,
-				documentLink = false,
-				documentSymbols = true,
-				foldingRanges = true,
-				formatting = true,
-				hover = true,
-				inlayHint = false,
-				onTypeFormatting = true,
-				selectionRanges = false,
-				semanticHighlighting = true,
-				signatureHelp = true,
-				typeHierarchy = true,
-				workspaceSymbol = false
-			},
-			featuresConfiguration = {
-				inlayHint = {
-					implicitHashValue = true,
-					implicitRescue = true
-				}
-			},
-		},
-	})
+        
+				lspconfig.sorbet.setup({})
+        
+      	lspconfig.ruby_lsp.setup({
+      		init_options = {
+      			formatter = "rubocop",
+      			linters = { "rubocop" },
+      			enabledFeatures = {
+      				codeActions = false,
+      				codeLens = false,
+      				completion = true,
+      				definition = true,
+      				diagnostics = true,
+      				documentHighlights = false,
+      				documentLink = false,
+      				documentSymbols = true,
+      				foldingRanges = true,
+      				formatting = true,
+      				hover = true,
+      				inlayHint = false,
+      				onTypeFormatting = true,
+      				selectionRanges = false,
+      				semanticHighlighting = true,
+      				signatureHelp = true,
+      				typeHierarchy = true,
+      				workspaceSymbol = false
+      			},
+      			featuresConfiguration = {
+      				inlayHint = {
+      					implicitHashValue = true,
+      					implicitRescue = true
+      				}
+      			},
+      		},
+      	})
 				
         lspconfig.ts_ls.setup({})
 
