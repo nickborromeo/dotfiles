@@ -52,26 +52,6 @@ require("lazy").setup({
     -- Ripgrep
     { "jremmen/vim-ripgrep" },
 
-    -- Go
-    {  "fatih/vim-go",
-     config = function ()
-	     -- we disable most of these features because treesitter and nvim-lsp
-	     -- take care of it
-	     vim.g['go_gopls_enabled'] = 0
-	     vim.g['go_code_completion_enabled'] = 0
-	     vim.g['go_fmt_autosave'] = 0
-	     vim.g['go_imports_autosave'] = 0
-	     vim.g['go_mod_fmt_autosave'] = 0
-	     vim.g['go_doc_keywordprg_enabled'] = 0
-	     vim.g['go_def_mapping_enabled'] = 0
-	     vim.g['go_textobj_enabled'] = 0
-	     vim.g['go_list_type'] = 'quickfix'
-	     vim.g['go_rename_command'] = 'gorename'
-	     vim.g['go_diagnostics_level'] = 1
-	     vim.g['go_metalinter_autosave'] = 1
-     end,
-    },
-
     -- Fuzzy Finder
     -- fzf extension for telescope with better speed
     {
@@ -125,6 +105,35 @@ require("lazy").setup({
         -- load_extension, somewhere after setup function:
         require("telescope").load_extension("ui-select")
       end,
+    },
+
+        -- Project Tree
+    {
+      'nvim-tree/nvim-tree.lua',
+      config = function()
+        require("nvim-tree").setup({
+          disable_netrw = true,
+          sync_root_with_cwd = true,
+          view = {
+            width = 50,
+          },
+          renderer = {
+            icons = {
+              show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+              },
+            },
+          },
+          actions = {
+            open_file = {
+              quit_on_open = true,
+            },
+          }
+        })
+      end
     },
 
     -- lsp-config
@@ -224,10 +233,6 @@ require("lazy").setup({
 --- SETTINGS ---
 ----------------
 
-vim.g.netrw_banner = 0
-vim.g.netrw_keepdir = 0
-vim.g.netrw_winsize = 30
-
 vim.cmd.colorscheme 'catppuccin'
 
 vim.opt.number = true        -- Show line numbers
@@ -241,7 +246,7 @@ vim.opt.mouse = 'a'                -- Enable mouse support
 vim.opt.swapfile = false           -- Don't use swapfile
 vim.opt.ignorecase = true          -- Search case insensitive...
 vim.opt.smartcase = true           -- ... but not it begins with upper case
-vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'popup'}  -- Autocomplete options
 
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("data") .. "undo"
@@ -254,6 +259,9 @@ vim.opt.autoindent = true -- copy indent from current line when starting a new l
 vim.opt.wrap = true
 
 vim.opt.tw=120
+
+-- Borders
+vim.o.winborder = 'rounded'
 
 -- Leader Key
 vim.g.mapleader = ','
@@ -356,9 +364,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local opts = {buffer = event.buf}
 
-    vim.keymap.set('n', 'OP', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
+
+    vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'sd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    vim.keymap.set('n', '<leader>d', '<cmd>lua vim.diagnostic.setloclist()<cr>', opts)
+    vim.keymap.set('i', '<Tab>', '<cmd>lua vim.lsp.completion.get()<cr>', opts)
   end,
 })
 
