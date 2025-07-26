@@ -284,7 +284,7 @@ vim.keymap.set('', '<leader>fw', ':StripWhitespace<CR>')
 vim.keymap.set('', '<leader>tn', ':tabnew<CR>')
 vim.keymap.set('', '<leader>tc', ':tabclose<CR>')
 
--- Source the current Vim file
+-- Source the current Neovim file
 vim.keymap.set('n', '<leader>pr', ':luafile %<CR>')
 
 -- Better split switchlng
@@ -298,8 +298,7 @@ vim.keymap.set('n', ';', ':')
 vim.keymap.set('v', ';', ':')
 
 -- File-tree mappings
-vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>f', ':NvimTreeFindFileToggle<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>n', ':NvimTreeFindFileToggle<CR>', { noremap = true })
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -316,10 +315,6 @@ vim.keymap.set('n', 'K', grep_cword, {})
 vim.keymap.set('', '<leader>g', grep_something, {})
 vim.keymap.set('', '<leader>a', ':Rg ', {})
 
--- copy file name to unamed register
-vim.keymap.set('n', 'cp', ':let @*=expand("%")<CR>')
-vim.keymap.set('n', 'yp', ':let @*=expand("%:p")<CR>')
-
 -- Run Tests
 vim.g["test#strategy"] = "neovim"
 vim.g["test#ruby#use_binstubs"] = 1
@@ -335,24 +330,12 @@ vim.g["strip_whitespace_on_save"] = 1
 vim.g["strip_whitespace_confirm"] = 0
 
 -- Copy and Paste
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy,
-    ['*'] = require('vim.ui.clipboard.osc52').copy,
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste,
-    ['*'] = require('vim.ui.clipboard.osc52').paste,
-  },
-}
+vim.keymap.set('n', 'cp', ':let @*=expand("%")<CR>', { noremap = true, silent = true }) -- copy file name to unamed register
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("osc52", { clear = true }),
   callback = function()
-    -- vim.print(vim.v.event)
     if vim.v.operator == "y" then
       require("vim.ui.clipboard.osc52").copy("+")(vim.v.event.regcontents)
-      -- require("osc52").copy_register("+")
     end
   end,
 })
