@@ -68,3 +68,8 @@ alias tst="tmux switch -t "
 # only for codespaces
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+# Codespaces
+alias cs='gh cs'
+alias csd='gh cs delete'
+alias cssh='gh cs ssh --server-port 2222'
