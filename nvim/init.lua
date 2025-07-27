@@ -284,6 +284,9 @@ vim.keymap.set('', '<leader>fw', ':StripWhitespace<CR>')
 vim.keymap.set('', '<leader>tn', ':tabnew<CR>')
 vim.keymap.set('', '<leader>tc', ':tabclose<CR>')
 
+-- Terminal
+vim.keymap.set('', '<leader>ot', ':split | terminal zsh<CR>')
+
 -- Source the current Neovim file
 vim.keymap.set('n', '<leader>pr', ':luafile %<CR>')
 
