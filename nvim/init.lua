@@ -181,7 +181,7 @@ require("lazy").setup({
       	})
 
         lspconfig.sorbet.setup({
-          cmd = { "/workspaces/github/bin/srb", "tc", "--lsp" }
+          cmd = { "bundle", "exec", "/workspaces/github/bin/srb", "tc", "--lsp" }
         })
                
         lspconfig.ts_ls.setup({})
