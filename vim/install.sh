@@ -1,19 +1,19 @@
 #!/bin/sh
 
-DIR="$(pwd -P $0)/vim"
+# DIR="$(pwd -P $0)/vim"
 
-echo "Setting up Vim."
+# echo "Setting up Vim."
 
-if [ $(uname) = "Darwin" ]; then
-  if [ ! -d $HOME/.vim ]; then
-    ln -s $DIR ~/.vim
-  fi
-else
-  if [ ! -d $HOME/.vim ]; then
-    ln -sd $DIR $HOME/.vim
-  fi
-fi
+#if [ $(uname) = "Darwin" ]; then
+#  if [ ! -d $HOME/.vim ]; then
+#    ln -s $DIR ~/.vim
+#  fi
+#else
+#  if [ ! -d $HOME/.vim ]; then
+#    ln -sd $DIR $HOME/.vim
+#  fi
+#fi
 
-if command -v vim &> /dev/null; then
-  vim +PlugInstall +qall
-fi
+#if command -v vim &> /dev/null; then
+#  vim +PlugInstall +qall
+#fi
