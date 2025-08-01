@@ -51,7 +51,7 @@ if [ -n "$CODESPACES" ]; then
   if [ -d "/workspaces/github" ]; then
     export RAILS_ROOT="/workspaces/github"
     export PATH=$RAILS_ROOT/vendor/ruby/"$(/workspaces/github/config/ruby-version)"/bin:$PATH
-    gem install ruby-lsp ruby-lsp-rails
+    gem install ruby-lsp rainbow regexp_parser unicode-display_width rubocop-ast ruby-progressbar lint_roller parallel
   fi
 fi
 
