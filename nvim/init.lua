@@ -148,12 +148,11 @@ require("lazy").setup({
         local ruby_lsp_path = cwd .. ruby_lsp_gemfile
 
 				lspconfig.ruby_lsp.setup({
+          cmd = { "ruby-lsp" },
           cmd_env = {
-            BUNDLE_GEMFILE = ruby_lsp_path
+            BUNDLE_GEMFILE = ruby_lsp_path,
           },
       		init_options = {
-      			formatter = "rubocop",
-      			linters = { "rubocop" },
       			enabledFeatures = {
       				codeActions = false,
       				codeLens = false,
