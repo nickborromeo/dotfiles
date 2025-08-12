@@ -243,6 +243,7 @@ vim.opt.splitright = true    -- Split windows right to the current windows
 vim.opt.splitbelow = true    -- Split windows below to the current windows
 vim.opt.autowrite = true     -- Automatically save before :next, :make etc.
 vim.opt.cursorline = true    -- Highlight current line
+vim.opt.relativenumber = true  -- Relative numbers
 
 vim.opt.swapfile = false           -- Don't use swapfile
 vim.opt.ignorecase = true          -- Search case insensitive...
@@ -283,6 +284,8 @@ vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 -- Git Stuff
 vim.keymap.set('', '<leader>gs', ':Git<CR>')
 vim.keymap.set('', '<leader>gb', ':Git blame<CR>')
+vim.keymap.set('', '<leader>gp', ':Git push<CR>')
+vim.keymap.set('', '<leader>ga', ':Git add .<CR>')
 
 -- Fast saving
 vim.keymap.set('n', '<leader>w', ':write!<CR>')
@@ -301,7 +304,6 @@ vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height
 vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
-
 
 -- Terminal
 vim.keymap.set('', '<leader>ot', ':split | terminal zsh<CR>')
@@ -403,6 +405,29 @@ vim.cmd([[
 -- ============================================================================
 -- USEFUL FUNCTIONS
 -- ============================================================================
+
+-- Toggle Relative Numbers
+vim.api.nvim_create_augroup("NumberToggle", { clear = true })
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  group = "NumberToggle",
+  callback = function()
+    vim.opt.relativenumber = false
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  group = "NumberToggle",
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
+})
+
+-- Highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup,
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 -- Disable line numbers in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
