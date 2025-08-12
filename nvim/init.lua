@@ -383,7 +383,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
     end
 
-    vim.keymap.set('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', '<leader>si', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
     vim.keymap.set('n', 'sd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
