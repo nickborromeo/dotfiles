@@ -19,6 +19,7 @@ brew 'tmuxinator'
 brew 'universal-ctags'
 brew 'vim'
 brew 'zsh'
+brew 'starship'
 
 cask 'alacritty'
 cask 'alfred'
