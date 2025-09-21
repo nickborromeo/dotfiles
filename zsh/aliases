@@ -2,12 +2,11 @@
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
   alias a='ls -lrth --color'
+  alias cat="batcat"
 elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
+  alias cat="bat"
 fi
-
-# zsh
-alias cat="bat"
 
 # # `Frozing' tty, so after any command terminal settings will be restored
 ttyctl -f
