@@ -29,7 +29,8 @@ if [ -n "$CODESPACES" ]; then
     ripgrep \
     libfuse2 \ 
     xsel \
-    bat
+    bat \ 
+    starship
 
   # Install neovim
   #NVIM_VERSION=0.8.1
