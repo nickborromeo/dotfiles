@@ -1,4 +1,8 @@
-# zsh is kinda tight
+# reload config
+unbind r
+bind r source-file ~/.tmux.conf
+
+# set shell to zsh
 set -g default-shell $SHELL
 
 # Set Color
@@ -9,7 +13,7 @@ set -ag terminal-overrides ",*:RGB"
 set -as terminal-features ',*-256color:clipboard'
 
 # Theme
-run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 # Clipboard
 set -s set-clipboard on
@@ -71,25 +75,19 @@ bind -n S-Right next-window
 ###########################
 # status bar
 ###########################
+set-option -g status-position top
 
-set -g base-index 1
-setw -g pane-base-index 1
+set -g @catppuccin_flavor "macchiato"
+set -g @catppuccin_window_status_style "rounded"
+set -g @catppuccin_window_text " #W"
+set -g @catppuccin_window_current_text "#W"
 
-# set refresh interval for status bar
-set -g status-interval 30
-
-# center the status bar
-set -g status-justify left
-set -g status-style fg="#cad3f5",bg="#24273a"
-
-# show session, window, pane in left status bar
+# Make the status line pretty and add some modules
 set -g status-left-length 40
-set -g status-left ''
-
-# show name, date and git branch in right status bar
-set-option -g status-right '#[fg=cyan]#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)#[default] | #[fg=red]#{b:pane_current_path}#[default] | %m/%d/%y %I:%M'
 set -g status-right-length 400
 
-# current window
-set-window-option -g window-status-current-style fg="#eed49f"
-set-window-option -g window-status-current-style bg="#5b6078"
+set -g status-left ""
+
+set -gF status-right "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]#[noreverse]\ueafe "
+set -agF status-right "#[fg=#cdd6f4,bg=#313244] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD || echo 'git ')"
+set -agF status-right "#{E:@catppuccin_status_date_time}"
