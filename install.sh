@@ -28,7 +28,8 @@ if [ -n "$CODESPACES" ]; then
     universal-ctags \
     ripgrep \
     libfuse2 \ 
-    xsel
+    xsel \
+    bat
 
   # Install neovim
   #NVIM_VERSION=0.8.1
