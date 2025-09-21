@@ -11,3 +11,5 @@ if [ ! -d $HOME/.config/ ]; then
 fi
 
 mv $DIR/starship.toml $CONFIG_DIR
+
+starship preset catppuccin-powerline -o ~/.config/starship.toml
