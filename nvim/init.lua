@@ -383,6 +383,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
     end
 
+	-- Check if the attached client is the Sorbet LSP
+    if client and client.name == "sorbet" then
+      -- Unset the definition provider capability
+      client.server_capabilities.definitionProvider = nil
+    end
+
     vim.keymap.set('n', '<leader>si', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
