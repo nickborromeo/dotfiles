@@ -1,9 +1,9 @@
+# set shell to zsh
+set -g default-shell $SHELL
+
 # reload config
 unbind r
 bind r source-file ~/.tmux.conf
-
-# set shell to zsh
-set -g default-shell $SHELL
 
 # Set Color
 set -g default-terminal "tmux-256color"
@@ -12,8 +12,6 @@ set -ag terminal-overrides ",*:RGB"
 # Clipboard
 set -as terminal-features ',*-256color:clipboard'
 
-# Theme
-run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 # Clipboard
 set -s set-clipboard on
@@ -75,12 +73,18 @@ bind -n S-Right next-window
 ###########################
 # status bar
 ###########################
-set-option -g status-position top
+set -g base-index 1
+setw -g pane-base-index 1
+
+set-option -g status-position bottom
 
 set -g @catppuccin_flavor "macchiato"
 set -g @catppuccin_window_status_style "rounded"
 set -g @catppuccin_window_text " #W"
 set -g @catppuccin_window_current_text "#W"
+
+# Theme
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 # Make the status line pretty and add some modules
 set -g status-left-length 40
@@ -89,5 +93,5 @@ set -g status-right-length 400
 set -g status-left ""
 
 set -gF status-right "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]#[noreverse]\ueafe "
-set -agF status-right "#[fg=#cdd6f4,bg=#313244] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD || echo 'git ')"
+set -agF status-right "#[fg=#cdd6f4,bg=#313244] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD || echo 'git ') "
 set -agF status-right "#{E:@catppuccin_status_date_time}"
