@@ -5,7 +5,7 @@ CONFIG_DIR="$HOME/.config/"
 
 echo "Setting up Starship Prompt."
 
-/bin/bash -c "$(curl -fsSL https://starship.rs/install.sh)"
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 echo "📋️ Copying starship prompt templates..."
 if [ ! -d $HOME/.config/ ]; then
