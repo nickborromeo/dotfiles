@@ -1,0 +1,15 @@
+clipboard-write = allow
+confirm-close-surface = false
+copy-on-select = true
+font-family = Iosevka
+font-size = 16
+macos-non-native-fullscreen = true
+macos-titlebar-style = hidden
+mouse-hide-while-typing = true
+quick-terminal-position = center
+scrollback-limit = 15000
+shell-integration = zsh
+shell-integration-features = ssh-env
+theme = Catppuccin Macchiato
+window-padding-y = 0,0
+window-save-state = always
