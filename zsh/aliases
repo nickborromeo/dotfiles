@@ -12,10 +12,10 @@ alias cat="bat"
 # # `Frozing' tty, so after any command terminal settings will be restored
 ttyctl -f
 
-alias zshconfig="vim ~/.dotfiles/zshrc"
-alias vimconfig="vim ~/.dotfiles/vimrc"
-alias nvimconfig="vim ~/.config/nvim/init.lua"
-#alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.dotfiles/zshrc"
+alias vimconfig="nvim ~/.dotfiles/vimrc"
+alias nvimconfig="nvim ~/.config/nvim/init.lua"
+#alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # use nvim instead of vim
@@ -24,7 +24,7 @@ alias vim="nvim"
 #Unix commands
 alias ll='ls -lah'
 
-alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias aliases='nvim ~/.dotfiles/zsh/aliases'
 alias amend="git commit --amend"
 alias be='bundle exec'
 alias bi='bundle install'
@@ -50,6 +50,7 @@ alias gvd='git difftool'
 alias irb='irb --readline -r irb/completion'
 alias prune='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 alias rc='bin/console'
+alias rs='script/server'
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 alias space='du -sk * | sort -rn | head'
@@ -60,7 +61,7 @@ alias push="git branch | grep \* | cut -d ' ' -f2 | xargs git push origin"
 alias pull="git branch | grep \* | cut -d ' ' -f2 | xargs git pull origin"
 
 #tmux
-alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
+alias tmuxconfig="nvim ~/.dotfiles/tmux.conf"
 alias tat="tmux attach-session -t "
 alias tls="tmux list-sessions"
 alias tst="tmux switch -t "
@@ -73,3 +74,4 @@ alias pbpaste='xclip -selection clipboard -o'
 alias cs='gh cs'
 alias csd='gh cs delete'
 alias cssh='gh cs ssh --server-port 2222'
+alias cgh='gh cs create -R github/github -m xLargePremiumLinux256gb -b master --devcontainer-path .devcontainer/devcontainer.json'
