@@ -5,11 +5,11 @@ CONFIG_DIR="$HOME/.config/"
 
 echo "Setting up Starship Prompt."
 
+/bin/bash -c "$(curl -fsSL https://starship.rs/install.sh)"
+
 echo "📋️ Copying starship prompt templates..."
 if [ ! -d $HOME/.config/ ]; then
   mkdir -p $CONFIG_DIR
 fi
 
 mv $DIR/starship.toml $CONFIG_DIR
-
-starship preset catppuccin-powerline -o ~/.config/starship.toml
