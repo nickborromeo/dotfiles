@@ -147,7 +147,7 @@ require("lazy").setup({
         local ruby_lsp_path = cwd .. ruby_lsp_gemfile
 
         -- Use the new vim.lsp.config API for server setup
-        vim.lsp.config.ruby_lsp.setup({
+        vim.lsp.config("ruby_lsp", {
           cmd = { "ruby-lsp" },
           cmd_env = {
             BUNDLE_GEMFILE = ruby_lsp_path,
@@ -183,13 +183,13 @@ require("lazy").setup({
         })
 
         -- Example for Sorbet (commented out)
-        -- vim.lsp.config.sorbet.setup({
+        -- vim.lsp.config("sorbet", {
         --   cmd = { "bundle", "exec", "/workspaces/github/bin/srb", "tc", "--lsp" }
         -- })
 
-        vim.lsp.config.ts_ls.setup({})
+        vim.lsp.config("ts_ls", {})
 
-        vim.lsp.config.gopls.setup({
+        vim.lsp.config("gopls", {
           flags = { debounce_text_changes = 200 },
           settings = {
             gopls = {
