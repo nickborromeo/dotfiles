@@ -142,53 +142,54 @@ require("lazy").setup({
       config = function ()
         util = require "lspconfig/util"
 
-        local lspconfig = require('lspconfig')
         local cwd = vim.loop.cwd()
         local ruby_lsp_gemfile = ".ruby-lsp/Gemfile"
         local ruby_lsp_path = cwd .. ruby_lsp_gemfile
 
-				lspconfig.ruby_lsp.setup({
+        -- Use the new vim.lsp.config API for server setup
+        vim.lsp.config("ruby_lsp", {
           cmd = { "ruby-lsp" },
           cmd_env = {
             BUNDLE_GEMFILE = ruby_lsp_path,
           },
-      		init_options = {
-      			enabledFeatures = {
-      				codeActions = false,
-      				codeLens = false,
-      				completion = true,
-      				definition = true,
-      				diagnostics = true,
-      				documentHighlights = false,
-      				documentLink = false,
-      				documentSymbols = true,
-      				foldingRanges = true,
-      				formatting = true,
-      				hover = true,
-      				inlayHint = false,
-      				onTypeFormatting = true,
-      				selectionRanges = false,
-      				semanticHighlighting = true,
-      				signatureHelp = true,
-      				typeHierarchy = true,
-      				workspaceSymbol = false
-      			},
-      			featuresConfiguration = {
-      				inlayHint = {
-      					implicitHashValue = true,
-      					implicitRescue = true
-      				}
-      			},
-      		},
-      	})
+          init_options = {
+            enabledFeatures = {
+              codeActions = false,
+              codeLens = false,
+              completion = true,
+              definition = true,
+              diagnostics = true,
+              documentHighlights = false,
+              documentLink = false,
+              documentSymbols = true,
+              foldingRanges = true,
+              formatting = true,
+              hover = true,
+              inlayHint = false,
+              onTypeFormatting = true,
+              selectionRanges = false,
+              semanticHighlighting = true,
+              signatureHelp = true,
+              typeHierarchy = true,
+              workspaceSymbol = false
+            },
+            featuresConfiguration = {
+              inlayHint = {
+                implicitHashValue = true,
+                implicitRescue = true
+              }
+            },
+          },
+        })
 
-        -- lspconfig.sorbet.setup({
+        -- Example for Sorbet (commented out)
+        -- vim.lsp.config("sorbet", {
         --   cmd = { "bundle", "exec", "/workspaces/github/bin/srb", "tc", "--lsp" }
         -- })
 
-        lspconfig.ts_ls.setup({})
+        vim.lsp.config("ts_ls", {})
 
-        lspconfig.gopls.setup({
+        vim.lsp.config("gopls", {
           flags = { debounce_text_changes = 200 },
           settings = {
             gopls = {
