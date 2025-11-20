@@ -373,6 +373,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- LSP
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('gopls')
+
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
