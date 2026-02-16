@@ -78,12 +78,18 @@ require("lazy").setup({
       },
       config = function ()
         require("telescope").setup({
+			defaults = {
+              file_ignore_patterns = {
+                "%.rbi", -- Ignores all .rbi files
+              }
+            },
             pickers = {
               find_files = {
                 disable_devicons = true
               },
               git_files = {
-                disable_devicons = true
+                disable_devicons = true,
+                wrap_results=true
               },
             },
             extensions = {
