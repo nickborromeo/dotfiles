@@ -1,0 +1,10 @@
+[
+  {
+    "label": "run nearest Ruby test",
+    "command": "/workspaces/github/bin/rails test $ZED_FILE:$ZED_ROW"
+  },
+  {
+    "label": "run Ruby test file",
+    "command": "/workspaces/github/bin/rails test $ZED_FILE"
+  }
+]
