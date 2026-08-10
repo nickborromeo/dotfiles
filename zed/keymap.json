@@ -1,0 +1,128 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      ", g b": "git::Blame",
+      ", g h": "editor::OpenPermalinkToLine",
+      ", g H": "editor::CopyPermalinkToLine",
+      ", c p": "workspace::CopyPath",
+      ", n": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      ", h s": "pane::SplitDown",
+      ", v s": "pane::SplitRight",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Dock || Terminal || Editor || CommitEditor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      ", n": "project_panel::ToggleFocus",
+      ", g s": "git_panel::ToggleFocus",
+      ", t": "file_finder::Toggle",
+      ", a": "pane::DeploySearch",
+      "shift-k": "pane::DeploySearch",
+    },
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      ":": "command_palette::Toggle",
+      ";": ["workspace::SendKeystrokes", ":"],
+      ", c s": "pane::CloseAllItems",
+      ", g d": "git::Diff",
+      "shift-j": "editor::JoinLines",
+    },
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-i": "editor::Hover",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      ", r": ["task::Spawn", { "task_name": "run nearest Ruby test" }],
+      ", r f": ["task::Spawn", { "task_name": "run Ruby test file" }],
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      ", q": "git_panel::Close",
+      ", n": "project_panel::ToggleFocus",
+      "c c": "git::ExpandCommitEditor",
+    },
+  },
+  {
+    "context": "GitPanel && ChangesList",
+    "use_key_equivalents": true,
+    "bindings": {
+      "s": "git::StageFile",
+      "u": "git::UnstageFile",
+      "-": "git::ToggleStaged",
+      "X": ["git::RestoreFile", { "skip_prompt": true }],
+      "c c": "git::ExpandCommitEditor",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      ", n": "project_panel::ToggleFocus",
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      ", q": "workspace::ToggleLeftDock",
+      ", e": "workspace::ToggleLeftDock",
+      ":": "command_palette::Toggle",
+      "%": "project_panel::NewFile",
+      "/": "project_panel::NewSearchInDirectory",
+      "enter": "project_panel::OpenPermanent",
+      "escape": "project_panel::ToggleFocus",
+      "h": "project_panel::CollapseSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "project_panel::ExpandSelectedEntry",
+      "o": "project_panel::OpenPermanent",
+      "s": "project_panel::Open",
+      "shift-d": "project_panel::Delete",
+      "shift-r": "project_panel::Rename",
+      "t": "project_panel::OpenPermanent",
+      "v": "project_panel::OpenPermanent",
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
+      "-": "project_panel::SelectParent",
+    },
+  },
+]
